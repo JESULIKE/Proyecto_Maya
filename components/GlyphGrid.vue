@@ -1,420 +1,578 @@
 <template>
   <div class="p-4 bg-amber-100 rounded-lg">
-    <h3 class="text-lg font-semibold mb-2 text-gray-800">Cuadrícula 3x3</h3>
-    <div class="mb-4">
-      <button
-        @click="clearGrid"
-        class="px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700"
-      >
-        Limpiar Cuadrícula
-      </button>
-    </div>
     
-    <!-- Contenedor responsive para la cuadrícula -->
-    <div class="w-full max-w-full overflow-auto">
-      <div 
-        ref="gridContainer"
-        class="relative bg-gray-200 border-2 border-gray-400 rounded mx-auto"
-        :style="gridContainerStyle"
-      >
-        <!-- Celdas de fondo -->
-        <div class="absolute inset-0 grid grid-cols-3 grid-rows-3 p-1" :style="{ gap: `${cellGap}px` }">
-          <div 
-            v-for="n in 9" 
-            :key="n" 
-            class="bg-white border border-gray-300 rounded"
-          ></div>
-        </div>
-        
-        <!-- Zonas de drop -->
-        <div
-          v-for="(cell, index) in dropZones"
-          :key="`drop-${index}`"
-          :data-drop-zone="index"
-          @dragover="handleDragOver"
-          @drop="(event) => handleDrop(event, index, onDrop)"
-          class="absolute cursor-pointer"
-          :class="[
-            isDragging ? 'bg-blue-200 bg-opacity-50 border-2 border-blue-400 border-dashed' : '',
-            isPositionOccupied(index) ? 'pointer-events-none' : ''
-          ]"
-          :style="getDropZoneStyle(index)"
-        ></div>
-        
-        <!-- Glifos activos -->
-        <div
-          v-for="glyph in activeGlyphs"
-          :key="`glyph-${glyph.id}`"
-          class="absolute"
-          :style="getGlyphStyle(glyph)"
+    <!-- Canvas SVG -->
+    <div class="mb-4">
+      <div class="w-full h-96 bg-gray-100 border-2 border-gray-300 rounded-lg overflow-hidden">
+        <svg 
+          class="w-full h-full cursor-default" 
+          @dragover.prevent 
+          @drop="onDrop" 
+          @click="deselectGlyph" 
+          ref="svgElement"
+          viewBox="0 0 800 600"
+          preserveAspectRatio="xMidYMid meet"
         >
-          <img
-            :src="glyph.image"
-            :alt="glyph.syllable"
-            class="w-full h-full object-contain transition-transform duration-300"
-            :style="{ 
-              transform: `rotate(${glyph.rotation || 0}deg) scale(${glyph.scale || 1})` 
-            }"
-          />
-          
-          <!-- Botones de control -->
-          <div class="absolute -top-2 -right-2 flex flex-wrap gap-1 max-w-40" style="z-index: 25;">
-            <!-- Botón eliminar -->
-            <button
-              @click="removeGlyph(glyph.id)"
-              class="bg-red-500 text-white text-xs rounded-full w-6 h-6 flex items-center justify-center hover:bg-red-600 transition-colors"
-              title="Eliminar"
-            >
-              ×
-            </button>
+          <!-- Grid Lines -->
+          <g v-if="gridSettings.showGrid" class="grid-lines pointer-events-none">
+            <defs>
+              <pattern id="grid" :width="gridSettings.gridSize" :height="gridSettings.gridSize" patternUnits="userSpaceOnUse">
+                <path :d="`M ${gridSettings.gridSize} 0 L 0 0 0 ${gridSettings.gridSize}`" fill="none" stroke="#e5e7eb" stroke-width="1"/>
+              </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#grid)" />
+          </g>
+
+          <!-- Glyphs -->
+          <g 
+            v-for="glyph in glyphs" 
+            :key="glyph.id"
+            :class="{ 'selected-glyph': selectedGlyphId === glyph.id }"
+            class="glyph-group cursor-grab"
+            :style="{ zIndex: glyph.zIndex || 0 }"
+          >
+            <image
+              :href="glyph.src"
+              :x="glyph.x"
+              :y="glyph.y"
+              :width="glyph.width"
+              :height="glyph.height"
+              :transform="`rotate(${glyph.rotation || 0} ${glyph.x + glyph.width / 2} ${glyph.y + glyph.height / 2})`"
+              @mousedown.stop="startDrag(glyph, $event)"
+              @click.stop="selectGlyph(glyph)"
+            />
             
-            <!-- Botón rotar -->
-            <button
-              @click="rotateGlyph(glyph.id)"
-              class="bg-yellow-500 text-white text-xs rounded-full w-6 h-6 flex items-center justify-center hover:bg-yellow-600 transition-colors"
-              title="Rotar 90°"
-            >
-              ↻
-            </button>
-            
-            <!-- Controles de escala -->
-            <button
-              @click="scaleGlyph(glyph.id, -0.1)"
-              class="bg-purple-500 text-white text-xs rounded-full w-6 h-6 flex items-center justify-center hover:bg-purple-600 transition-colors"
-              title="Reducir tamaño"
-            >
-              −
-            </button>
-            <button
-              @click="scaleGlyph(glyph.id, 0.1)"
-              class="bg-purple-500 text-white text-xs rounded-full w-6 h-6 flex items-center justify-center hover:bg-purple-600 transition-colors"
-              title="Aumentar tamaño"
-            >
-              +
-            </button>
-            
-            <!-- Botones de expansión -->
-            <button
-              v-if="glyph.size === '1x1' && canExpand(glyph, '2x1')"
-              @click="expandGlyph(glyph.id, '2x1')"
-              class="bg-blue-500 text-white text-xs rounded px-1 py-0.5 hover:bg-blue-600 transition-colors"
-              title="Expandir 2x1"
-            >
-              2×1
-            </button>
-            <button
-              v-if="glyph.size === '1x1' && canExpand(glyph, '1x2')"
-              @click="expandGlyph(glyph.id, '1x2')"
-              class="bg-blue-500 text-white text-xs rounded px-1 py-0.5 hover:bg-blue-600 transition-colors"
-              title="Expandir 1x2"
-            >
-              1×2
-            </button>
-            <button
-              v-if="glyph.size === '1x1' && canExpand(glyph, '3x1')"
-              @click="expandGlyph(glyph.id, '3x1')"
-              class="bg-blue-500 text-white text-xs rounded px-1 py-0.5 hover:bg-blue-600 transition-colors"
-              title="Expandir 3x1"
-            >
-              3×1
-            </button>
-            <button
-              v-if="glyph.size === '1x1' && canExpand(glyph, '1x3')"
-              @click="expandGlyph(glyph.id, '1x3')"
-              class="bg-blue-500 text-white text-xs rounded px-1 py-0.5 hover:bg-blue-600 transition-colors"
-              title="Expandir 1x3"
-            >
-              1×3
-            </button>
-            <button
-              v-if="glyph.size === '1x1' && canExpand(glyph, '2x2')"
-              @click="expandGlyph(glyph.id, '2x2')"
-              class="bg-blue-500 text-white text-xs rounded px-1 py-0.5 hover:bg-blue-600 transition-colors"
-              title="Expandir 2x2"
-            >
-              2×2
-            </button>
-          </div>
+            <!-- Selection outline and handles for selected glyph -->
+            <g v-if="selectedGlyphId === glyph.id">
+              <!-- Selection outline -->
+              <rect
+                :x="glyph.x - 2"
+                :y="glyph.y - 2"
+                :width="glyph.width + 4"
+                :height="glyph.height + 4"
+                fill="none"
+                stroke="#3b82f6"
+                stroke-width="2"
+                stroke-dasharray="5,5"
+                class="pointer-events-none"
+              />
+              
+              <!-- Resize Handle (bottom-right) -->
+              <rect
+                :x="glyph.x + glyph.width - 8"
+                :y="glyph.y + glyph.height - 8"
+                width="16"
+                height="16"
+                fill="#3b82f6"
+                stroke="white"
+                stroke-width="2"
+                rx="2"
+                class="cursor-nwse-resize hover:fill-blue-600"
+                @mousedown.stop="startResize(glyph, $event)"
+              />
+              
+              <!-- Rotation Handle (top-center) -->
+              <circle
+                :cx="glyph.x + glyph.width / 2"
+                :cy="glyph.y - 25"
+                r="10"
+                fill="#10b981"
+                stroke="white"
+                stroke-width="2"
+                class="cursor-grab hover:fill-green-600"
+                @mousedown.stop="startRotate(glyph, $event)"
+              />
+              
+              <!-- Connection line to rotation handle -->
+              <line
+                :x1="glyph.x + glyph.width / 2"
+                :y1="glyph.y"
+                :x2="glyph.x + glyph.width / 2"
+                :y2="glyph.y - 15"
+                stroke="#3b82f6"
+                stroke-width="1"
+                class="pointer-events-none"
+              />
+            </g>
+          </g>
+        </svg>
+      </div>
+    </div>
+
+    <!-- Controles superiores -->
+    <div class="mb-4 space-y-4">
+      <!-- Configuración de rejilla -->
+      <div class="p-3 bg-white rounded-lg border-2 border-amber-300">
+        <h4 class="text-md font-medium mb-3 text-gray-700">Configuración de Rejilla:</h4>
+        <div class="flex flex-wrap gap-4 items-center">
+          <label class="flex items-center">
+            <input type="checkbox" v-model="gridSettings.showGrid" class="mr-2" />
+            <span class="text-sm">Mostrar Rejilla</span>
+          </label>
+          <label class="flex items-center">
+            <input type="checkbox" v-model="gridSettings.snapToGrid" class="mr-2" />
+            <span class="text-sm">Ajustar a Rejilla</span>
+          </label>
         </div>
+      </div>
+      
+      <!-- Panel de control del glifo seleccionado -->
+      <div v-if="selectedGlyph" class="p-3 bg-white rounded-lg border-2 border-blue-300">
+        <h4 class="text-md font-medium mb-2 text-gray-700">Editar Glifo Seleccionado:</h4>
+        <div class="flex flex-wrap gap-2">
+          <button
+            @click="bringForward"
+            :disabled="isAtFront"
+            class="px-3 py-1 bg-blue-500 text-white rounded text-sm hover:bg-blue-600 disabled:opacity-50"
+          >
+            Traer Adelante
+          </button>
+          <button
+            @click="sendBackward"
+            :disabled="isAtBack"
+            class="px-3 py-1 bg-orange-500 text-white rounded text-sm hover:bg-orange-600 disabled:opacity-50"
+          >
+            Enviar Atrás
+          </button>
+          <button
+            @click="deleteSelectedGlyph"
+            class="px-3 py-1 bg-red-500 text-white rounded text-sm hover:bg-red-600"
+          >
+            Eliminar
+          </button>
+        </div>
+      </div>
+      
+      <!-- Botones de acción -->
+      <div class="flex flex-wrap gap-2">
+        <button
+          @click="clearGrid"
+          class="px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700 transition-colors"
+        >
+          Limpiar Cuadrícula
+        </button>
+        <button
+          @click="saveGlyph"
+          :disabled="!formedWord"
+          class="px-4 py-2 bg-blue-800 text-white rounded hover:bg-blue-900 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+        >
+          Guardar Glifo
+        </button>
       </div>
     </div>
     
-    <p class="mt-4 text-gray-800">Palabra formada: <span class="font-semibold">{{ formedWord }}</span></p>
-    <p v-if="errorMessage" class="mt-2 text-red-600">{{ errorMessage }}</p>
-    <button
-      @click="saveGlyph"
-      class="mt-2 px-4 py-2 bg-blue-800 text-white rounded hover:bg-blue-900 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
-      :disabled="!formedWord"
-    >
-      Guardar Glifo
-    </button>
+    <!-- Información y estadísticas -->
+    <div class="space-y-2">
+      <p class="text-gray-800">
+        Palabra formada: 
+        <span class="font-semibold">{{ formedWord }}</span>
+      </p>
+      <p class="text-sm text-gray-600">
+        Glifos en cuadrícula: {{ glyphs.length }}
+      </p>
+      <p v-if="errorMessage" class="text-red-600 text-sm">{{ errorMessage }}</p>
+    </div>
 
-    <!-- Instrucciones para móvil -->
-    <div class="mt-4 p-3 bg-green-50 rounded-lg text-sm text-green-800 md:hidden">
-      <p class="font-medium mb-1">✅ Zona de destino:</p>
-      <p>Los glifos que arrastres desde la lista de sílabas aparecerán aquí automáticamente.</p>
+    <!-- Instrucciones -->
+    <div class="mt-4 p-3 bg-green-50 rounded-lg text-sm text-green-800">
+      <p class="font-medium mb-2">Instrucciones:</p>
+      <ul class="space-y-1 text-xs">
+        <li>• Arrastra sílabas desde la lista para añadirlas al canvas</li>
+        <li>• Haz clic en un glifo para seleccionarlo</li>
+        <li>• Arrastra para mover, usa los controles para redimensionar/rotar</li>
+        <li>• Mantén Shift mientras redimensionas para mantener proporciones</li>
+        <li>• Mantén Shift mientras rotas para ajustar en incrementos de 15°</li>
+      </ul>
     </div>
   </div>
 </template>
 
 <script setup>
 import { ref, computed, onMounted, onUnmounted } from 'vue'
-import { useDragAndDrop } from '~/composables/useDragAndDrop'
 
-// Drag and drop functionality
-const { isDragging, handleDragOver, handleDrop } = useDragAndDrop()
-
-const glyphs = ref([])
-const errorMessage = ref('')
-const gridContainer = ref(null)
-const containerWidth = ref(400)
 const emit = defineEmits(['save-glyph'])
+
+// Estado principal
+const glyphs = ref([])
+const selectedGlyphId = ref(null)
+const errorMessage = ref('')
+const svgElement = ref(null)
 let glyphIdCounter = 0
 
-// Dimensiones responsive
-const cellSize = computed(() => {
-  const maxSize = Math.min(containerWidth.value - 40, 500) // -40 para padding
-  return Math.floor((maxSize - 20) / 3) // -20 para gaps
+// Configuración de rejilla
+const gridSettings = ref({
+  showGrid: true,
+  snapToGrid: false,
+  gridSize: 80
 })
 
-const cellGap = computed(() => Math.max(2, Math.floor(cellSize.value * 0.02)))
+// Estados de interacción
+const draggingGlyph = ref(null)
+const resizingGlyph = ref(null)
+const rotatingGlyph = ref(null)
+const offset = ref({ x: 0, y: 0 })
+const initialGlyphState = ref(null)
 
-const gridContainerStyle = computed(() => {
-  const totalSize = cellSize.value * 3 + cellGap.value * 4 + 4 // +4 para padding interno
-  return {
-    width: `${totalSize}px`,
-    height: `${totalSize}px`,
-    padding: `${cellGap.value}px`
-  }
+// Computadas
+const selectedGlyph = computed(() => {
+  return glyphs.value.find(g => g.id === selectedGlyphId.value) || null
 })
 
-// Función para actualizar el ancho del contenedor
-const updateContainerWidth = () => {
-  if (gridContainer.value?.parentElement) {
-    containerWidth.value = gridContainer.value.parentElement.clientWidth
-  }
-}
-
-// Listener para resize y eventos móviles
-onMounted(() => {
-  updateContainerWidth()
-  window.addEventListener('resize', updateContainerWidth)
-  
-  // Escuchar eventos personalizados de móvil
-  document.addEventListener('mobile-syllable-drop', handleMobileSyllableDrop)
-})
-
-onUnmounted(() => {
-  window.removeEventListener('resize', updateContainerWidth)
-  document.removeEventListener('mobile-syllable-drop', handleMobileSyllableDrop)
-})
-
-// Handler para drops desde móvil
-const handleMobileSyllableDrop = (event) => {
-  const { data, position } = event.detail
-  
-  // Encontrar una posición libre si no se especifica una
-  let targetPosition = position
-  if (targetPosition === undefined || isPositionOccupied(targetPosition)) {
-    targetPosition = findFirstAvailablePosition()
-  }
-  
-  if (targetPosition !== null && !isPositionOccupied(targetPosition)) {
-    onDrop(data, targetPosition)
-  } else {
-    errorMessage.value = 'No hay espacio disponible en la cuadrícula.'
-    setTimeout(() => {
-      errorMessage.value = ''
-    }, 3000)
-  }
-}
-
-// Encontrar primera posición disponible
-const findFirstAvailablePosition = () => {
-  for (let i = 0; i < 9; i++) {
-    if (!isPositionOccupied(i)) {
-      return i
-    }
-  }
-  return null
-}
-
-const dropZones = computed(() => Array(9).fill(null))
-const activeGlyphs = computed(() => glyphs.value)
 const formedWord = computed(() => {
+  if (glyphs.value.length === 0) return ''
+  
+  // Ordenar glifos por posición (izquierda a derecha, arriba a abajo)
   const sortedGlyphs = [...glyphs.value].sort((a, b) => {
-    const aRow = Math.floor(a.position / 3)
-    const bRow = Math.floor(b.position / 3)
-    const aCol = a.position % 3
-    const bCol = b.position % 3
-    if (aRow !== bRow) return aRow - bRow
-    return aCol - bCol
+    const yDiff = a.y - b.y
+    if (Math.abs(yDiff) > 50) { // Si la diferencia en Y es significativa
+      return yDiff // Ordenar por Y (arriba a abajo)
+    }
+    return a.x - b.x // Si están en la misma "fila", ordenar por X (izquierda a derecha)
   })
+  
   return sortedGlyphs.map(g => g.syllable).join('')
 })
 
-const getDropZoneStyle = (index) => {
-  const row = Math.floor(index / 3)
-  const col = index % 3
-  const size = cellSize.value
-  const gap = cellGap.value
+const isAtFront = computed(() => {
+  if (!selectedGlyph.value || glyphs.value.length === 0) return true
+  const maxZ = Math.max(...glyphs.value.map(g => g.zIndex || 0))
+  return (selectedGlyph.value.zIndex || 0) >= maxZ
+})
+
+const isAtBack = computed(() => {
+  if (!selectedGlyph.value || glyphs.value.length === 0) return true
+  const minZ = Math.min(...glyphs.value.map(g => g.zIndex || 0))
+  return (selectedGlyph.value.zIndex || 0) <= minZ
+})
+
+// Funciones de utilidad
+const getSVGCoordinates = (clientX, clientY) => {
+  if (!svgElement.value) return { x: 0, y: 0 }
   
-  // Solo mostrar zona de drop si la posición está vacía
-  const isOccupied = isPositionOccupied(index)
+  const svg = svgElement.value
+  const pt = svg.createSVGPoint()
+  pt.x = clientX
+  pt.y = clientY
   
-  return {
-    left: `${gap + col * (size + gap)}px`,
-    top: `${gap + row * (size + gap)}px`,
-    width: `${size}px`,
-    height: `${size}px`,
-    'z-index': isOccupied ? -1 : 20, // Solo z-index alto si está vacía
-    'pointer-events': isOccupied ? 'none' : 'auto' // Desactivar eventos si está ocupada
-  }
+  const svgP = pt.matrixTransform(svg.getScreenCTM().inverse())
+  return { x: svgP.x, y: svgP.y }
 }
 
-const getGlyphStyle = (glyph) => {
-  const row = Math.floor(glyph.position / 3)
-  const col = glyph.position % 3
-  const size = cellSize.value
-  const gap = cellGap.value
-  
-  let width = size
-  let height = size
-  
-  if (glyph.size === '2x1') width = size * 2 + gap
-  else if (glyph.size === '1x2') height = size * 2 + gap
-  else if (glyph.size === '3x1') width = size * 3 + gap * 2
-  else if (glyph.size === '1x3') height = size * 3 + gap * 2
-  else if (glyph.size === '2x2') {
-    width = size * 2 + gap
-    height = size * 2 + gap
-  }
-  
-  return {
-    left: `${gap + col * (size + gap)}px`,
-    top: `${gap + row * (size + gap)}px`,
-    width: `${width}px`,
-    height: `${height}px`,
-    'z-index': 10
-  }
+const snap = (value) => {
+  if (!gridSettings.value.snapToGrid) return value
+  return Math.round(value / gridSettings.value.gridSize) * gridSettings.value.gridSize
 }
 
-const isPositionOccupied = (position, excludeGlyphId = null) => {
-  return glyphs.value.some(glyph => {
-    if (excludeGlyphId && glyph.id === excludeGlyphId) return false
-    return getOccupiedPositions(glyph).includes(position)
-  })
+// Funciones de interacción con glifos
+const selectGlyph = (glyph) => {
+  selectedGlyphId.value = glyph.id
 }
 
-const getOccupiedPositions = (glyph) => {
-  const row = Math.floor(glyph.position / 3)
-  const col = glyph.position % 3
-  const positions = [glyph.position]
-  
-  if (glyph.size === '2x1' && col < 2) positions.push(glyph.position + 1)
-  else if (glyph.size === '1x2' && row < 2) positions.push(glyph.position + 3)
-  else if (glyph.size === '3x1' && col < 1) positions.push(glyph.position + 1, glyph.position + 2)
-  else if (glyph.size === '1x3' && row < 1) positions.push(glyph.position + 3, glyph.position + 6)
-  else if (glyph.size === '2x2' && row < 2 && col < 2) positions.push(glyph.position + 1, glyph.position + 3, glyph.position + 4)
-  
-  return positions.filter(p => p >= 0 && p < 9)
+const deselectGlyph = () => {
+  selectedGlyphId.value = null
 }
 
-const canExpand = (glyph, newSize) => {
-  const row = Math.floor(glyph.position / 3)
-  const col = glyph.position % 3
-  let requiredPositions = []
-  
-  if (newSize === '2x1' && col < 2) requiredPositions = [glyph.position + 1]
-  else if (newSize === '1x2' && row < 2) requiredPositions = [glyph.position + 3]
-  else if (newSize === '3x1' && col < 1) requiredPositions = [glyph.position + 1, glyph.position + 2]
-  else if (newSize === '1x3' && row < 1) requiredPositions = [glyph.position + 3, glyph.position + 6]
-  else if (newSize === '2x2' && row < 2 && col < 2) requiredPositions = [glyph.position + 1, glyph.position + 3, glyph.position + 4]
-  else return false
-  
-  return requiredPositions.every(pos => pos < 9 && !isPositionOccupied(pos, glyph.id))
-}
-
-// Función unificada para drops (desktop y móvil)
-const onDrop = (data, position) => {
+const addGlyph = (glyphData) => {
   errorMessage.value = ''
   
-  if (!isPositionOccupied(position)) {
-    const newGlyph = {
-      id: ++glyphIdCounter,
-      syllable: data.syllable,
-      image: data.image,
-      position: position,
-      size: '1x1',
-      rotation: 0,
-      scale: 1
-    }
-    glyphs.value.push(newGlyph)
-  } else {
-    errorMessage.value = 'No se puede colocar el glifo aquí: celda ocupada.'
+  const newGlyph = {
+    id: ++glyphIdCounter,
+    syllable: glyphData.syllable,
+    src: glyphData.src || glyphData.image, // Compatibilidad con ambos nombres
+    x: glyphData.x,
+    y: glyphData.y,
+    width: glyphData.width,
+    height: glyphData.height,
+    rotation: glyphData.rotation || 0,
+    zIndex: glyphs.value.length
   }
+  
+  glyphs.value.push(newGlyph)
 }
 
-// Función para rotar glifos
-const rotateGlyph = (glyphId) => {
-  const glyph = glyphs.value.find(g => g.id === glyphId)
-  if (glyph) {
-    glyph.rotation = (glyph.rotation || 0) + 90
-    if (glyph.rotation >= 360) glyph.rotation = 0
-  }
-}
-
-// Función para escalar glifos
-const scaleGlyph = (glyphId, scaleChange) => {
-  const glyph = glyphs.value.find(g => g.id === glyphId)
-  if (glyph) {
-    const newScale = Math.max(0.3, Math.min(2, (glyph.scale || 1) + scaleChange))
-    glyph.scale = Math.round(newScale * 10) / 10 // Redondear a 1 decimal
-  }
-}
-
-const expandGlyph = (glyphId, newSize) => {
-  const glyph = glyphs.value.find(g => g.id === glyphId)
-  if (glyph && canExpand(glyph, newSize)) {
-    glyph.size = newSize
+const updateGlyph = (updatedGlyph) => {
+  const index = glyphs.value.findIndex(g => g.id === updatedGlyph.id)
+  if (index !== -1) {
+    glyphs.value[index] = { ...glyphs.value[index], ...updatedGlyph }
     errorMessage.value = ''
-  } else {
-    errorMessage.value = `No se puede expandir el glifo a ${newSize}: posición inválida o celdas ocupadas.`
   }
 }
 
-const removeGlyph = (glyphId) => {
+const deleteGlyph = (glyphId) => {
   const index = glyphs.value.findIndex(g => g.id === glyphId)
   if (index !== -1) {
     glyphs.value.splice(index, 1)
+    if (selectedGlyphId.value === glyphId) {
+      selectedGlyphId.value = null
+    }
     errorMessage.value = ''
+  }
+}
+
+// Funciones de drag and drop
+const startDrag = (glyph, event) => {
+  if (resizingGlyph.value || rotatingGlyph.value) return
+  
+  draggingGlyph.value = glyph
+  const svgCoords = getSVGCoordinates(event.clientX, event.clientY)
+  offset.value.x = svgCoords.x - glyph.x
+  offset.value.y = svgCoords.y - glyph.y
+  
+  document.body.style.cursor = 'grabbing'
+  window.addEventListener("mousemove", onDrag)
+  window.addEventListener("mouseup", stopDrag)
+}
+
+const onDrag = (event) => {
+  if (!draggingGlyph.value) return
+  
+  const svgCoords = getSVGCoordinates(event.clientX, event.clientY)
+  let newX = svgCoords.x - offset.value.x
+  let newY = svgCoords.y - offset.value.y
+
+  newX = snap(Math.max(0, Math.min(800 - draggingGlyph.value.width, newX)))
+  newY = snap(Math.max(0, Math.min(600 - draggingGlyph.value.height, newY)))
+
+  updateGlyph({ ...draggingGlyph.value, x: newX, y: newY })
+}
+
+const stopDrag = () => {
+  draggingGlyph.value = null
+  document.body.style.cursor = 'default'
+  window.removeEventListener("mousemove", onDrag)
+  window.removeEventListener("mouseup", stopDrag)
+}
+
+// Funciones de redimensionamiento
+const startResize = (glyph, event) => {
+  if (draggingGlyph.value || rotatingGlyph.value) return
+  
+  resizingGlyph.value = glyph
+  initialGlyphState.value = { 
+    width: glyph.width, 
+    height: glyph.height, 
+    aspectRatio: glyph.width / glyph.height 
+  }
+  
+  const svgCoords = getSVGCoordinates(event.clientX, event.clientY)
+  offset.value.x = svgCoords.x
+  offset.value.y = svgCoords.y
+  
+  document.body.style.cursor = 'nwse-resize'
+  window.addEventListener('mousemove', onResize)
+  window.addEventListener('mouseup', stopResize)
+}
+
+const onResize = (event) => {
+  if (!resizingGlyph.value) return
+  
+  const svgCoords = getSVGCoordinates(event.clientX, event.clientY)
+  const dx = svgCoords.x - offset.value.x
+  const dy = svgCoords.y - offset.value.y
+  
+  let newWidth = initialGlyphState.value.width + dx
+  let newHeight = initialGlyphState.value.height + dy
+  
+  // Maintain aspect ratio if shift is held
+  if (event.shiftKey) {
+    newHeight = newWidth / initialGlyphState.value.aspectRatio
+  }
+
+  // Minimum size constraints
+  newWidth = Math.max(20, newWidth)
+  newHeight = Math.max(20, newHeight)
+  
+  // Boundary constraints
+  newWidth = Math.min(newWidth, 800 - resizingGlyph.value.x)
+  newHeight = Math.min(newHeight, 600 - resizingGlyph.value.y)
+
+  updateGlyph({ ...resizingGlyph.value, width: newWidth, height: newHeight })
+}
+
+const stopResize = () => {
+  resizingGlyph.value = null
+  document.body.style.cursor = 'default'
+  window.removeEventListener('mousemove', onResize)
+  window.removeEventListener('mouseup', stopResize)
+}
+
+// Funciones de rotación
+const startRotate = (glyph, event) => {
+  if (draggingGlyph.value || rotatingGlyph.value) return
+  
+  rotatingGlyph.value = glyph
+  document.body.style.cursor = 'grabbing'
+  window.addEventListener('mousemove', onRotate)
+  window.addEventListener('mouseup', stopRotate)
+}
+
+const onRotate = (event) => {
+  if (!rotatingGlyph.value) return
+  
+  const glyph = rotatingGlyph.value
+  const svgCoords = getSVGCoordinates(event.clientX, event.clientY)
+  const centerX = glyph.x + glyph.width / 2
+  const centerY = glyph.y + glyph.height / 2
+  
+  let angle = Math.atan2(svgCoords.y - centerY, svgCoords.x - centerX) * (180 / Math.PI) + 90
+  
+  angle = Math.round(angle / 90) * 90
+  
+  updateGlyph({ ...glyph, rotation: angle })
+}
+
+const stopRotate = () => {
+  rotatingGlyph.value = null
+  document.body.style.cursor = 'default'
+  window.removeEventListener('mousemove', onRotate)
+  window.removeEventListener('mouseup', stopRotate)
+}
+
+// Funciones de control de glifos
+const bringForward = () => {
+  if (!selectedGlyph.value) return
+  const maxZ = Math.max(...glyphs.value.map(g => g.zIndex || 0))
+  updateGlyph({ ...selectedGlyph.value, zIndex: maxZ + 1 })
+}
+
+const sendBackward = () => {
+  if (!selectedGlyph.value) return
+  const minZ = Math.min(...glyphs.value.map(g => g.zIndex || 0))
+  updateGlyph({ ...selectedGlyph.value, zIndex: Math.max(0, minZ - 1) })
+}
+
+const deleteSelectedGlyph = () => {
+  if (selectedGlyph.value) {
+    deleteGlyph(selectedGlyph.value.id)
   }
 }
 
 const clearGrid = () => {
   glyphs.value = []
+  selectedGlyphId.value = null
   errorMessage.value = ''
 }
 
 const saveGlyph = () => {
-  if (formedWord.value) {
-    const composedGlyph = {
-      id: Date.now(),
-      word: formedWord.value,
-      glyphs: glyphs.value.map(glyph => ({
-        syllable: glyph.syllable,
-        image: glyph.image,
-        position: glyph.position,
-        size: glyph.size,
-        rotation: glyph.rotation || 0,
-        scale: glyph.scale || 1
-      })),
-      timestamp: new Date().toISOString()
-    }
-    
-    console.log('Emitting composed glyph:', composedGlyph)
-    emit('save-glyph', composedGlyph)
-    clearGrid()
+  if (!formedWord.value) {
+    errorMessage.value = 'No hay glifos para guardar.'
+    return
   }
+  
+  const composedGlyph = {
+    id: Date.now(),
+    word: formedWord.value,
+    gridType: 'svg', // Marcador para identificar el tipo SVG
+    glyphs: glyphs.value.map(glyph => ({
+      syllable: glyph.syllable,
+      image: glyph.src,
+      x: glyph.x,
+      y: glyph.y,
+      width: glyph.width,
+      height: glyph.height,
+      rotation: glyph.rotation || 0,
+      zIndex: glyph.zIndex || 0
+    })),
+    timestamp: new Date().toISOString()
+  }
+  
+  console.log('Emitiendo glifo SVG:', composedGlyph)
+  emit('save-glyph', composedGlyph)
+  clearGrid()
+  
+  // Mostrar confirmación temporal
+  errorMessage.value = ''
+  const originalMessage = errorMessage.value
+  errorMessage.value = '¡Glifo guardado exitosamente!'
+  setTimeout(() => {
+    errorMessage.value = originalMessage
+  }, 2000)
 }
+
+// Drop functionality
+const onDrop = (event) => {
+  event.preventDefault()
+  
+  let glyphData = null
+  
+  try {
+    const jsonData = event.dataTransfer.getData('application/json')
+    if (jsonData) {
+      glyphData = JSON.parse(jsonData)
+    }
+  } catch (e) {
+    console.warn('Could not parse dropped data as JSON')
+  }
+  
+  if (!glyphData && event.detail?.data) {
+    glyphData = event.detail.data
+  }
+  
+  if (!glyphData) return
+  
+  const svgCoords = getSVGCoordinates(event.clientX, event.clientY)
+  let x = svgCoords.x
+  let y = svgCoords.y
+
+  const defaultSize = 100
+  x -= defaultSize / 2
+  y -= defaultSize / 2
+  
+  x = snap(Math.max(0, Math.min(800 - defaultSize, x)))
+  y = snap(Math.max(0, Math.min(600 - defaultSize, y)))
+
+  addGlyph({
+    syllable: glyphData.syllable,
+    src: glyphData.image,
+    x: x,
+    y: y,
+    width: defaultSize,
+    height: defaultSize,
+    rotation: 0
+  })
+}
+
+// Manejo de eventos móviles
+const handleMobileSyllableDrop = (event) => {
+  const { data } = event.detail
+  
+  // Para el grid SVG, colocamos en el centro del canvas
+  const centerX = 400 - 50 // Centro del canvas SVG menos la mitad del glifo
+  const centerY = 300 - 50
+  
+  addGlyph({
+    syllable: data.syllable,
+    src: data.image,
+    x: centerX,
+    y: centerY,
+    width: 100,
+    height: 100,
+    rotation: 0
+  })
+}
+
+// Event listeners
+onMounted(() => {
+  document.addEventListener('mobile-syllable-drop', handleMobileSyllableDrop)
+})
+
+onUnmounted(() => {
+  document.removeEventListener('mobile-syllable-drop', handleMobileSyllableDrop)
+  window.removeEventListener("mousemove", onDrag)
+  window.removeEventListener("mouseup", stopDrag)
+  window.removeEventListener('mousemove', onResize)
+  window.removeEventListener('mouseup', stopResize)
+  window.removeEventListener('mousemove', onRotate)
+  window.removeEventListener('mouseup', stopRotate)
+})
 </script>
+
+<style scoped>
+.glyph-group:active {
+  cursor: grabbing;
+}
+
+.selected-glyph image {
+  filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.5));
+}
+</style>

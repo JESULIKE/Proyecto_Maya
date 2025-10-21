@@ -17,28 +17,62 @@
           ×
         </button>
         
-        <!-- Contenedor del glifo con proporción exacta 3x3 -->
+        <!-- Contenedor del glifo -->
         <div class="relative w-full aspect-square bg-gray-200 border-2 border-gray-400 rounded overflow-hidden">
-          <!-- Grid de fondo para referencia -->
-          <div class="absolute inset-0 grid grid-cols-3 grid-rows-3 gap-px p-1">
-            <div v-for="n in 9" :key="n" class="bg-white border border-gray-300 opacity-30"></div>
+          
+          <!-- Renderizado para glifos tipo SVG (nuevo sistema) -->
+          <div v-if="glyph.gridType === 'svg'" class="w-full h-full relative">
+            <svg 
+              class="w-full h-full" 
+              viewBox="0 0 800 600" 
+              preserveAspectRatio="xMidYMid meet"
+            >
+              <!-- Grid de fondo para referencia -->
+              <defs>
+                <pattern id="preview-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                  <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#e5e7eb" stroke-width="1" opacity="0.3"/>
+                </pattern>
+              </defs>
+              <rect width="100%" height="100%" fill="url(#preview-grid)" />
+              
+              <!-- Glifos individuales -->
+              <image
+                v-for="subGlyph in glyph.glyphs"
+                :key="`${glyph.id}-${subGlyph.x}-${subGlyph.y}`"
+                :href="subGlyph.image"
+                :x="subGlyph.x"
+                :y="subGlyph.y"
+                :width="subGlyph.width"
+                :height="subGlyph.height"
+                :transform="`rotate(${subGlyph.rotation || 0} ${subGlyph.x + subGlyph.width / 2} ${subGlyph.y + subGlyph.height / 2})`"
+                class="pointer-events-none"
+              />
+            </svg>
           </div>
           
-          <!-- Glifos individuales -->
-          <div
-            v-for="subGlyph in glyph.glyphs"
-            :key="`${glyph.id}-${subGlyph.position}`"
-            class="absolute"
-            :style="getSubGlyphStyle(subGlyph)"
-          >
-            <img
-              :src="subGlyph.image"
-              :alt="subGlyph.syllable"
-              class="w-full h-full object-contain"
-              :style="{ 
-                transform: `rotate(${subGlyph.rotation || 0}deg) scale(${subGlyph.scale || 1})` 
-              }"
-            />
+          <!-- Renderizado para glifos tipo cuadrícula 3x3 (sistema anterior) -->
+          <div v-else class="w-full h-full relative">
+            <!-- Grid de fondo para referencia -->
+            <div class="absolute inset-0 grid grid-cols-3 grid-rows-3 gap-px p-1">
+              <div v-for="n in 9" :key="n" class="bg-white border border-gray-300 opacity-30"></div>
+            </div>
+            
+            <!-- Glifos individuales en el sistema de cuadrícula -->
+            <div
+              v-for="subGlyph in glyph.glyphs"
+              :key="`${glyph.id}-${subGlyph.position}`"
+              class="absolute"
+              :style="getGridGlyphStyle(subGlyph)"
+            >
+              <img
+                :src="subGlyph.image"
+                :alt="subGlyph.syllable"
+                class="w-full h-full object-contain"
+                :style="{ 
+                  transform: `rotate(${subGlyph.rotation || 0}deg) scale(${subGlyph.scale || 1})` 
+                }"
+              />
+            </div>
           </div>
         </div>
         
@@ -46,8 +80,11 @@
         <div class="mt-2">
           <p class="text-center text-sm text-gray-800 font-medium">{{ glyph.word }}</p>
           <p class="text-center text-xs text-gray-500">{{ formatDate(glyph.timestamp) }}</p>
-          <div class="text-xs text-gray-400 text-center mt-1">
-            {{ glyph.glyphs.length }} sílaba{{ glyph.glyphs.length !== 1 ? 's' : '' }}
+          <div class="text-xs text-gray-400 text-center mt-1 flex justify-between items-center">
+            <span>{{ glyph.glyphs.length }} sílaba{{ glyph.glyphs.length !== 1 ? 's' : '' }}</span>
+            <span class="px-2 py-1 bg-gray-200 rounded text-xs">
+              {{ glyph.gridType === 'svg' ? 'SVG' : '3x3' }}
+            </span>
           </div>
         </div>
       </div>
@@ -71,10 +108,16 @@
           {{ fullHistory || 'La historia se construirá conforme agregues glifos...' }}
         </p>
       </div>
-      <div class="mt-3 text-xs text-gray-500 flex justify-between items-center">
+      <div class="mt-3 text-xs text-gray-500 flex flex-wrap justify-between items-center gap-2">
         <span>Total de glifos: {{ glyphHistory.length }}</span>
         <span>Palabras: {{ wordCount }}</span>
         <span>Caracteres: {{ characterCount }}</span>
+        <span v-if="svgGlyphCount > 0" class="px-2 py-1 bg-blue-100 rounded">
+          SVG: {{ svgGlyphCount }}
+        </span>
+        <span v-if="gridGlyphCount > 0" class="px-2 py-1 bg-green-100 rounded">
+          3x3: {{ gridGlyphCount }}
+        </span>
       </div>
     </div>
     
@@ -117,8 +160,16 @@ const wordCount = computed(() => {
 
 const characterCount = computed(() => fullHistory.value.length)
 
-// Obtener el estilo para cada sub-glifo dentro del glifo compuesto
-const getSubGlyphStyle = (subGlyph) => {
+const svgGlyphCount = computed(() => {
+  return props.glyphHistory.filter(glyph => glyph.gridType === 'svg').length
+})
+
+const gridGlyphCount = computed(() => {
+  return props.glyphHistory.filter(glyph => glyph.gridType !== 'svg').length
+})
+
+// Obtener el estilo para cada sub-glifo dentro del glifo compuesto (sistema 3x3)
+const getGridGlyphStyle = (subGlyph) => {
   const row = Math.floor(subGlyph.position / 3)
   const col = subGlyph.position % 3
   
