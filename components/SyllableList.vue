@@ -90,21 +90,21 @@ const syllableElements = ref([])
 const tabs = [
   { key: 'vocales', label: 'Vocales', filter: (s) => ['a', 'e', 'i', 'o', 'u'].includes(s.syllable) },
   { key: 'b', label: 'B', filter: (s) => s.syllable.startsWith('ba') || s.syllable.startsWith('bi') || s.syllable.startsWith('bo') || s.syllable.startsWith('bu') },
-  { key: 'ch', label: 'CH', filter: (s) => s.syllable.startsWith('cha') || s.syllable.startsWith('che') || s.syllable.startsWith('chi') || s.syllable.startsWith('cho') || s.syllable.startsWith('chu') },
-  { key: 'ch_glotal', label: "CH'", filter: (s) => s.syllable.startsWith('ch´') },
+  { key: 'ch', label: 'CH', filter: (s) => (s.syllable.startsWith('cha') || s.syllable.startsWith('che') || s.syllable.startsWith('chi') || s.syllable.startsWith('cho') || s.syllable.startsWith('chu')) && !s.syllable.startsWith('ch´') && !s.syllable.startsWith("ch'") },
+  { key: 'ch_glotal', label: "CH'", filter: (s) => s.syllable.startsWith('ch´') || s.syllable.startsWith("ch'") },
   { key: 'h', label: 'H', filter: (s) => s.syllable.startsWith('ha') || s.syllable.startsWith('he') || s.syllable.startsWith('hi') || s.syllable.startsWith('ho') || s.syllable.startsWith('hu') },
   { key: 'j', label: 'J', filter: (s) => s.syllable.startsWith('ja') || s.syllable.startsWith('je') || s.syllable.startsWith('ji') || s.syllable.startsWith('jo') || s.syllable.startsWith('ju') },
-  { key: 'k', label: 'K', filter: (s) => (s.syllable.startsWith('ka') || s.syllable.startsWith('ke') || s.syllable.startsWith('ki') || s.syllable.startsWith('ko') || s.syllable.startsWith('ku')) && !s.syllable.startsWith('k´') },
-  { key: 'k_glotal', label: "K'", filter: (s) => s.syllable.startsWith('k´') },
+  { key: 'k', label: 'K', filter: (s) => (s.syllable.startsWith('ka') || s.syllable.startsWith('ke') || s.syllable.startsWith('ki') || s.syllable.startsWith('ko') || s.syllable.startsWith('ku')) && !s.syllable.startsWith('k´') && !s.syllable.startsWith("k'") },
+  { key: 'k_glotal', label: "K'", filter: (s) => s.syllable.startsWith('k´') || s.syllable.startsWith("k'") },
   { key: 'l', label: 'L', filter: (s) => s.syllable.startsWith('la') || s.syllable.startsWith('le') || s.syllable.startsWith('li') || s.syllable.startsWith('lo') || s.syllable.startsWith('lu') },
   { key: 'm', label: 'M', filter: (s) => s.syllable.startsWith('ma') || s.syllable.startsWith('me') || s.syllable.startsWith('mi') || s.syllable.startsWith('mo') || s.syllable.startsWith('mu') },
   { key: 'n', label: 'N', filter: (s) => s.syllable.startsWith('na') || s.syllable.startsWith('ne') || s.syllable.startsWith('ni') || s.syllable.startsWith('no') || s.syllable.startsWith('nu') },
   { key: 'p', label: 'P', filter: (s) => s.syllable.startsWith('pa') || s.syllable.startsWith('pi') || s.syllable.startsWith('po') || s.syllable.startsWith('pu') },
   { key: 's', label: 'S', filter: (s) => s.syllable.startsWith('sa') || s.syllable.startsWith('se') || s.syllable.startsWith('si') },
-  { key: 't', label: 'T', filter: (s) => (s.syllable.startsWith('ta') || s.syllable.startsWith('te') || s.syllable.startsWith('ti') || s.syllable.startsWith('to') || s.syllable.startsWith('tu')) && !s.syllable.startsWith('t´') && !s.syllable.startsWith('tz') },
-  { key: 't_glotal', label: "T'", filter: (s) => s.syllable.startsWith('t´') },
-  { key: 'tz', label: 'TZ', filter: (s) => s.syllable.startsWith('tza') || s.syllable.startsWith('tze') || s.syllable.startsWith('tzi') || s.syllable.startsWith('tzu') },
-  { key: 'tz_glotal', label: "TZ'", filter: (s) => s.syllable.startsWith('tz´') },
+  { key: 't', label: 'T', filter: (s) => (s.syllable.startsWith('ta') || s.syllable.startsWith('te') || s.syllable.startsWith('ti') || s.syllable.startsWith('to') || s.syllable.startsWith('tu')) && !s.syllable.startsWith('t´') && !s.syllable.startsWith("t'") && !s.syllable.startsWith('tz') },
+  { key: 't_glotal', label: "T'", filter: (s) => s.syllable.startsWith('t´') || s.syllable.startsWith("t'") },
+  { key: 'tz', label: 'TZ', filter: (s) => (s.syllable.startsWith('tza') || s.syllable.startsWith('tze') || s.syllable.startsWith('tzi') || s.syllable.startsWith('tzu')) && !s.syllable.startsWith('tz´') && !s.syllable.startsWith("tz'") },
+  { key: 'tz_glotal', label: "TZ'", filter: (s) => s.syllable.startsWith('tz´') || s.syllable.startsWith("tz'") },
   { key: 'w', label: 'W', filter: (s) => s.syllable.startsWith('wa') || s.syllable.startsWith('we') || s.syllable.startsWith('wi') || s.syllable.startsWith('wo') },
   { key: 'x', label: 'X', filter: (s) => s.syllable.startsWith('xa') || s.syllable.startsWith('xi') || s.syllable.startsWith('xo') || s.syllable.startsWith('xu') },
   { key: 'y', label: 'Y', filter: (s) => s.syllable.startsWith('ya') || s.syllable.startsWith('ye') || s.syllable.startsWith('yi') || s.syllable.startsWith('yo') || s.syllable.startsWith('yu') }
@@ -139,6 +139,6 @@ const handleMobileDrop = (data, position) => {
 
 // Fallback for missing images
 const onImageError = (event) => {
-  event.target.src = '/escritura_maya/placeholder.png'
+  event.target.src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="%239ca3af" stroke-width="2"><rect width="18" height="18" x="3" y="3" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>'
 }
 </script>

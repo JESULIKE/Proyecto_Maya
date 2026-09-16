@@ -1,159 +1,807 @@
 [
-
   {
     "syllable": "a",
-    "image": "/escritura_maya/escritura%20maya%20mejorada/vocales%20puras/A/12st.svg",
-    "thompson": "12st"
+    "image": "/glifos_maya/vocales_puras/A/12st.svg",
+    "thompson": "12st",
+    "family": "A",
+    "variant": "standard"
   },
-
   {
     "syllable": "a",
-    "image": "/escritura_maya/escritura%20maya%20mejorada/vocales%20puras/A/229bh.svg",
-    "thompson": "229bh"
+    "image": "/glifos_maya/vocales_puras/A/229bh.svg",
+    "thompson": "229bh",
+    "family": "A",
+    "variant": "bipartite-horizontal"
   },
-
   {
     "syllable": "a",
-    "image": "/escritura_maya/escritura%20maya%20mejorada/vocales%20puras/A/229bl.svg",
-    "thompson": "229bl"
+    "image": "/glifos_maya/vocales_puras/A/229bl.svg",
+    "thompson": "229bl",
+    "family": "A",
+    "variant": "bipartite-left"
   },
-
   {
     "syllable": "a",
-    "image": "/escritura_maya/escritura%20maya%20mejorada/vocales%20puras/A/238st.svg",
-    "thompson": "238st"
+    "image": "/glifos_maya/vocales_puras/A/238st.svg",
+    "thompson": "238st",
+    "family": "A",
+    "variant": "standard"
   },
-
   {
     "syllable": "a",
-    "image": "/escritura_maya/escritura%20maya%20mejorada/vocales%20puras/A/A4.svg",
-    "thompson": "A4"
+    "image": "/glifos_maya/vocales_puras/A/A4.svg",
+    "thompson": "A4",
+    "family": "A",
+    "variant": "standard"
   },
-
   {
     "syllable": "ba",
-    "image": "/escritura_maya/escritura%20maya%20mejorada/B%20VOCALES/21vl.svg"
+    "image": "/glifos_maya/B_VOCALES/21vl.svg",
+    "thompson": "21vl",
+    "family": "B",
+    "variant": "vertical-left"
   },
-
   {
     "syllable": "ba",
-    "image": "/escritura_maya/escritura%20maya%20mejorada/B%20VOCALES/21vs.svg"
+    "image": "/glifos_maya/B_VOCALES/21vs.svg",
+    "thompson": "21vs",
+    "family": "B",
+    "variant": "vertical-stack"
   },
-
   {
     "syllable": "ba",
-    "image": "/escritura_maya/escritura%20maya%20mejorada/B%20VOCALES/301st.svg"
+    "image": "/glifos_maya/B_VOCALES/301st.svg",
+    "thompson": "301st",
+    "family": "B",
+    "variant": "standard"
   },
-
+  {
+    "syllable": "ba",
+    "image": "/glifos_maya/B_VOCALES/501hh.svg",
+    "thompson": "501hh",
+    "family": "B",
+    "variant": "head-human"
+  },
+  {
+    "syllable": "ba",
+    "image": "/glifos_maya/B_VOCALES/501st.svg",
+    "thompson": "501st",
+    "family": "B",
+    "variant": "standard"
+  },
+  {
+    "syllable": "ba",
+    "image": "/glifos_maya/B_VOCALES/519st.svg",
+    "thompson": "519st",
+    "family": "B",
+    "variant": "standard"
+  },
+  {
+    "syllable": "ba",
+    "image": "/glifos_maya/B_VOCALES/585hc.svg",
+    "thompson": "585hc",
+    "family": "B",
+    "variant": "head-creature"
+  },
+  {
+    "syllable": "ba",
+    "image": "/glifos_maya/B_VOCALES/585st.svg",
+    "thompson": "585st",
+    "family": "B",
+    "variant": "standard"
+  },
+  {
+    "syllable": "ba",
+    "image": "/glifos_maya/B_VOCALES/757st.svg",
+    "thompson": "757st",
+    "family": "B",
+    "variant": "standard"
+  },
+  {
+    "syllable": "ch'a",
+    "image": "/glifos_maya/CH_glotal_VOCALES/758st.svg",
+    "thompson": "758st",
+    "family": "CH'",
+    "variant": "standard"
+  },
+  {
+    "syllable": "ch'a",
+    "image": "/glifos_maya/CH_glotal_VOCALES/93bh.svg",
+    "thompson": "93bh",
+    "family": "CH'",
+    "variant": "bipartite-horizontal"
+  },
+  {
+    "syllable": "ch'a",
+    "image": "/glifos_maya/CH_glotal_VOCALES/93bl.svg",
+    "thompson": "93bl",
+    "family": "CH'",
+    "variant": "bipartite-left"
+  },
   {
     "syllable": "cha",
-    "image": "/escritura_maya/escritura%20maya%20mejorada/CH%20VOCALES/CHA_2.svg",
-    "thompson": "CHA_2"
+    "image": "/glifos_maya/CH_VOCALES/108md.svg",
+    "thompson": "108md",
+    "family": "CH",
+    "variant": "middle"
   },
-
+  {
+    "syllable": "cha",
+    "image": "/glifos_maya/CH_VOCALES/145st.svg",
+    "thompson": "145st",
+    "family": "CH",
+    "variant": "standard"
+  },
+  {
+    "syllable": "cha",
+    "image": "/glifos_maya/CH_VOCALES/1557bv.svg",
+    "thompson": "1557bv",
+    "family": "CH",
+    "variant": "bipartite-vertical"
+  },
+  {
+    "syllable": "cha",
+    "image": "/glifos_maya/CH_VOCALES/590.svg",
+    "thompson": "590",
+    "family": "CH",
+    "variant": "standard"
+  },
+  {
+    "syllable": "cha",
+    "image": "/glifos_maya/CH_VOCALES/668st.svg",
+    "thompson": "668st",
+    "family": "CH",
+    "variant": "standard"
+  },
+  {
+    "syllable": "cha",
+    "image": "/glifos_maya/CH_VOCALES/671st.svg",
+    "thompson": "671st",
+    "family": "CH",
+    "variant": "standard"
+  },
+  {
+    "syllable": "cha",
+    "image": "/glifos_maya/CH_VOCALES/796st.svg",
+    "thompson": "796st",
+    "family": "CH",
+    "variant": "standard"
+  },
+  {
+    "syllable": "cha",
+    "image": "/glifos_maya/CH_VOCALES/CHA_2.svg",
+    "thompson": "CHA_2",
+    "family": "CH",
+    "variant": "standard"
+  },
   {
     "syllable": "che",
-    "image": "/escritura_maya/escritura%20maya%20mejorada/CH%20VOCALES/CHE_2.svg",
-    "thompson": "CHE_2"
+    "image": "/glifos_maya/CH_VOCALES/512st.svg",
+    "thompson": "512st",
+    "family": "CH",
+    "variant": "standard"
   },
-
+  {
+    "syllable": "che",
+    "image": "/glifos_maya/CH_VOCALES/CHE_2.svg",
+    "thompson": "CHE_2",
+    "family": "CH",
+    "variant": "standard"
+  },
   {
     "syllable": "e",
-    "image": "/escritura_maya/escritura%20maya%20mejorada/vocales%20puras/E/542ex.svg",
-    "thompson": "542ex"
+    "image": "/glifos_maya/vocales_puras/E/542ex.svg",
+    "thompson": "542ex",
+    "family": "E",
+    "variant": "pars-pro-toto"
   },
-
   {
     "syllable": "e",
-    "image": "/escritura_maya/escritura%20maya%20mejorada/vocales%20puras/E/542st.svg",
-    "thompson": "542st"
+    "image": "/glifos_maya/vocales_puras/E/542st.svg",
+    "thompson": "542st",
+    "family": "E",
+    "variant": "standard"
   },
-
+  {
+    "syllable": "ha",
+    "image": "/glifos_maya/H_VOCALES/1042bh.svg",
+    "thompson": "1042bh",
+    "family": "H",
+    "variant": "bipartite-horizontal"
+  },
+  {
+    "syllable": "ha",
+    "image": "/glifos_maya/H_VOCALES/1559st.svg",
+    "thompson": "1559st",
+    "family": "H",
+    "variant": "standard"
+  },
+  {
+    "syllable": "ha",
+    "image": "/glifos_maya/H_VOCALES/186bt.svg",
+    "thompson": "186bt",
+    "family": "H",
+    "variant": "bottom"
+  },
+  {
+    "syllable": "ha",
+    "image": "/glifos_maya/H_VOCALES/186bv.svg",
+    "thompson": "186bv",
+    "family": "H",
+    "variant": "bipartite-vertical"
+  },
+  {
+    "syllable": "ha",
+    "image": "/glifos_maya/H_VOCALES/574st.svg",
+    "thompson": "574st",
+    "family": "H",
+    "variant": "standard"
+  },
+  {
+    "syllable": "ha",
+    "image": "/glifos_maya/H_VOCALES/672st.svg",
+    "thompson": "672st",
+    "family": "H",
+    "variant": "standard"
+  },
   {
     "syllable": "i",
-    "image": "/escritura_maya/escritura%20maya%20mejorada/vocales%20puras/I/237bh.svg",
-    "thompson": "237bh"
+    "image": "/glifos_maya/vocales_puras/I/237bh.svg",
+    "thompson": "237bh",
+    "family": "I",
+    "variant": "bipartite-horizontal"
   },
-
   {
     "syllable": "i",
-    "image": "/escritura_maya/escritura%20maya%20mejorada/vocales%20puras/I/679st.svg",
-    "thompson": "679st"
+    "image": "/glifos_maya/vocales_puras/I/679st.svg",
+    "thompson": "679st",
+    "family": "I",
+    "variant": "standard"
   },
-
+  {
+    "syllable": "ja",
+    "image": "/glifos_maya/J_VOCALES/136mp.svg",
+    "thompson": "136mp",
+    "family": "J",
+    "variant": "middle-part"
+  },
+  {
+    "syllable": "ja",
+    "image": "/glifos_maya/J_VOCALES/1521st.svg",
+    "thompson": "1521st",
+    "family": "J",
+    "variant": "standard"
+  },
+  {
+    "syllable": "ja",
+    "image": "/glifos_maya/J_VOCALES/181bh.svg",
+    "thompson": "181bh",
+    "family": "J",
+    "variant": "bipartite-horizontal"
+  },
+  {
+    "syllable": "ja",
+    "image": "/glifos_maya/J_VOCALES/181br.svg",
+    "thompson": "181br",
+    "family": "J",
+    "variant": "bottom-right"
+  },
+  {
+    "syllable": "ja",
+    "image": "/glifos_maya/J_VOCALES/181hh.svg",
+    "thompson": "181hh",
+    "family": "J",
+    "variant": "head-human"
+  },
+  {
+    "syllable": "ja",
+    "image": "/glifos_maya/J_VOCALES/266st.svg",
+    "thompson": "266st",
+    "family": "J",
+    "variant": "standard"
+  },
+  {
+    "syllable": "ja",
+    "image": "/glifos_maya/J_VOCALES/607bt.svg",
+    "thompson": "607bt",
+    "family": "J",
+    "variant": "bottom"
+  },
+  {
+    "syllable": "ja",
+    "image": "/glifos_maya/J_VOCALES/607bv.svg",
+    "thompson": "607bv",
+    "family": "J",
+    "variant": "bipartite-vertical"
+  },
+  {
+    "syllable": "ja",
+    "image": "/glifos_maya/J_VOCALES/69bb.svg",
+    "thompson": "69bb",
+    "family": "J",
+    "variant": "bipartite-bottom"
+  },
+  {
+    "syllable": "ja",
+    "image": "/glifos_maya/J_VOCALES/69bv.svg",
+    "thompson": "69bv",
+    "family": "J",
+    "variant": "bipartite-vertical"
+  },
+  {
+    "syllable": "ja",
+    "image": "/glifos_maya/J_VOCALES/88st.svg",
+    "thompson": "88st",
+    "family": "J",
+    "variant": "standard"
+  },
   {
     "syllable": "ke",
-    "image": "/escritura_maya/escritura%20maya%20mejorada/K%20VOCALES/KE_2.svg"
+    "image": "/glifos_maya/K_VOCALES/738bh.svg",
+    "thompson": "738bh",
+    "family": "K",
+    "variant": "bipartite-horizontal"
   },
-
+  {
+    "syllable": "ke",
+    "image": "/glifos_maya/K_VOCALES/KE_2.svg",
+    "thompson": "KE_2",
+    "family": "K",
+    "variant": "standard"
+  },
+  {
+    "syllable": "la",
+    "image": "/glifos_maya/L_VOCALES/178bh.svg",
+    "thompson": "178bh",
+    "family": "L",
+    "variant": "bipartite-horizontal"
+  },
+  {
+    "syllable": "la",
+    "image": "/glifos_maya/L_VOCALES/178st.svg",
+    "thompson": "178st",
+    "family": "L",
+    "variant": "standard"
+  },
+  {
+    "syllable": "la",
+    "image": "/glifos_maya/L_VOCALES/188st.svg",
+    "thompson": "188st",
+    "family": "L",
+    "variant": "standard"
+  },
+  {
+    "syllable": "la",
+    "image": "/glifos_maya/L_VOCALES/24st.svg",
+    "thompson": "24st",
+    "family": "L",
+    "variant": "standard"
+  },
+  {
+    "syllable": "la",
+    "image": "/glifos_maya/L_VOCALES/568st.svg",
+    "thompson": "568st",
+    "family": "L",
+    "variant": "standard"
+  },
+  {
+    "syllable": "la",
+    "image": "/glifos_maya/L_VOCALES/580st.svg",
+    "thompson": "580st",
+    "family": "L",
+    "variant": "standard"
+  },
+  {
+    "syllable": "la",
+    "image": "/glifos_maya/L_VOCALES/827st.svg",
+    "thompson": "827st",
+    "family": "L",
+    "variant": "standard"
+  },
+  {
+    "syllable": "la",
+    "image": "/glifos_maya/L_VOCALES/82st.svg",
+    "thompson": "82st",
+    "family": "L",
+    "variant": "standard"
+  },
+  {
+    "syllable": "ma",
+    "image": "/glifos_maya/M_VOCALES/1501br.svg",
+    "thompson": "1501br",
+    "family": "M",
+    "variant": "bottom-right"
+  },
+  {
+    "syllable": "ma",
+    "image": "/glifos_maya/M_VOCALES/1592st.svg",
+    "thompson": "1592st",
+    "family": "M",
+    "variant": "standard"
+  },
+  {
+    "syllable": "ma",
+    "image": "/glifos_maya/M_VOCALES/173st.svg",
+    "thompson": "173st",
+    "family": "M",
+    "variant": "standard"
+  },
+  {
+    "syllable": "ma",
+    "image": "/glifos_maya/M_VOCALES/19vl.svg",
+    "thompson": "19vl",
+    "family": "M",
+    "variant": "vertical-left"
+  },
+  {
+    "syllable": "ma",
+    "image": "/glifos_maya/M_VOCALES/19vs.svg",
+    "thompson": "19vs",
+    "family": "M",
+    "variant": "vertical-stack"
+  },
+  {
+    "syllable": "ma",
+    "image": "/glifos_maya/M_VOCALES/502st.svg",
+    "thompson": "502st",
+    "family": "M",
+    "variant": "standard"
+  },
+  {
+    "syllable": "ma",
+    "image": "/glifos_maya/M_VOCALES/582ex.svg",
+    "thompson": "582ex",
+    "family": "M",
+    "variant": "pars-pro-toto"
+  },
+  {
+    "syllable": "ma",
+    "image": "/glifos_maya/M_VOCALES/74tb.svg",
+    "thompson": "74tb",
+    "family": "M",
+    "variant": "top-bottom"
+  },
+  {
+    "syllable": "ma",
+    "image": "/glifos_maya/M_VOCALES/74tt.svg",
+    "thompson": "74tt",
+    "family": "M",
+    "variant": "top-top"
+  },
+  {
+    "syllable": "ma",
+    "image": "/glifos_maya/M_VOCALES/74tv.svg",
+    "thompson": "74tv",
+    "family": "M",
+    "variant": "top-vertical"
+  },
+  {
+    "syllable": "na",
+    "image": "/glifos_maya/N_VOCALES/4vb.svg",
+    "thompson": "4vb",
+    "family": "N",
+    "variant": "vertical-bottom"
+  },
+  {
+    "syllable": "na",
+    "image": "/glifos_maya/N_VOCALES/NA_2.svg",
+    "thompson": "NA_2",
+    "family": "N",
+    "variant": "standard"
+  },
+  {
+    "syllable": "na",
+    "image": "/glifos_maya/N_VOCALES/NA_3.svg",
+    "thompson": "NA_3",
+    "family": "N",
+    "variant": "standard"
+  },
+  {
+    "syllable": "ne",
+    "image": "/glifos_maya/N_VOCALES/NE_1.svg",
+    "thompson": "NE_1",
+    "family": "N",
+    "variant": "standard"
+  },
+  {
+    "syllable": "ne",
+    "image": "/glifos_maya/N_VOCALES/NE_2.svg",
+    "thompson": "NE_2",
+    "family": "N",
+    "variant": "standard"
+  },
+  {
+    "syllable": "ne",
+    "image": "/glifos_maya/N_VOCALES/NE_3.svg",
+    "thompson": "NE_3",
+    "family": "N",
+    "variant": "standard"
+  },
+  {
+    "syllable": "ni",
+    "image": "/glifos_maya/N_VOCALES/NI_1.svg",
+    "thompson": "NI_1",
+    "family": "N",
+    "variant": "standard"
+  },
+  {
+    "syllable": "ni",
+    "image": "/glifos_maya/N_VOCALES/NI_2.svg",
+    "thompson": "NI_2",
+    "family": "N",
+    "variant": "standard"
+  },
+  {
+    "syllable": "ni",
+    "image": "/glifos_maya/N_VOCALES/NI_3.svg",
+    "thompson": "NI_3",
+    "family": "N",
+    "variant": "standard"
+  },
+  {
+    "syllable": "no",
+    "image": "/glifos_maya/N_VOCALES/NO_1.svg",
+    "thompson": "NO_1",
+    "family": "N",
+    "variant": "standard"
+  },
+  {
+    "syllable": "no",
+    "image": "/glifos_maya/N_VOCALES/NO_2.svg",
+    "thompson": "NO_2",
+    "family": "N",
+    "variant": "standard"
+  },
+  {
+    "syllable": "nu",
+    "image": "/glifos_maya/N_VOCALES/NU_1.svg",
+    "thompson": "NU_1",
+    "family": "N",
+    "variant": "standard"
+  },
+  {
+    "syllable": "nu",
+    "image": "/glifos_maya/N_VOCALES/NU_2.svg",
+    "thompson": "NU_2",
+    "family": "N",
+    "variant": "standard"
+  },
+  {
+    "syllable": "nu",
+    "image": "/glifos_maya/N_VOCALES/NU_3.svg",
+    "thompson": "NU_3",
+    "family": "N",
+    "variant": "standard"
+  },
   {
     "syllable": "o",
-    "image": "/escritura_maya/escritura%20maya%20mejorada/vocales%20puras/O/99ex.svg",
-    "thompson": "99ex"
+    "image": "/glifos_maya/vocales_puras/O/99ex.svg",
+    "thompson": "99ex",
+    "family": "O",
+    "variant": "pars-pro-toto"
   },
-
   {
     "syllable": "o",
-    "image": "/escritura_maya/escritura%20maya%20mejorada/vocales%20puras/O/99hc.svg",
-    "thompson": "99hc"
+    "image": "/glifos_maya/vocales_puras/O/99hc.svg",
+    "thompson": "99hc",
+    "family": "O",
+    "variant": "head-creature"
   },
-
   {
     "syllable": "o",
-    "image": "/escritura_maya/escritura%20maya%20mejorada/vocales%20puras/O/O2.svg",
-    "thompson": "O2"
+    "image": "/glifos_maya/vocales_puras/O/O2.svg",
+    "thompson": "O2",
+    "family": "O",
+    "variant": "standard"
   },
-
+  {
+    "syllable": "pa",
+    "image": "/glifos_maya/P_VOCALES/177bb.svg",
+    "thompson": "177bb",
+    "family": "P",
+    "variant": "bipartite-bottom"
+  },
+  {
+    "syllable": "pa",
+    "image": "/glifos_maya/P_VOCALES/177bl.svg",
+    "thompson": "177bl",
+    "family": "P",
+    "variant": "bipartite-left"
+  },
+  {
+    "syllable": "pa",
+    "image": "/glifos_maya/P_VOCALES/622.svg",
+    "thompson": "622",
+    "family": "P",
+    "variant": "standard"
+  },
   {
     "syllable": "po",
-    "image": "/escritura_maya/escritura%20maya%20mejorada/P%20VOCALES/PO_2.svg"
+    "image": "/glifos_maya/P_VOCALES/586hh.svg",
+    "thompson": "586hh",
+    "family": "P",
+    "variant": "head-human"
   },
-
+  {
+    "syllable": "po",
+    "image": "/glifos_maya/P_VOCALES/586st.svg",
+    "thompson": "586st",
+    "family": "P",
+    "variant": "standard"
+  },
+  {
+    "syllable": "po",
+    "image": "/glifos_maya/P_VOCALES/692st.svg",
+    "thompson": "692st",
+    "family": "P",
+    "variant": "standard"
+  },
+  {
+    "syllable": "po",
+    "image": "/glifos_maya/P_VOCALES/PO_2.svg",
+    "thompson": "PO_2",
+    "family": "P",
+    "variant": "standard"
+  },
+  {
+    "syllable": "sa",
+    "image": "/glifos_maya/S_VOCALES/SA_1.svg",
+    "thompson": "SA_1",
+    "family": "S",
+    "variant": "standard"
+  },
+  {
+    "syllable": "sa",
+    "image": "/glifos_maya/S_VOCALES/SA_2.svg",
+    "thompson": "SA_2",
+    "family": "S",
+    "variant": "standard"
+  },
+  {
+    "syllable": "sa",
+    "image": "/glifos_maya/S_VOCALES/SA_3.svg",
+    "thompson": "SA_3",
+    "family": "S",
+    "variant": "standard"
+  },
+  {
+    "syllable": "sa",
+    "image": "/glifos_maya/S_VOCALES/SA_4.svg",
+    "thompson": "SA_4",
+    "family": "S",
+    "variant": "standard"
+  },
+  {
+    "syllable": "tz'a",
+    "image": "/glifos_maya/TZ_glotal_VOCALES/68tv.svg",
+    "thompson": "68tv",
+    "family": "TZ'",
+    "variant": "top-vertical"
+  },
   {
     "syllable": "u",
-    "image": "/escritura_maya/escritura%20maya%20mejorada/vocales%20puras/U/1bh.svg",
-    "thompson": "1bh"
+    "image": "/glifos_maya/vocales_puras/U/1bh.svg",
+    "thompson": "1bh",
+    "family": "U",
+    "variant": "bipartite-horizontal"
   },
-
   {
     "syllable": "u",
-    "image": "/escritura_maya/escritura%20maya%20mejorada/vocales%20puras/U/1ex.svg",
-    "thompson": "1ex"
+    "image": "/glifos_maya/vocales_puras/U/1ex.svg",
+    "thompson": "1ex",
+    "family": "U",
+    "variant": "pars-pro-toto"
   },
-
   {
     "syllable": "u",
-    "image": "/escritura_maya/escritura%20maya%20mejorada/vocales%20puras/U/204bt.svg",
-    "thompson": "204bt"
+    "image": "/glifos_maya/vocales_puras/U/204bt.svg",
+    "thompson": "204bt",
+    "family": "U",
+    "variant": "bottom"
   },
-
   {
     "syllable": "u",
-    "image": "/escritura_maya/escritura%20maya%20mejorada/vocales%20puras/U/211ta.svg",
-    "thompson": "211ta"
+    "image": "/glifos_maya/vocales_puras/U/211ta.svg",
+    "thompson": "211ta",
+    "family": "U",
+    "variant": "top-a"
   },
-
   {
     "syllable": "u",
-    "image": "/escritura_maya/escritura%20maya%20mejorada/vocales%20puras/U/211ti.svg",
-    "thompson": "211ti"
+    "image": "/glifos_maya/vocales_puras/U/211ti.svg",
+    "thompson": "211ti",
+    "family": "U",
+    "variant": "top-i"
   },
-
   {
     "syllable": "u",
-    "image": "/escritura_maya/escritura%20maya%20mejorada/vocales%20puras/U/513bt.svg",
-    "thompson": "513bt"
+    "image": "/glifos_maya/vocales_puras/U/513bt.svg",
+    "thompson": "513bt",
+    "family": "U",
+    "variant": "bottom"
   },
-
   {
     "syllable": "u",
-    "image": "/escritura_maya/escritura%20maya%20mejorada/vocales%20puras/U/760st.svg",
-    "thompson": "760st"
+    "image": "/glifos_maya/vocales_puras/U/760st.svg",
+    "thompson": "760st",
+    "family": "U",
+    "variant": "standard"
   },
-
   {
     "syllable": "u",
-    "image": "/escritura_maya/escritura%20maya%20mejorada/vocales%20puras/U/U6.svg",
-    "thompson": "U6"
+    "image": "/glifos_maya/vocales_puras/U/U6.svg",
+    "thompson": "U6",
+    "family": "U",
+    "variant": "standard"
+  },
+  {
+    "syllable": "wi",
+    "image": "/glifos_maya/W_VOCALES/130bh.svg",
+    "thompson": "130bh",
+    "family": "W",
+    "variant": "bipartite-horizontal"
+  },
+  {
+    "syllable": "ya",
+    "image": "/glifos_maya/Y_VOCALES/YA_1.svg",
+    "thompson": "YA_1",
+    "family": "Y",
+    "variant": "standard"
+  },
+  {
+    "syllable": "ya",
+    "image": "/glifos_maya/Y_VOCALES/YA_2.svg",
+    "thompson": "YA_2",
+    "family": "Y",
+    "variant": "standard"
+  },
+  {
+    "syllable": "ye",
+    "image": "/glifos_maya/Y_VOCALES/YE_1.svg",
+    "thompson": "YE_1",
+    "family": "Y",
+    "variant": "standard"
+  },
+  {
+    "syllable": "ye",
+    "image": "/glifos_maya/Y_VOCALES/YE_2.svg",
+    "thompson": "YE_2",
+    "family": "Y",
+    "variant": "standard"
+  },
+  {
+    "syllable": "yi",
+    "image": "/glifos_maya/Y_VOCALES/YI_1.svg",
+    "thompson": "YI_1",
+    "family": "Y",
+    "variant": "standard"
+  },
+  {
+    "syllable": "yi",
+    "image": "/glifos_maya/Y_VOCALES/YI_2.svg",
+    "thompson": "YI_2",
+    "family": "Y",
+    "variant": "standard"
+  },
+  {
+    "syllable": "yo",
+    "image": "/glifos_maya/Y_VOCALES/YO_1.svg",
+    "thompson": "YO_1",
+    "family": "Y",
+    "variant": "standard"
+  },
+  {
+    "syllable": "yo",
+    "image": "/glifos_maya/Y_VOCALES/YO_2.svg",
+    "thompson": "YO_2",
+    "family": "Y",
+    "variant": "standard"
+  },
+  {
+    "syllable": "yu",
+    "image": "/glifos_maya/Y_VOCALES/YU.svg",
+    "thompson": "YU",
+    "family": "Y",
+    "variant": "standard"
   }
 ]

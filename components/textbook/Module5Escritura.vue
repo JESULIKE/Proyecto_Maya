@@ -108,19 +108,19 @@
                 <div class="flex gap-3 items-center">
                   <div class="text-center">
                     <div class="w-14 h-14 bg-white rounded-lg border border-red-300 flex items-center justify-center">
-                      <img src="/escritura_maya/escritura%20maya%20mejorada/B%20VOCALES/301st.svg" class="w-10 h-10 object-contain" />
+                      <img :src="'/escritura_maya/escritura%20maya%20mejorada/B%20VOCALES/301st.svg'" class="w-10 h-10 object-contain" />
                     </div>
                     <div class="text-xs text-red-700 font-bold mt-1">JA</div>
                   </div>
                   <div class="text-center">
                     <div class="w-14 h-14 bg-white rounded-lg border border-red-300 flex items-center justify-center">
-                      <img src="/escritura_maya/escritura%20maya%20mejorada/vocales%20puras/U/1bh.svg" class="w-10 h-10 object-contain" />
+                      <img :src="'/escritura_maya/escritura%20maya%20mejorada/vocales%20puras/U/1bh.svg'" class="w-10 h-10 object-contain" />
                     </div>
                     <div class="text-xs text-red-700 font-bold mt-1">U</div>
                   </div>
                   <div class="text-center">
                     <div class="w-14 h-14 bg-white rounded-lg border border-red-300 flex items-center justify-center">
-                      <img src="/escritura_maya/escritura%20maya%20mejorada/M%20VOCALES/173st.svg" class="w-10 h-10 object-contain" />
+                      <img :src="'/escritura_maya/escritura%20maya%20mejorada/M%20VOCALES/173st.svg'" class="w-10 h-10 object-contain" />
                     </div>
                     <div class="text-xs text-red-700 font-bold mt-1">AN</div>
                   </div>
