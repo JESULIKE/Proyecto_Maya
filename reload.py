@@ -1,12 +1,15 @@
 from flask import Flask, jsonify
+import os
 import requests
 
 app = Flask(__name__)
 
 @app.route('/reload')
 def reload_webapp():
-    username = 'edutlasdeveloper'
-    token = '948d6fcd61747d31c0e5f957e1aba217c52f6076'
+    username = os.environ.get('PYTHONANYWHERE_USER', 'edutlasdeveloper')
+    token = os.environ.get('PYTHONANYWHERE_TOKEN')
+    if not token:
+        return jsonify({'error': 'PYTHONANYWHERE_TOKEN environment variable not set'}), 500
     domain = f'{username}.pythonanywhere.com'
 
     response = requests.post(

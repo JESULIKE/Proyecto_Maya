@@ -18,6 +18,9 @@ logs
 .fleet
 .idea
 
+# OpenCode tool internal files
+.opencode
+
 # Local env files
 .env
 .env.*

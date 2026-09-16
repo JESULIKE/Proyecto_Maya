@@ -1,0 +1,251 @@
+[
+  { "syllable": "a", "image": "/escritura_maya/vocales puras/A/12st.svg" },
+  { "syllable": "a", "image": "/escritura_maya/vocales puras/A/229bh.svg" },
+  { "syllable": "a", "image": "/escritura_maya/vocales puras/A/229bl.svg" },
+  { "syllable": "a", "image": "/escritura_maya/vocales puras/A/238st.svg" },
+  { "syllable": "a", "image": "/escritura_maya/vocales puras/A/A4.svg" },
+
+  { "syllable": "e", "image": "/escritura_maya/vocales puras/E/542ex.svg" },
+  { "syllable": "e", "image": "/escritura_maya/vocales puras/E/542st.svg" },
+
+  { "syllable": "i", "image": "/escritura_maya/vocales puras/I/237bh.svg" },
+  { "syllable": "i", "image": "/escritura_maya/vocales puras/I/679st.svg" },
+
+  { "syllable": "o", "image": "/escritura_maya/vocales puras/O/99ex.svg" },
+  { "syllable": "o", "image": "/escritura_maya/vocales puras/O/99hc.svg" },
+  { "syllable": "o", "image": "/escritura_maya/vocales puras/O/O2.svg" },
+
+  { "syllable": "u", "image": "/escritura_maya/vocales puras/U/1bh.svg" },
+  { "syllable": "u", "image": "/escritura_maya/vocales puras/U/1ex.svg" },
+  { "syllable": "u", "image": "/escritura_maya/vocales puras/U/204bt.svg" },
+  { "syllable": "u", "image": "/escritura_maya/vocales puras/U/211ta.svg" },
+  { "syllable": "u", "image": "/escritura_maya/vocales puras/U/211ti.svg" },
+  { "syllable": "u", "image": "/escritura_maya/vocales puras/U/513bt.svg" },
+  { "syllable": "u", "image": "/escritura_maya/vocales puras/U/760st.svg" },
+  { "syllable": "u", "image": "/escritura_maya/vocales puras/U/U6.svg" },
+
+  { "syllable": "ba", "image": "/escritura_maya/B VOCALES/21.svg" },
+  { "syllable": "ba", "image": "/escritura_maya/B VOCALES/21v.svg" },
+  { "syllable": "ba", "image": "/escritura_maya/B VOCALES/301.svg" },
+  
+  { "syllable": "bi", "image": "/escritura_maya/B VOCALES/BI_1.svg" },
+  { "syllable": "bi", "image": "/escritura_maya/B VOCALES/BI_2.svg" },
+  { "syllable": "bi", "image": "/escritura_maya/B VOCALES/BI_3.svg" },
+
+  { "syllable": "bo", "image": "/escritura_maya/B VOCALES/BO.svg" },
+
+  { "syllable": "bu", "image": "/escritura_maya/B VOCALES/BU_1.svg" },
+  { "syllable": "bu", "image": "/escritura_maya/B VOCALES/BU_2.svg" },
+
+  { "syllable": "cha", "image": "/escritura_maya/CH VOCALES/CHA_1.svg" },
+  { "syllable": "cha", "image": "/escritura_maya/CH VOCALES/CHA_2.svg" },
+  { "syllable": "cha", "image": "/escritura_maya/CH VOCALES/CHA_3.svg" },
+  { "syllable": "cha", "image": "/escritura_maya/CH VOCALES/CHA_4.svg" },
+
+  { "syllable": "che", "image": "/escritura_maya/CH VOCALES/CHE_1.svg" },
+  { "syllable": "che", "image": "/escritura_maya/CH VOCALES/CHE_2.svg" },
+
+  { "syllable": "chi", "image": "/escritura_maya/CH VOCALES/CHI_1.svg" },
+  { "syllable": "chi", "image": "/escritura_maya/CH VOCALES/CHI_2.svg" },
+
+  { "syllable": "cho", "image": "/escritura_maya/CH VOCALES/CHO.svg" },
+
+  { "syllable": "chu", "image": "/escritura_maya/CH VOCALES/CHU.svg" },
+
+  { "syllable": "ch´a", "image": "/escritura_maya/CH´ VOCALES/CH´A_1.svg" },
+  { "syllable": "ch´a", "image": "/escritura_maya/CH´ VOCALES/CH´A_2.svg" },
+
+  { "syllable": "ch´o", "image": "/escritura_maya/CH´ VOCALES/CH´O.svg" },
+
+  { "syllable": "ha", "image": "/escritura_maya/H VOCALES/HA.svg" },
+
+  { "syllable": "he", "image": "/escritura_maya/H VOCALES/HE.svg" },
+
+  { "syllable": "hi", "image": "/escritura_maya/H VOCALES/HI_1.svg" },
+  { "syllable": "hi", "image": "/escritura_maya/H VOCALES/HI_2.svg" },
+
+  { "syllable": "ho", "image": "/escritura_maya/H VOCALES/HO.svg" },
+
+  { "syllable": "hu", "image": "/escritura_maya/H VOCALES/HU.svg" },
+
+  { "syllable": "ja", "image": "/escritura_maya/J VOCALES/JA_1.svg" },
+  { "syllable": "ja", "image": "/escritura_maya/J VOCALES/JA_2.svg" },
+  { "syllable": "ja", "image": "/escritura_maya/J VOCALES/JA_3.svg" },
+
+  { "syllable": "je", "image": "/escritura_maya/J VOCALES/JE_1.svg" },
+  { "syllable": "je", "image": "/escritura_maya/J VOCALES/JE_2.svg" },
+
+  { "syllable": "ji", "image": "/escritura_maya/J VOCALES/JI_1.svg" },
+  { "syllable": "ji", "image": "/escritura_maya/J VOCALES/JI_2.svg" },
+  { "syllable": "ji", "image": "/escritura_maya/J VOCALES/JI_3.svg" },
+
+  { "syllable": "jo", "image": "/escritura_maya/J VOCALES/JO_1.svg" },
+  { "syllable": "jo", "image": "/escritura_maya/J VOCALES/JO_2.svg" },
+
+  { "syllable": "ju", "image": "/escritura_maya/J VOCALES/JU.svg" },
+
+  { "syllable": "ka", "image": "/escritura_maya/K VOCALES/KA 1.png" },
+  { "syllable": "ka", "image": "/escritura_maya/K VOCALES/KA 2.png" },
+  { "syllable": "ka", "image": "/escritura_maya/K VOCALES/KA 3.png" },
+  { "syllable": "ka", "image": "/escritura_maya/K VOCALES/KA 4.png" },
+
+  { "syllable": "ke", "image": "/escritura_maya/K VOCALES/KE 1.png" },
+  { "syllable": "ke", "image": "/escritura_maya/K VOCALES/KE 2.png" },
+
+  { "syllable": "ki", "image": "/escritura_maya/K VOCALES/KI 1.png" },
+  { "syllable": "ki", "image": "/escritura_maya/K VOCALES/KI 2.png" },
+  { "syllable": "ki", "image": "/escritura_maya/K VOCALES/KI 3.png" },
+
+  { "syllable": "ko", "image": "/escritura_maya/K VOCALES/KO.png" },
+
+  { "syllable": "ku", "image": "/escritura_maya/K VOCALES/KU 1.png" },
+  { "syllable": "ku", "image": "/escritura_maya/K VOCALES/KU 2.png" },
+
+  { "syllable": "k´a", "image":"/escritura_maya/K´ VOCALES/K´A 1.png" },
+  { "syllable": "k´a", "image": "/escritura_maya/K´ VOCALES/K´A 2.png" },
+
+  { "syllable": "k´e", "image": "/escritura_maya/K´ VOCALES/K´E 1.png" },
+  { "syllable": "k´e", "image": "/escritura_maya/K´ VOCALES/K´E 2.png" },
+
+  { "syllable": "k´i", "image": "/escritura_maya/K´ VOCALES/K´I.png" },
+
+  { "syllable": "k´o", "image": "/escritura_maya/K´ VOCALES/K´O.png" },
+
+  { "syllable": "k´u", "image": "/escritura_maya/K´ VOCALES/K´U 1.png" },
+  { "syllable": "k´u", "image": "/escritura_maya/K´ VOCALES/K´U 2.png" },
+
+  { "syllable": "la", "image": "/escritura_maya/L VOCALES/LA 1.png" },
+  { "syllable": "la", "image": "/escritura_maya/L VOCALES/LA 2.png" },
+
+  { "syllable": "le", "image": "/escritura_maya/L VOCALES/LE.png" },
+
+  { "syllable": "li", "image": "/escritura_maya/L VOCALES/LI 1.png" },
+  { "syllable": "li", "image": "/escritura_maya/L VOCALES/LI 2.png" },
+  { "syllable": "li", "image": "/escritura_maya/L VOCALES/LI 3.png" },
+
+  { "syllable": "lo", "image": "/escritura_maya/L VOCALES/LO.png" },
+
+  { "syllable": "lu", "image": "/escritura_maya/L VOCALES/LU.png" },
+
+  { "syllable": "ma", "image": "/escritura_maya/M VOCALES/MA 1.png" },
+  { "syllable": "ma", "image": "/escritura_maya/M VOCALES/MA 2.png" },
+  { "syllable": "ma", "image": "/escritura_maya/M VOCALES/MA 3.png" },
+  { "syllable": "ma", "image": "/escritura_maya/M VOCALES/MA 4.png" },
+
+  { "syllable": "me", "image": "/escritura_maya/M VOCALES/ME.png" },
+
+  { "syllable": "mi", "image": "/escritura_maya/M VOCALES/MI 1.png" },
+  { "syllable": "mi", "image": "/escritura_maya/M VOCALES/MI 2.png" },
+
+  { "syllable": "mo", "image": "/escritura_maya/M VOCALES/MO.png" },
+
+  { "syllable": "mu", "image": "/escritura_maya/M VOCALES/MU 1.png" },
+  { "syllable": "mu", "image": "/escritura_maya/M VOCALES/MU 2.png" },
+
+  { "syllable": "na", "image": "/escritura_maya/N VOCALES/NA 1.png" },
+  { "syllable": "na", "image": "/escritura_maya/N VOCALES/NA 2.png" },
+  { "syllable": "na", "image": "/escritura_maya/N VOCALES/NA 3.png" },
+
+  { "syllable": "ne", "image": "/escritura_maya/N VOCALES/NE 1.png" },
+  { "syllable": "ne", "image": "/escritura_maya/N VOCALES/NE 2.png" },
+  { "syllable": "ne", "image": "/escritura_maya/N VOCALES/NE 3.png" },
+
+  { "syllable": "ni", "image": "/escritura_maya/N VOCALES/NI 1.png" },
+  { "syllable": "ni", "image": "/escritura_maya/N VOCALES/NI 2.png" },
+  { "syllable": "ni", "image": "/escritura_maya/N VOCALES/NI 3.png" },
+
+  { "syllable": "no", "image": "/escritura_maya/N VOCALES/NO 1.png" },
+  { "syllable": "no", "image": "/escritura_maya/N VOCALES/NO 2.png" },
+
+  { "syllable": "nu", "image": "/escritura_maya/N VOCALES/NU 1.png" },
+  { "syllable": "nu", "image": "/escritura_maya/N VOCALES/NU 2.png" },
+  { "syllable": "nu", "image": "/escritura_maya/N VOCALES/NU 3.png" },
+
+  { "syllable": "pa", "image": "/escritura_maya/P VOCALES/PA_1.svg" },
+  { "syllable": "pa", "image": "/escritura_maya/P VOCALES/PA 2.png" },
+
+  { "syllable": "pi", "image": "/escritura_maya/P VOCALES/PI 1.png" },
+  { "syllable": "pi", "image": "/escritura_maya/P VOCALES/PI 2.png" },
+
+  { "syllable": "po", "image": "/escritura_maya/P VOCALES/PO 1.png" },
+  { "syllable": "po", "image": "/escritura_maya/P VOCALES/PO 2.png" },
+
+  { "syllable": "pu", "image": "/escritura_maya/P VOCALES/PU.png" },
+
+  { "syllable": "sa", "image": "/escritura_maya/S VOCALES/SA 1.png" },
+  { "syllable": "sa", "image": "/escritura_maya/S VOCALES/SA 2.png" },
+  { "syllable": "sa", "image": "/escritura_maya/S VOCALES/SA 3.png" },
+  { "syllable": "sa", "image": "/escritura_maya/S VOCALES/SA 4.png" },
+  { "syllable": "sa", "image": "/escritura_maya/S VOCALES/SA 5.png" },
+
+  { "syllable": "se", "image": "/escritura_maya/S VOCALES/SE.png" },
+
+  { "syllable": "si", "image": "/escritura_maya/S VOCALES/SI 1.png" },
+  { "syllable": "si", "image": "/escritura_maya/S VOCALES/SI 2.png" },
+
+  { "syllable": "ta", "image": "/escritura_maya/T VOCALES/TA 1.png" },
+  { "syllable": "ta", "image": "/escritura_maya/T VOCALES/TA 2.png" },
+  { "syllable": "ta", "image": "/escritura_maya/T VOCALES/TA 3.png" },
+  { "syllable": "ta", "image": "/escritura_maya/T VOCALES/TA 4.png" },
+  { "syllable": "ta", "image": "/escritura_maya/T VOCALES/TA 5.png" },
+
+  { "syllable": "te", "image": "/escritura_maya/T VOCALES/TE.png" },
+
+  { "syllable": "ti", "image": "/escritura_maya/T VOCALES/TI 1.png" },
+  { "syllable": "ti", "image": "/escritura_maya/T VOCALES/TI 2.png" },
+
+  { "syllable": "to", "image": "/escritura_maya/T VOCALES/TO 1.png" },
+  { "syllable": "to", "image": "/escritura_maya/T VOCALES/TO 2.png" },
+  { "syllable": "to", "image": "/escritura_maya/T VOCALES/TO 3.png" },
+
+  { "syllable": "tu", "image": "/escritura_maya/T VOCALES/TU.png" },
+
+  { "syllable": "t´u", "image": "/escritura_maya/T´ VOCALES/T´U.png" },
+
+  { "syllable": "tza", "image": "/escritura_maya/TZ VOCALES/TZ A.png" },
+
+  { "syllable": "tze", "image": "/escritura_maya/TZ VOCALES/TZ E.png" },
+
+  { "syllable": "tzi", "image": "/escritura_maya/TZ VOCALES/TZ I 1.png" },
+  { "syllable": "tzi", "image": "/escritura_maya/TZ VOCALES/TZ I 2.png" },
+
+  { "syllable": "tzu", "image": "/escritura_maya/TZ VOCALES/TZ U.png" },
+
+  { "syllable": "tz´a", "image": "/escritura_maya/TZ´ VOCALES/TZ´A.svg" },
+
+  { "syllable": "tz´i", "image": "/escritura_maya/TZ´ VOCALES/TZ´I.png" },
+
+  { "syllable": "tz´u", "image": "/escritura_maya/TZ´ VOCALES/TZ´U 1.png" },
+  { "syllable": "tz´u", "image": "/escritura_maya/TZ´ VOCALES/TZ´U 2.png" },
+
+  { "syllable": "wa", "image": "/escritura_maya/W VOCALES/WA_1.png" },
+  { "syllable": "wa", "image": "/escritura_maya/W VOCALES/WA 2.png" },
+
+  { "syllable": "we", "image": "/escritura_maya/W VOCALES/WE.png" },
+
+  { "syllable": "wi", "image": "/escritura_maya/W VOCALES/WI.png" },
+
+  { "syllable": "wo", "image": "/escritura_maya/W VOCALES/WO.png" },
+
+  { "syllable": "xa", "image": "/escritura_maya/X VOCALES/XA.png" },
+
+  { "syllable": "xi", "image": "/escritura_maya/X VOCALES/XI.png" },
+
+  { "syllable": "xo", "image": "/escritura_maya/X VOCALES/XO.png" },
+
+  { "syllable": "xu", "image": "/escritura_maya/X VOCALES/XU.png" },
+
+  { "syllable": "ya", "image": "/escritura_maya/Y VOCALES/YA 1.png" },
+  { "syllable": "ya", "image": "/escritura_maya/Y VOCALES/YA 2.png" },
+  
+  { "syllable": "ye", "image": "/escritura_maya/Y VOCALES/YE 1.png" },
+  { "syllable": "ye", "image": "/escritura_maya/Y VOCALES/YE 2.png" },
+
+  { "syllable": "yi", "image": "/escritura_maya/Y VOCALES/YI 1.png" },
+  { "syllable": "yi", "image": "/escritura_maya/Y VOCALES/YI 2.png" },
+
+  { "syllable": "yo", "image": "/escritura_maya/Y VOCALES/YO 1.png" },
+  { "syllable": "yo", "image": "/escritura_maya/Y VOCALES/YO 2.png" },
+
+  { "syllable": "yu", "image": "/escritura_maya/Y VOCALES/YU.png" }
+]

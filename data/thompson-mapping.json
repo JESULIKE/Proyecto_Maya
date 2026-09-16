@@ -1,0 +1,1499 @@
+{
+    "syllabograms": {
+        "21": [
+            {
+                "thompson": "21",
+                "syllable": "ba",
+                "image": "/escritura_maya/B VOCALES/21.svg",
+                "variant": "standard",
+                "frequency": "very-high"
+            }
+        ],
+        "301": [
+            {
+                "thompson": "301",
+                "syllable": "ba",
+                "image": "/escritura_maya/B VOCALES/301.svg",
+                "variant": "standard",
+                "frequency": "very-high"
+            }
+        ],
+        "12st": [
+            {
+                "thompson": "12st",
+                "syllable": "a",
+                "image": "/escritura_maya/vocales puras/A/12st.svg",
+                "variant": "standard",
+                "frequency": "very-high"
+            }
+        ],
+        "1bh": [
+            {
+                "thompson": "1bh",
+                "syllable": "u",
+                "image": "/escritura_maya/vocales puras/U/1bh.svg",
+                "variant": "head",
+                "frequency": "very-high"
+            }
+        ],
+        "1ex": [
+            {
+                "thompson": "1ex",
+                "syllable": "u",
+                "image": "/escritura_maya/vocales puras/U/1ex.svg",
+                "variant": "standard",
+                "frequency": "very-high"
+            }
+        ],
+        "204bt": [
+            {
+                "thompson": "204bt",
+                "syllable": "u",
+                "image": "/escritura_maya/vocales puras/U/204bt.svg",
+                "variant": "head",
+                "frequency": "very-high"
+            }
+        ],
+        "211ta": [
+            {
+                "thompson": "211ta",
+                "syllable": "u",
+                "image": "/escritura_maya/vocales puras/U/211ta.svg",
+                "variant": "standard",
+                "frequency": "very-high"
+            }
+        ],
+        "211ti": [
+            {
+                "thompson": "211ti",
+                "syllable": "u",
+                "image": "/escritura_maya/vocales puras/U/211ti.svg",
+                "variant": "standard",
+                "frequency": "very-high"
+            }
+        ],
+        "21v": [
+            {
+                "thompson": "21v",
+                "syllable": "ba",
+                "image": "/escritura_maya/B VOCALES/21v.svg",
+                "variant": "standard",
+                "frequency": "very-high"
+            }
+        ],
+        "229bh": [
+            {
+                "thompson": "229bh",
+                "syllable": "a",
+                "image": "/escritura_maya/vocales puras/A/229bh.svg",
+                "variant": "head",
+                "frequency": "very-high"
+            }
+        ],
+        "229bl": [
+            {
+                "thompson": "229bl",
+                "syllable": "a",
+                "image": "/escritura_maya/vocales puras/A/229bl.svg",
+                "variant": "standard",
+                "frequency": "very-high"
+            }
+        ],
+        "237bh": [
+            {
+                "thompson": "237bh",
+                "syllable": "i",
+                "image": "/escritura_maya/vocales puras/I/237bh.svg",
+                "variant": "head",
+                "frequency": "very-high"
+            }
+        ],
+        "238st": [
+            {
+                "thompson": "238st",
+                "syllable": "a",
+                "image": "/escritura_maya/vocales puras/A/238st.svg",
+                "variant": "standard",
+                "frequency": "very-high"
+            }
+        ],
+        "513bt": [
+            {
+                "thompson": "513bt",
+                "syllable": "u",
+                "image": "/escritura_maya/vocales puras/U/513bt.svg",
+                "variant": "head",
+                "frequency": "very-high"
+            }
+        ],
+        "542ex": [
+            {
+                "thompson": "542ex",
+                "syllable": "e",
+                "image": "/escritura_maya/vocales puras/E/542ex.svg",
+                "variant": "standard",
+                "frequency": "very-high"
+            }
+        ],
+        "542st": [
+            {
+                "thompson": "542st",
+                "syllable": "e",
+                "image": "/escritura_maya/vocales puras/E/542st.svg",
+                "variant": "standard",
+                "frequency": "very-high"
+            }
+        ],
+        "679st": [
+            {
+                "thompson": "679st",
+                "syllable": "i",
+                "image": "/escritura_maya/vocales puras/I/679st.svg",
+                "variant": "standard",
+                "frequency": "very-high"
+            }
+        ],
+        "760st": [
+            {
+                "thompson": "760st",
+                "syllable": "u",
+                "image": "/escritura_maya/vocales puras/U/760st.svg",
+                "variant": "standard",
+                "frequency": "very-high"
+            }
+        ],
+        "99ex": [
+            {
+                "thompson": "99ex",
+                "syllable": "o",
+                "image": "/escritura_maya/vocales puras/O/99ex.svg",
+                "variant": "standard",
+                "frequency": "very-high"
+            }
+        ],
+        "99hc": [
+            {
+                "thompson": "99hc",
+                "syllable": "o",
+                "image": "/escritura_maya/vocales puras/O/99hc.svg",
+                "variant": "standard",
+                "frequency": "very-high"
+            }
+        ],
+        "A4": [
+            {
+                "thompson": "A4",
+                "syllable": "a",
+                "image": "/escritura_maya/vocales puras/A/A4.svg",
+                "variant": "standard",
+                "frequency": "high"
+            }
+        ],
+        "BI_1": [
+            {
+                "thompson": "BI_1",
+                "syllable": "bi",
+                "image": "/escritura_maya/B VOCALES/BI_1.svg",
+                "variant": "standard",
+                "frequency": "very-high"
+            }
+        ],
+        "BI_2": [
+            {
+                "thompson": "BI_2",
+                "syllable": "bi",
+                "image": "/escritura_maya/B VOCALES/BI_2.svg",
+                "variant": "standard",
+                "frequency": "high"
+            }
+        ],
+        "BI_3": [
+            {
+                "thompson": "BI_3",
+                "syllable": "bi",
+                "image": "/escritura_maya/B VOCALES/BI_3.svg",
+                "variant": "standard",
+                "frequency": "high"
+            }
+        ],
+        "BO": [
+            {
+                "thompson": "BO",
+                "syllable": "bo",
+                "image": "/escritura_maya/B VOCALES/BO.svg",
+                "variant": "standard",
+                "frequency": "high"
+            }
+        ],
+        "BU_1": [
+            {
+                "thompson": "BU_1",
+                "syllable": "bu",
+                "image": "/escritura_maya/B VOCALES/BU_1.svg",
+                "variant": "standard",
+                "frequency": "very-high"
+            }
+        ],
+        "BU_2": [
+            {
+                "thompson": "BU_2",
+                "syllable": "bu",
+                "image": "/escritura_maya/B VOCALES/BU_2.svg",
+                "variant": "standard",
+                "frequency": "high"
+            }
+        ],
+        "CHA_1": [
+            {
+                "thompson": "CHA_1",
+                "syllable": "cha",
+                "image": "/escritura_maya/CH VOCALES/CHA_1.svg",
+                "variant": "standard",
+                "frequency": "very-high"
+            }
+        ],
+        "CHA_2": [
+            {
+                "thompson": "CHA_2",
+                "syllable": "cha",
+                "image": "/escritura_maya/CH VOCALES/CHA_2.svg",
+                "variant": "standard",
+                "frequency": "high"
+            }
+        ],
+        "CHA_3": [
+            {
+                "thompson": "CHA_3",
+                "syllable": "cha",
+                "image": "/escritura_maya/CH VOCALES/CHA_3.svg",
+                "variant": "standard",
+                "frequency": "high"
+            }
+        ],
+        "CHA_4": [
+            {
+                "thompson": "CHA_4",
+                "syllable": "cha",
+                "image": "/escritura_maya/CH VOCALES/CHA_4.svg",
+                "variant": "standard",
+                "frequency": "high"
+            }
+        ],
+        "CHE_1": [
+            {
+                "thompson": "CHE_1",
+                "syllable": "che",
+                "image": "/escritura_maya/CH VOCALES/CHE_1.svg",
+                "variant": "standard",
+                "frequency": "very-high"
+            }
+        ],
+        "CHE_2": [
+            {
+                "thompson": "CHE_2",
+                "syllable": "che",
+                "image": "/escritura_maya/CH VOCALES/CHE_2.svg",
+                "variant": "standard",
+                "frequency": "high"
+            }
+        ],
+        "CHI_1": [
+            {
+                "thompson": "CHI_1",
+                "syllable": "chi",
+                "image": "/escritura_maya/CH VOCALES/CHI_1.svg",
+                "variant": "standard",
+                "frequency": "very-high"
+            }
+        ],
+        "CHI_2": [
+            {
+                "thompson": "CHI_2",
+                "syllable": "chi",
+                "image": "/escritura_maya/CH VOCALES/CHI_2.svg",
+                "variant": "standard",
+                "frequency": "high"
+            }
+        ],
+        "CHO": [
+            {
+                "thompson": "CHO",
+                "syllable": "cho",
+                "image": "/escritura_maya/CH VOCALES/CHO.svg",
+                "variant": "standard",
+                "frequency": "high"
+            }
+        ],
+        "CHU": [
+            {
+                "thompson": "CHU",
+                "syllable": "chu",
+                "image": "/escritura_maya/CH VOCALES/CHU.svg",
+                "variant": "standard",
+                "frequency": "high"
+            }
+        ],
+        "CH´A_1": [
+            {
+                "thompson": "CH´A_1",
+                "syllable": "ch´a",
+                "image": "/escritura_maya/CH´ VOCALES/CH´A_1.svg",
+                "variant": "standard",
+                "frequency": "very-high"
+            }
+        ],
+        "CH´A_2": [
+            {
+                "thompson": "CH´A_2",
+                "syllable": "ch´a",
+                "image": "/escritura_maya/CH´ VOCALES/CH´A_2.svg",
+                "variant": "standard",
+                "frequency": "high"
+            }
+        ],
+        "CH´O": [
+            {
+                "thompson": "CH´O",
+                "syllable": "ch´o",
+                "image": "/escritura_maya/CH´ VOCALES/CH´O.svg",
+                "variant": "standard",
+                "frequency": "high"
+            }
+        ],
+        "HA": [
+            {
+                "thompson": "HA",
+                "syllable": "ha",
+                "image": "/escritura_maya/H VOCALES/HA.svg",
+                "variant": "standard",
+                "frequency": "high"
+            }
+        ],
+        "HE": [
+            {
+                "thompson": "HE",
+                "syllable": "he",
+                "image": "/escritura_maya/H VOCALES/HE.svg",
+                "variant": "standard",
+                "frequency": "high"
+            }
+        ],
+        "HI_1": [
+            {
+                "thompson": "HI_1",
+                "syllable": "hi",
+                "image": "/escritura_maya/H VOCALES/HI_1.svg",
+                "variant": "standard",
+                "frequency": "very-high"
+            }
+        ],
+        "HI_2": [
+            {
+                "thompson": "HI_2",
+                "syllable": "hi",
+                "image": "/escritura_maya/H VOCALES/HI_2.svg",
+                "variant": "standard",
+                "frequency": "high"
+            }
+        ],
+        "HO": [
+            {
+                "thompson": "HO",
+                "syllable": "ho",
+                "image": "/escritura_maya/H VOCALES/HO.svg",
+                "variant": "standard",
+                "frequency": "high"
+            }
+        ],
+        "HU": [
+            {
+                "thompson": "HU",
+                "syllable": "hu",
+                "image": "/escritura_maya/H VOCALES/HU.svg",
+                "variant": "standard",
+                "frequency": "high"
+            }
+        ],
+        "JA_1": [
+            {
+                "thompson": "JA_1",
+                "syllable": "ja",
+                "image": "/escritura_maya/J VOCALES/JA_1.svg",
+                "variant": "standard",
+                "frequency": "very-high"
+            }
+        ],
+        "JA_2": [
+            {
+                "thompson": "JA_2",
+                "syllable": "ja",
+                "image": "/escritura_maya/J VOCALES/JA_2.svg",
+                "variant": "standard",
+                "frequency": "high"
+            }
+        ],
+        "JA_3": [
+            {
+                "thompson": "JA_3",
+                "syllable": "ja",
+                "image": "/escritura_maya/J VOCALES/JA_3.svg",
+                "variant": "standard",
+                "frequency": "high"
+            }
+        ],
+        "JE_1": [
+            {
+                "thompson": "JE_1",
+                "syllable": "je",
+                "image": "/escritura_maya/J VOCALES/JE_1.svg",
+                "variant": "standard",
+                "frequency": "very-high"
+            }
+        ],
+        "JE_2": [
+            {
+                "thompson": "JE_2",
+                "syllable": "je",
+                "image": "/escritura_maya/J VOCALES/JE_2.svg",
+                "variant": "standard",
+                "frequency": "high"
+            }
+        ],
+        "JI_1": [
+            {
+                "thompson": "JI_1",
+                "syllable": "ji",
+                "image": "/escritura_maya/J VOCALES/JI_1.svg",
+                "variant": "standard",
+                "frequency": "very-high"
+            }
+        ],
+        "JI_2": [
+            {
+                "thompson": "JI_2",
+                "syllable": "ji",
+                "image": "/escritura_maya/J VOCALES/JI_2.svg",
+                "variant": "standard",
+                "frequency": "high"
+            }
+        ],
+        "JI_3": [
+            {
+                "thompson": "JI_3",
+                "syllable": "ji",
+                "image": "/escritura_maya/J VOCALES/JI_3.svg",
+                "variant": "standard",
+                "frequency": "high"
+            }
+        ],
+        "JO_1": [
+            {
+                "thompson": "JO_1",
+                "syllable": "jo",
+                "image": "/escritura_maya/J VOCALES/JO_1.svg",
+                "variant": "standard",
+                "frequency": "very-high"
+            }
+        ],
+        "JO_2": [
+            {
+                "thompson": "JO_2",
+                "syllable": "jo",
+                "image": "/escritura_maya/J VOCALES/JO_2.svg",
+                "variant": "standard",
+                "frequency": "high"
+            }
+        ],
+        "JU": [
+            {
+                "thompson": "JU",
+                "syllable": "ju",
+                "image": "/escritura_maya/J VOCALES/JU.svg",
+                "variant": "standard",
+                "frequency": "high"
+            }
+        ],
+        "KA 1": [
+            {
+                "thompson": "KA 1",
+                "syllable": "ka",
+                "image": "/escritura_maya/K VOCALES/KA 1.png",
+                "variant": "standard",
+                "frequency": "very-high"
+            }
+        ],
+        "KA 2": [
+            {
+                "thompson": "KA 2",
+                "syllable": "ka",
+                "image": "/escritura_maya/K VOCALES/KA 2.png",
+                "variant": "standard",
+                "frequency": "high"
+            }
+        ],
+        "KA 3": [
+            {
+                "thompson": "KA 3",
+                "syllable": "ka",
+                "image": "/escritura_maya/K VOCALES/KA 3.png",
+                "variant": "standard",
+                "frequency": "high"
+            }
+        ],
+        "KA 4": [
+            {
+                "thompson": "KA 4",
+                "syllable": "ka",
+                "image": "/escritura_maya/K VOCALES/KA 4.png",
+                "variant": "standard",
+                "frequency": "high"
+            }
+        ],
+        "KE 1": [
+            {
+                "thompson": "KE 1",
+                "syllable": "ke",
+                "image": "/escritura_maya/K VOCALES/KE 1.png",
+                "variant": "standard",
+                "frequency": "very-high"
+            }
+        ],
+        "KE 2": [
+            {
+                "thompson": "KE 2",
+                "syllable": "ke",
+                "image": "/escritura_maya/K VOCALES/KE 2.png",
+                "variant": "standard",
+                "frequency": "high"
+            }
+        ],
+        "KI 1": [
+            {
+                "thompson": "KI 1",
+                "syllable": "ki",
+                "image": "/escritura_maya/K VOCALES/KI 1.png",
+                "variant": "standard",
+                "frequency": "very-high"
+            }
+        ],
+        "KI 2": [
+            {
+                "thompson": "KI 2",
+                "syllable": "ki",
+                "image": "/escritura_maya/K VOCALES/KI 2.png",
+                "variant": "standard",
+                "frequency": "high"
+            }
+        ],
+        "KI 3": [
+            {
+                "thompson": "KI 3",
+                "syllable": "ki",
+                "image": "/escritura_maya/K VOCALES/KI 3.png",
+                "variant": "standard",
+                "frequency": "high"
+            }
+        ],
+        "KO": [
+            {
+                "thompson": "KO",
+                "syllable": "ko",
+                "image": "/escritura_maya/K VOCALES/KO.png",
+                "variant": "standard",
+                "frequency": "high"
+            }
+        ],
+        "KU 1": [
+            {
+                "thompson": "KU 1",
+                "syllable": "ku",
+                "image": "/escritura_maya/K VOCALES/KU 1.png",
+                "variant": "standard",
+                "frequency": "very-high"
+            }
+        ],
+        "KU 2": [
+            {
+                "thompson": "KU 2",
+                "syllable": "ku",
+                "image": "/escritura_maya/K VOCALES/KU 2.png",
+                "variant": "standard",
+                "frequency": "high"
+            }
+        ],
+        "K´A 1": [
+            {
+                "thompson": "K´A 1",
+                "syllable": "k´a",
+                "image": "/escritura_maya/K´ VOCALES/K´A 1.png",
+                "variant": "standard",
+                "frequency": "very-high"
+            }
+        ],
+        "K´A 2": [
+            {
+                "thompson": "K´A 2",
+                "syllable": "k´a",
+                "image": "/escritura_maya/K´ VOCALES/K´A 2.png",
+                "variant": "standard",
+                "frequency": "high"
+            }
+        ],
+        "K´E 1": [
+            {
+                "thompson": "K´E 1",
+                "syllable": "k´e",
+                "image": "/escritura_maya/K´ VOCALES/K´E 1.png",
+                "variant": "standard",
+                "frequency": "very-high"
+            }
+        ],
+        "K´E 2": [
+            {
+                "thompson": "K´E 2",
+                "syllable": "k´e",
+                "image": "/escritura_maya/K´ VOCALES/K´E 2.png",
+                "variant": "standard",
+                "frequency": "high"
+            }
+        ],
+        "K´I": [
+            {
+                "thompson": "K´I",
+                "syllable": "k´i",
+                "image": "/escritura_maya/K´ VOCALES/K´I.png",
+                "variant": "standard",
+                "frequency": "high"
+            }
+        ],
+        "K´O": [
+            {
+                "thompson": "K´O",
+                "syllable": "k´o",
+                "image": "/escritura_maya/K´ VOCALES/K´O.png",
+                "variant": "standard",
+                "frequency": "high"
+            }
+        ],
+        "K´U 1": [
+            {
+                "thompson": "K´U 1",
+                "syllable": "k´u",
+                "image": "/escritura_maya/K´ VOCALES/K´U 1.png",
+                "variant": "standard",
+                "frequency": "very-high"
+            }
+        ],
+        "K´U 2": [
+            {
+                "thompson": "K´U 2",
+                "syllable": "k´u",
+                "image": "/escritura_maya/K´ VOCALES/K´U 2.png",
+                "variant": "standard",
+                "frequency": "high"
+            }
+        ],
+        "LA 1": [
+            {
+                "thompson": "LA 1",
+                "syllable": "la",
+                "image": "/escritura_maya/L VOCALES/LA 1.png",
+                "variant": "standard",
+                "frequency": "very-high"
+            }
+        ],
+        "LA 2": [
+            {
+                "thompson": "LA 2",
+                "syllable": "la",
+                "image": "/escritura_maya/L VOCALES/LA 2.png",
+                "variant": "standard",
+                "frequency": "high"
+            }
+        ],
+        "LE": [
+            {
+                "thompson": "LE",
+                "syllable": "le",
+                "image": "/escritura_maya/L VOCALES/LE.png",
+                "variant": "standard",
+                "frequency": "high"
+            }
+        ],
+        "LI 1": [
+            {
+                "thompson": "LI 1",
+                "syllable": "li",
+                "image": "/escritura_maya/L VOCALES/LI 1.png",
+                "variant": "standard",
+                "frequency": "very-high"
+            }
+        ],
+        "LI 2": [
+            {
+                "thompson": "LI 2",
+                "syllable": "li",
+                "image": "/escritura_maya/L VOCALES/LI 2.png",
+                "variant": "standard",
+                "frequency": "high"
+            }
+        ],
+        "LI 3": [
+            {
+                "thompson": "LI 3",
+                "syllable": "li",
+                "image": "/escritura_maya/L VOCALES/LI 3.png",
+                "variant": "standard",
+                "frequency": "high"
+            }
+        ],
+        "LO": [
+            {
+                "thompson": "LO",
+                "syllable": "lo",
+                "image": "/escritura_maya/L VOCALES/LO.png",
+                "variant": "standard",
+                "frequency": "high"
+            }
+        ],
+        "LU": [
+            {
+                "thompson": "LU",
+                "syllable": "lu",
+                "image": "/escritura_maya/L VOCALES/LU.png",
+                "variant": "standard",
+                "frequency": "high"
+            }
+        ],
+        "MA 1": [
+            {
+                "thompson": "MA 1",
+                "syllable": "ma",
+                "image": "/escritura_maya/M VOCALES/MA 1.png",
+                "variant": "standard",
+                "frequency": "very-high"
+            }
+        ],
+        "MA 2": [
+            {
+                "thompson": "MA 2",
+                "syllable": "ma",
+                "image": "/escritura_maya/M VOCALES/MA 2.png",
+                "variant": "standard",
+                "frequency": "high"
+            }
+        ],
+        "MA 3": [
+            {
+                "thompson": "MA 3",
+                "syllable": "ma",
+                "image": "/escritura_maya/M VOCALES/MA 3.png",
+                "variant": "standard",
+                "frequency": "high"
+            }
+        ],
+        "MA 4": [
+            {
+                "thompson": "MA 4",
+                "syllable": "ma",
+                "image": "/escritura_maya/M VOCALES/MA 4.png",
+                "variant": "standard",
+                "frequency": "high"
+            }
+        ],
+        "ME": [
+            {
+                "thompson": "ME",
+                "syllable": "me",
+                "image": "/escritura_maya/M VOCALES/ME.png",
+                "variant": "standard",
+                "frequency": "high"
+            }
+        ],
+        "MI 1": [
+            {
+                "thompson": "MI 1",
+                "syllable": "mi",
+                "image": "/escritura_maya/M VOCALES/MI 1.png",
+                "variant": "standard",
+                "frequency": "very-high"
+            }
+        ],
+        "MI 2": [
+            {
+                "thompson": "MI 2",
+                "syllable": "mi",
+                "image": "/escritura_maya/M VOCALES/MI 2.png",
+                "variant": "standard",
+                "frequency": "high"
+            }
+        ],
+        "MO": [
+            {
+                "thompson": "MO",
+                "syllable": "mo",
+                "image": "/escritura_maya/M VOCALES/MO.png",
+                "variant": "standard",
+                "frequency": "high"
+            }
+        ],
+        "MU 1": [
+            {
+                "thompson": "MU 1",
+                "syllable": "mu",
+                "image": "/escritura_maya/M VOCALES/MU 1.png",
+                "variant": "standard",
+                "frequency": "very-high"
+            }
+        ],
+        "MU 2": [
+            {
+                "thompson": "MU 2",
+                "syllable": "mu",
+                "image": "/escritura_maya/M VOCALES/MU 2.png",
+                "variant": "standard",
+                "frequency": "high"
+            }
+        ],
+        "NA 1": [
+            {
+                "thompson": "NA 1",
+                "syllable": "na",
+                "image": "/escritura_maya/N VOCALES/NA 1.png",
+                "variant": "standard",
+                "frequency": "very-high"
+            }
+        ],
+        "NA 2": [
+            {
+                "thompson": "NA 2",
+                "syllable": "na",
+                "image": "/escritura_maya/N VOCALES/NA 2.png",
+                "variant": "standard",
+                "frequency": "high"
+            }
+        ],
+        "NA 3": [
+            {
+                "thompson": "NA 3",
+                "syllable": "na",
+                "image": "/escritura_maya/N VOCALES/NA 3.png",
+                "variant": "standard",
+                "frequency": "high"
+            }
+        ],
+        "NE 1": [
+            {
+                "thompson": "NE 1",
+                "syllable": "ne",
+                "image": "/escritura_maya/N VOCALES/NE 1.png",
+                "variant": "standard",
+                "frequency": "very-high"
+            }
+        ],
+        "NE 2": [
+            {
+                "thompson": "NE 2",
+                "syllable": "ne",
+                "image": "/escritura_maya/N VOCALES/NE 2.png",
+                "variant": "standard",
+                "frequency": "high"
+            }
+        ],
+        "NE 3": [
+            {
+                "thompson": "NE 3",
+                "syllable": "ne",
+                "image": "/escritura_maya/N VOCALES/NE 3.png",
+                "variant": "standard",
+                "frequency": "high"
+            }
+        ],
+        "NI 1": [
+            {
+                "thompson": "NI 1",
+                "syllable": "ni",
+                "image": "/escritura_maya/N VOCALES/NI 1.png",
+                "variant": "standard",
+                "frequency": "very-high"
+            }
+        ],
+        "NI 2": [
+            {
+                "thompson": "NI 2",
+                "syllable": "ni",
+                "image": "/escritura_maya/N VOCALES/NI 2.png",
+                "variant": "standard",
+                "frequency": "high"
+            }
+        ],
+        "NI 3": [
+            {
+                "thompson": "NI 3",
+                "syllable": "ni",
+                "image": "/escritura_maya/N VOCALES/NI 3.png",
+                "variant": "standard",
+                "frequency": "high"
+            }
+        ],
+        "NO 1": [
+            {
+                "thompson": "NO 1",
+                "syllable": "no",
+                "image": "/escritura_maya/N VOCALES/NO 1.png",
+                "variant": "standard",
+                "frequency": "very-high"
+            }
+        ],
+        "NO 2": [
+            {
+                "thompson": "NO 2",
+                "syllable": "no",
+                "image": "/escritura_maya/N VOCALES/NO 2.png",
+                "variant": "standard",
+                "frequency": "high"
+            }
+        ],
+        "NU 1": [
+            {
+                "thompson": "NU 1",
+                "syllable": "nu",
+                "image": "/escritura_maya/N VOCALES/NU 1.png",
+                "variant": "standard",
+                "frequency": "very-high"
+            }
+        ],
+        "NU 2": [
+            {
+                "thompson": "NU 2",
+                "syllable": "nu",
+                "image": "/escritura_maya/N VOCALES/NU 2.png",
+                "variant": "standard",
+                "frequency": "high"
+            }
+        ],
+        "NU 3": [
+            {
+                "thompson": "NU 3",
+                "syllable": "nu",
+                "image": "/escritura_maya/N VOCALES/NU 3.png",
+                "variant": "standard",
+                "frequency": "high"
+            }
+        ],
+        "O2": [
+            {
+                "thompson": "O2",
+                "syllable": "o",
+                "image": "/escritura_maya/vocales puras/O/O2.svg",
+                "variant": "standard",
+                "frequency": "high"
+            }
+        ],
+        "PA 2": [
+            {
+                "thompson": "PA 2",
+                "syllable": "pa",
+                "image": "/escritura_maya/P VOCALES/PA 2.png",
+                "variant": "standard",
+                "frequency": "high"
+            }
+        ],
+        "PA_1": [
+            {
+                "thompson": "PA_1",
+                "syllable": "pa",
+                "image": "/escritura_maya/P VOCALES/PA_1.svg",
+                "variant": "standard",
+                "frequency": "very-high"
+            }
+        ],
+        "PI 1": [
+            {
+                "thompson": "PI 1",
+                "syllable": "pi",
+                "image": "/escritura_maya/P VOCALES/PI 1.png",
+                "variant": "standard",
+                "frequency": "very-high"
+            }
+        ],
+        "PI 2": [
+            {
+                "thompson": "PI 2",
+                "syllable": "pi",
+                "image": "/escritura_maya/P VOCALES/PI 2.png",
+                "variant": "standard",
+                "frequency": "high"
+            }
+        ],
+        "PO 1": [
+            {
+                "thompson": "PO 1",
+                "syllable": "po",
+                "image": "/escritura_maya/P VOCALES/PO 1.png",
+                "variant": "standard",
+                "frequency": "very-high"
+            }
+        ],
+        "PO 2": [
+            {
+                "thompson": "PO 2",
+                "syllable": "po",
+                "image": "/escritura_maya/P VOCALES/PO 2.png",
+                "variant": "standard",
+                "frequency": "high"
+            }
+        ],
+        "PU": [
+            {
+                "thompson": "PU",
+                "syllable": "pu",
+                "image": "/escritura_maya/P VOCALES/PU.png",
+                "variant": "standard",
+                "frequency": "high"
+            }
+        ],
+        "SA 1": [
+            {
+                "thompson": "SA 1",
+                "syllable": "sa",
+                "image": "/escritura_maya/S VOCALES/SA 1.png",
+                "variant": "standard",
+                "frequency": "very-high"
+            }
+        ],
+        "SA 2": [
+            {
+                "thompson": "SA 2",
+                "syllable": "sa",
+                "image": "/escritura_maya/S VOCALES/SA 2.png",
+                "variant": "standard",
+                "frequency": "high"
+            }
+        ],
+        "SA 3": [
+            {
+                "thompson": "SA 3",
+                "syllable": "sa",
+                "image": "/escritura_maya/S VOCALES/SA 3.png",
+                "variant": "standard",
+                "frequency": "high"
+            }
+        ],
+        "SA 4": [
+            {
+                "thompson": "SA 4",
+                "syllable": "sa",
+                "image": "/escritura_maya/S VOCALES/SA 4.png",
+                "variant": "standard",
+                "frequency": "high"
+            }
+        ],
+        "SA 5": [
+            {
+                "thompson": "SA 5",
+                "syllable": "sa",
+                "image": "/escritura_maya/S VOCALES/SA 5.png",
+                "variant": "standard",
+                "frequency": "high"
+            }
+        ],
+        "SE": [
+            {
+                "thompson": "SE",
+                "syllable": "se",
+                "image": "/escritura_maya/S VOCALES/SE.png",
+                "variant": "standard",
+                "frequency": "high"
+            }
+        ],
+        "SI 1": [
+            {
+                "thompson": "SI 1",
+                "syllable": "si",
+                "image": "/escritura_maya/S VOCALES/SI 1.png",
+                "variant": "standard",
+                "frequency": "very-high"
+            }
+        ],
+        "SI 2": [
+            {
+                "thompson": "SI 2",
+                "syllable": "si",
+                "image": "/escritura_maya/S VOCALES/SI 2.png",
+                "variant": "standard",
+                "frequency": "high"
+            }
+        ],
+        "TA 1": [
+            {
+                "thompson": "TA 1",
+                "syllable": "ta",
+                "image": "/escritura_maya/T VOCALES/TA 1.png",
+                "variant": "standard",
+                "frequency": "very-high"
+            }
+        ],
+        "TA 2": [
+            {
+                "thompson": "TA 2",
+                "syllable": "ta",
+                "image": "/escritura_maya/T VOCALES/TA 2.png",
+                "variant": "standard",
+                "frequency": "high"
+            }
+        ],
+        "TA 3": [
+            {
+                "thompson": "TA 3",
+                "syllable": "ta",
+                "image": "/escritura_maya/T VOCALES/TA 3.png",
+                "variant": "standard",
+                "frequency": "high"
+            }
+        ],
+        "TA 4": [
+            {
+                "thompson": "TA 4",
+                "syllable": "ta",
+                "image": "/escritura_maya/T VOCALES/TA 4.png",
+                "variant": "standard",
+                "frequency": "high"
+            }
+        ],
+        "TA 5": [
+            {
+                "thompson": "TA 5",
+                "syllable": "ta",
+                "image": "/escritura_maya/T VOCALES/TA 5.png",
+                "variant": "standard",
+                "frequency": "high"
+            }
+        ],
+        "TE": [
+            {
+                "thompson": "TE",
+                "syllable": "te",
+                "image": "/escritura_maya/T VOCALES/TE.png",
+                "variant": "standard",
+                "frequency": "high"
+            }
+        ],
+        "TI 1": [
+            {
+                "thompson": "TI 1",
+                "syllable": "ti",
+                "image": "/escritura_maya/T VOCALES/TI 1.png",
+                "variant": "standard",
+                "frequency": "very-high"
+            }
+        ],
+        "TI 2": [
+            {
+                "thompson": "TI 2",
+                "syllable": "ti",
+                "image": "/escritura_maya/T VOCALES/TI 2.png",
+                "variant": "standard",
+                "frequency": "high"
+            }
+        ],
+        "TO 1": [
+            {
+                "thompson": "TO 1",
+                "syllable": "to",
+                "image": "/escritura_maya/T VOCALES/TO 1.png",
+                "variant": "standard",
+                "frequency": "very-high"
+            }
+        ],
+        "TO 2": [
+            {
+                "thompson": "TO 2",
+                "syllable": "to",
+                "image": "/escritura_maya/T VOCALES/TO 2.png",
+                "variant": "standard",
+                "frequency": "high"
+            }
+        ],
+        "TO 3": [
+            {
+                "thompson": "TO 3",
+                "syllable": "to",
+                "image": "/escritura_maya/T VOCALES/TO 3.png",
+                "variant": "standard",
+                "frequency": "high"
+            }
+        ],
+        "TU": [
+            {
+                "thompson": "TU",
+                "syllable": "tu",
+                "image": "/escritura_maya/T VOCALES/TU.png",
+                "variant": "standard",
+                "frequency": "high"
+            }
+        ],
+        "TZ A": [
+            {
+                "thompson": "TZ A",
+                "syllable": "tza",
+                "image": "/escritura_maya/TZ VOCALES/TZ A.png",
+                "variant": "standard",
+                "frequency": "high"
+            }
+        ],
+        "TZ E": [
+            {
+                "thompson": "TZ E",
+                "syllable": "tze",
+                "image": "/escritura_maya/TZ VOCALES/TZ E.png",
+                "variant": "standard",
+                "frequency": "high"
+            }
+        ],
+        "TZ I 1": [
+            {
+                "thompson": "TZ I 1",
+                "syllable": "tzi",
+                "image": "/escritura_maya/TZ VOCALES/TZ I 1.png",
+                "variant": "standard",
+                "frequency": "very-high"
+            }
+        ],
+        "TZ I 2": [
+            {
+                "thompson": "TZ I 2",
+                "syllable": "tzi",
+                "image": "/escritura_maya/TZ VOCALES/TZ I 2.png",
+                "variant": "standard",
+                "frequency": "high"
+            }
+        ],
+        "TZ U": [
+            {
+                "thompson": "TZ U",
+                "syllable": "tzu",
+                "image": "/escritura_maya/TZ VOCALES/TZ U.png",
+                "variant": "standard",
+                "frequency": "high"
+            }
+        ],
+        "TZ´A": [
+            {
+                "thompson": "TZ´A",
+                "syllable": "tz´a",
+                "image": "/escritura_maya/TZ´ VOCALES/TZ´A.svg",
+                "variant": "standard",
+                "frequency": "high"
+            }
+        ],
+        "TZ´I": [
+            {
+                "thompson": "TZ´I",
+                "syllable": "tz´i",
+                "image": "/escritura_maya/TZ´ VOCALES/TZ´I.png",
+                "variant": "standard",
+                "frequency": "high"
+            }
+        ],
+        "TZ´U 1": [
+            {
+                "thompson": "TZ´U 1",
+                "syllable": "tz´u",
+                "image": "/escritura_maya/TZ´ VOCALES/TZ´U 1.png",
+                "variant": "standard",
+                "frequency": "very-high"
+            }
+        ],
+        "TZ´U 2": [
+            {
+                "thompson": "TZ´U 2",
+                "syllable": "tz´u",
+                "image": "/escritura_maya/TZ´ VOCALES/TZ´U 2.png",
+                "variant": "standard",
+                "frequency": "high"
+            }
+        ],
+        "T´U": [
+            {
+                "thompson": "T´U",
+                "syllable": "t´u",
+                "image": "/escritura_maya/T´ VOCALES/T´U.png",
+                "variant": "standard",
+                "frequency": "high"
+            }
+        ],
+        "U6": [
+            {
+                "thompson": "U6",
+                "syllable": "u",
+                "image": "/escritura_maya/vocales puras/U/U6.svg",
+                "variant": "standard",
+                "frequency": "high"
+            }
+        ],
+        "WA 2": [
+            {
+                "thompson": "WA 2",
+                "syllable": "wa",
+                "image": "/escritura_maya/W VOCALES/WA 2.png",
+                "variant": "standard",
+                "frequency": "high"
+            }
+        ],
+        "WA_1": [
+            {
+                "thompson": "WA_1",
+                "syllable": "wa",
+                "image": "/escritura_maya/W VOCALES/WA_1.png",
+                "variant": "standard",
+                "frequency": "very-high"
+            }
+        ],
+        "WE": [
+            {
+                "thompson": "WE",
+                "syllable": "we",
+                "image": "/escritura_maya/W VOCALES/WE.png",
+                "variant": "standard",
+                "frequency": "high"
+            }
+        ],
+        "WI": [
+            {
+                "thompson": "WI",
+                "syllable": "wi",
+                "image": "/escritura_maya/W VOCALES/WI.png",
+                "variant": "standard",
+                "frequency": "high"
+            }
+        ],
+        "WO": [
+            {
+                "thompson": "WO",
+                "syllable": "wo",
+                "image": "/escritura_maya/W VOCALES/WO.png",
+                "variant": "standard",
+                "frequency": "high"
+            }
+        ],
+        "XA": [
+            {
+                "thompson": "XA",
+                "syllable": "xa",
+                "image": "/escritura_maya/X VOCALES/XA.png",
+                "variant": "standard",
+                "frequency": "high"
+            }
+        ],
+        "XI": [
+            {
+                "thompson": "XI",
+                "syllable": "xi",
+                "image": "/escritura_maya/X VOCALES/XI.png",
+                "variant": "standard",
+                "frequency": "high"
+            }
+        ],
+        "XO": [
+            {
+                "thompson": "XO",
+                "syllable": "xo",
+                "image": "/escritura_maya/X VOCALES/XO.png",
+                "variant": "standard",
+                "frequency": "high"
+            }
+        ],
+        "XU": [
+            {
+                "thompson": "XU",
+                "syllable": "xu",
+                "image": "/escritura_maya/X VOCALES/XU.png",
+                "variant": "standard",
+                "frequency": "high"
+            }
+        ],
+        "YA 1": [
+            {
+                "thompson": "YA 1",
+                "syllable": "ya",
+                "image": "/escritura_maya/Y VOCALES/YA 1.png",
+                "variant": "standard",
+                "frequency": "very-high"
+            }
+        ],
+        "YA 2": [
+            {
+                "thompson": "YA 2",
+                "syllable": "ya",
+                "image": "/escritura_maya/Y VOCALES/YA 2.png",
+                "variant": "standard",
+                "frequency": "high"
+            }
+        ],
+        "YE 1": [
+            {
+                "thompson": "YE 1",
+                "syllable": "ye",
+                "image": "/escritura_maya/Y VOCALES/YE 1.png",
+                "variant": "standard",
+                "frequency": "very-high"
+            }
+        ],
+        "YE 2": [
+            {
+                "thompson": "YE 2",
+                "syllable": "ye",
+                "image": "/escritura_maya/Y VOCALES/YE 2.png",
+                "variant": "standard",
+                "frequency": "high"
+            }
+        ],
+        "YI 1": [
+            {
+                "thompson": "YI 1",
+                "syllable": "yi",
+                "image": "/escritura_maya/Y VOCALES/YI 1.png",
+                "variant": "standard",
+                "frequency": "very-high"
+            }
+        ],
+        "YI 2": [
+            {
+                "thompson": "YI 2",
+                "syllable": "yi",
+                "image": "/escritura_maya/Y VOCALES/YI 2.png",
+                "variant": "standard",
+                "frequency": "high"
+            }
+        ],
+        "YO 1": [
+            {
+                "thompson": "YO 1",
+                "syllable": "yo",
+                "image": "/escritura_maya/Y VOCALES/YO 1.png",
+                "variant": "standard",
+                "frequency": "very-high"
+            }
+        ],
+        "YO 2": [
+            {
+                "thompson": "YO 2",
+                "syllable": "yo",
+                "image": "/escritura_maya/Y VOCALES/YO 2.png",
+                "variant": "standard",
+                "frequency": "high"
+            }
+        ],
+        "YU": [
+            {
+                "thompson": "YU",
+                "syllable": "yu",
+                "image": "/escritura_maya/Y VOCALES/YU.png",
+                "variant": "standard",
+                "frequency": "high"
+            }
+        ]
+    },
+    "logograms": {}
+}
