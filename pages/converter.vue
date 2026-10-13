@@ -2,8 +2,11 @@
 import { ref, computed, onMounted } from 'vue'
 import { useMaya } from '~/composables/useMaya'
 import MayaBlockSVG from '~/components/MayaBlockSVG.vue'
+import { parseXML, findBlocks, XML_ID } from '~/lib/maya/tei/tree'
+import { describeLoss } from '~/lib/maya/tei/audit'
 
 const { 
+  loadData,
   teiToDsl,
   dslToTEI,
   getRenderableGlyphs,
@@ -48,7 +51,9 @@ const dslInput = ref('')
 const dslErrors = ref([])
 
 // Para mostrar qué extrae nuestro parseador de atributos (<damage> detection)
-const renderableGlyphs = computed(() => getRenderableGlyphs(xmlInput.value))
+// El DOMParser solo existe en el navegador: hasta montar, servidor y cliente renderizan lo mismo
+const mounted = ref(false)
+const renderableGlyphs = computed(() => (mounted.value ? getRenderableGlyphs(xmlInput.value) : []))
 
 // Validación computada
 const isDslValid = computed(() => {
@@ -64,31 +69,72 @@ const extractDSLfromXML = () => {
   dslInput.value = dslOutput.value
 }
 
-const updateOriginalXML = () => {
-  // Re-genera el nodo <ab> y lo inyecta en el documento original sin romper el teiHeader
-  xmlInput.value = updateDocumentWithDSL(xmlInput.value, 'blockTest', dslInput.value)
-  // Forzamos que se vuelva a extraer para sincronizar el panel visual 1
+// Compara el bloque original con el regenerado desde el DSL (árbol completo, ver paper de preservación)
+const firstBlock = (xml) => {
+  const root = parseXML(xml)
+  return findBlocks(root)[0] || null
+}
+
+const pendingXml = ref('')
+const lossReport = ref(null)
+const lossError = ref('')
+
+const applyXml = (xml) => {
+  xmlInput.value = xml
   dslOutput.value = dslInput.value
+  pendingXml.value = ''
+  lossReport.value = null
+}
+
+const updateOriginalXML = () => {
+  lossError.value = ''
+  const blockId = firstBlock(xmlInput.value)?.attrs[XML_ID] || 'blockTest'
+  const candidate = updateDocumentWithDSL(xmlInput.value, blockId, dslInput.value)
+  try {
+    const before = firstBlock(xmlInput.value)
+    const after = firstBlock(candidate)
+    if (before && after) {
+      const report = describeLoss(before, after)
+      if (!report.identical) {
+        // No se aplica en silencio: el DSL no expresa daño, suplidos, huecos ni la mayoría de atributos
+        pendingXml.value = candidate
+        lossReport.value = report
+        return
+      }
+    }
+  } catch (e) {
+    // Si no se puede auditar, no se aplica: es mejor conservar el original que arriesgarlo
+    lossError.value = `No se aplicó el cambio porque no se pudo auditar la preservación: ${e.message}`
+    return
+  }
+  applyXml(candidate)
+}
+
+const cancelUpdate = () => {
+  pendingXml.value = ''
+  lossReport.value = null
 }
 
 // Inicializar en primera carga, asegurando que corre del lado del cliente (evita error DOMParser)
-onMounted(() => {
+onMounted(async () => {
+  mounted.value = true
+  await loadData() // el parser necesita los datos cargados antes de extraer
   extractDSLfromXML()
 })
 </script>
 
 <template>
-  <div class="p-8 max-w-7xl mx-auto font-sans text-gray-800 bg-gray-50 min-h-screen">
-    <h1 class="text-3xl font-extrabold mb-8 pb-4 border-b border-gray-300 text-gray-900">
-      Plataforma Epigráfica Maya
-      <span class="block text-sm font-normal text-gray-500 mt-2">Prueba de Traductor Bidireccional & Layout Engine SVG</span>
-    </h1>
+  <div class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+    <header class="mb-8">
+      <h1 class="page-title">Traductor TEI ↔ DSL</h1>
+      <p class="page-lead">Convierte entre TEI XML y notación DSL, y revisa qué información editorial se perdería antes de aplicar un cambio.</p>
+    </header>
 
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
       
       <!-- ================= PANEL 1: XML -> DSL ================= -->
       <div class="space-y-6">
-        <div class="bg-white p-6 rounded-xl shadow-md border border-gray-100">
+        <div class="card-pad">
           <h2 class="text-xl font-bold mb-4 text-blue-700 flex items-center gap-2">
             <span class="bg-blue-600 text-white px-2 py-1 rounded text-sm shadow">1</span> 
             TEI XML → DSL Notación
@@ -98,12 +144,12 @@ onMounted(() => {
           <textarea 
             v-model="xmlInput" 
             rows="10" 
-            class="w-full font-mono text-sm p-4 border border-gray-200 rounded bg-gray-50 focus:ring-2 focus:ring-blue-400 outline-none transition-all shadow-inner"
+            class="field font-mono text-sm"
           ></textarea>
           
           <button 
             @click="extractDSLfromXML" 
-            class="mt-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-2 rounded-lg shadow transition-colors"
+            class="btn-brand mt-4"
           >
             Extraer y Parsear a DSL
           </button>
@@ -115,13 +161,13 @@ onMounted(() => {
         </div>
 
         <!-- Renderizador Visual 1 (Desde XML) -->
-        <div class="bg-white p-6 rounded-xl shadow-md border border-gray-100">
+        <div class="card-pad">
           <h2 class="text-xl font-bold mb-4 text-indigo-700">Composición SVG Visual</h2>
           <p class="text-sm text-gray-500 mb-4">Muestra el layout derivado automáticamente del DSL extraído. El glifo dañado (12st) hereda un filtro CSS en gris.</p>
           
           <div class="flex items-center justify-center py-10 bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl border border-dashed border-gray-300">
              <!-- Se le inyecta el DSL para que use MayaBlockSVG con LayoutEngine -->
-             <MayaBlockSVG v-if="dslOutput" :dsl="dslOutput" :width="220" :height="220" />
+             <ClientOnly><MayaBlockSVG v-if="dslOutput" :dsl="dslOutput" :width="220" :height="220" /></ClientOnly>
           </div>
 
           <div class="mt-6 grid grid-cols-2 gap-3 text-xs font-mono">
@@ -138,7 +184,7 @@ onMounted(() => {
 
       <!-- ================= PANEL 2: DSL -> XML ================= -->
       <div class="space-y-6">
-        <div class="bg-white p-6 rounded-xl shadow-md border border-gray-100">
+        <div class="card-pad">
           <h2 class="text-xl font-bold mb-4 text-emerald-700 flex items-center gap-2">
             <span class="bg-emerald-600 text-white px-2 py-1 rounded text-sm shadow">2</span> 
             DSL Notación → TEI XML
@@ -148,7 +194,7 @@ onMounted(() => {
           <input 
             v-model="dslInput" 
             type="text" 
-            class="w-full font-mono text-lg p-4 border border-gray-200 rounded bg-gray-50 focus:ring-2 focus:ring-emerald-400 outline-none transition-all shadow-inner"
+            class="field font-mono text-lg"
             placeholder="Ej: 211ti^12st_130bh"
           />
           
@@ -161,21 +207,45 @@ onMounted(() => {
           
           <button 
             @click="updateOriginalXML" 
-            :disabled="!isDslValid"
-            class="mt-4 bg-emerald-600 hover:bg-emerald-700 disabled:bg-gray-400 disabled:cursor-not-allowed text-white font-semibold px-6 py-2 rounded-lg shadow transition-colors w-full"
+            :disabled="!isDslValid || !dslInput.trim()"
+            class="btn-primary mt-4 w-full"
           >
             <span class="block">🔄 Inyectar en el Documento Original</span>
             <span class="block text-xs font-normal opacity-80">(Re-generar nodo &lt;ab&gt; y mantener teiHeader)</span>
           </button>
+
+          <p v-if="lossError" class="mt-3 text-sm text-red-700">{{ lossError }}</p>
+
+          <!-- Aviso de pérdida de evidencia editorial -->
+          <div v-if="lossReport" class="mt-4 p-4 bg-amber-50 border-2 border-amber-400 rounded-lg text-sm">
+            <p class="font-bold text-amber-900 mb-1">⚠ Esta actualización no conserva el bloque original</p>
+            <p class="text-amber-800 mb-2">
+              El DSL describe posición y códigos, pero no daño, suplidos, huecos ni los demás atributos del TEI.
+              Al reemplazar el bloque se perdería la información que ves abajo.
+            </p>
+            <div class="flex flex-wrap gap-2 mb-2 text-xs">
+              <span v-for="k in ['L','C','E','R']" :key="k" class="px-2 py-1 rounded border" :class="lossReport.verdict[k] ? 'bg-amber-200 border-amber-500' : 'bg-white border-gray-300 text-gray-500'">
+                {{ k }}: {{ lossReport.verdict[k] ? 'cambia' : 'igual' }}
+              </span>
+            </div>
+            <ul class="text-xs font-mono max-h-40 overflow-auto space-y-1 mb-3">
+              <li v-for="(d, i) in lossReport.diffs.slice(0, 25)" :key="i"><span class="text-gray-500">{{ d.path }}</span> — {{ d.detail }}</li>
+              <li v-if="lossReport.diffs.length > 25" class="text-gray-500">… y {{ lossReport.diffs.length - 25 }} más</li>
+            </ul>
+            <div class="flex gap-2">
+              <button @click="cancelUpdate" class="btn-secondary">Cancelar y conservar el original</button>
+              <button @click="applyXml(pendingXml)" class="btn-brand">Aplicar de todos modos</button>
+            </div>
+          </div>
         </div>
 
         <!-- Renderizador Visual 2 (Desde input manual) -->
-        <div class="bg-white p-6 rounded-xl shadow-md border border-gray-100">
+        <div class="card-pad">
           <h2 class="text-xl font-bold mb-4 text-indigo-700">Renderizador al vuelo (LayoutEngine)</h2>
           <p class="text-sm text-gray-500 mb-4">A medida que alteres el DSL superior, el LayoutEngine SVG repinta geométricamente el lienzo en tiempo real.</p>
           
           <div class="flex items-center justify-center py-10 bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl border border-dashed border-gray-300">
-             <MayaBlockSVG :dsl="dslInput" :width="220" :height="220" />
+             <ClientOnly><MayaBlockSVG :dsl="dslInput" :width="220" :height="220" /></ClientOnly>
           </div>
         </div>
       </div>

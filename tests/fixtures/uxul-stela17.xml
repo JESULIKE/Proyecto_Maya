@@ -1,0 +1,518 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-model href="textgrid:3qtrg" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?><?xml-model href="textgrid:3qtrg" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?><TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Uxul, Stela 17</title>
+        <respStmt>
+          <resp key="trc">Transcriber</resp>
+          <name sameAs="#CP"></name>
+        </respStmt>
+      </titleStmt>
+      <publicationStmt>
+        <p>
+          <listBibl>
+            <bibl xml:lang="en">Digital Corpus of Classic Mayan. Edited by "Textdatabase and
+              Dictionary of Classic Mayan", Research Center of the North Rhine-Westphalian Academy
+              of Sciences, Humanities and the Arts. http://www.classicmayan.org, [year], accessed
+              online: [date of access]</bibl>
+            <bibl xml:lang="de">Digitales Korpus des Klassischen Maya. Herausgegeben von
+              "Textdatenbank und Wörterbuch des Klassischen Maya", Arbeitsstelle der
+              Nordrhein-Westfälischen Akademie der Wissenschaft und Künste.
+              http://www.classicmayan.org, [Jahr], abgerufen am: [Datum des Abrufs]</bibl>
+            <bibl xml:lang="es">Corpus digital del Maya Clásico. Editado por el centro de
+              investigación "Base de Datos de Texto y Diccionario del Maya Clásico" de la Academia
+              de Renania del Norte-Westfalia de las Ciencias y de las Artes.
+              http://www.classicmayan.org, [año], último acceso: [fecha del acceso]</bibl>
+            <bibl>
+              <availability>
+                <licence target="http://creativecommons.org/licenses/by/4.0/">The corpus is
+                  available under licence "CC BY 4.0". You are free to share (copy and redistribute
+                  the material in any medium or format) and adapt (remix, transform, and build upon
+                  the material for any purpose, even commercially) under the following terms:
+                  Attribution: You must give appropriate credit, provide a link to the license, and
+                  indicate if changes were made. You may do so in any reasonable manner, but not in
+                  any way that suggests the licensor endorses you or your use. No additional
+                  restrictions: You may not apply legal terms or technological measures that legally
+                  restrict others from doing anything the license permits. Note that the images are
+                  licenced differently. </licence>
+              </availability>
+            </bibl>
+          </listBibl>
+        </p>
+      </publicationStmt>
+      <seriesStmt>
+        <title xml:lang="en">Digital Corpus of Classic Mayan</title>
+        <title xml:lang="de">Digitales Korpus des Klassischen Maya</title>
+        <title xml:lang="es">Corpus digital del maya clásico</title>
+        <respStmt>
+          <resp key="edc">Editor of Digital Corpus</resp>
+          <name>
+            <orgName xml:lang="en">Text Database and Dictionary of Classic Mayan, Research Center of
+              the North Rhine-Westphalian Academy of Sciences, Humanities and the Arts at the
+              University of Bonn, Faculty of Philosophy</orgName>
+            <orgName xml:lang="de">Textdatenbank und Wörterbuch des Klassischen Maya, Arbeitsstelle
+              der NRW Akademie der Wissenschaften und der Künste. Rheinische
+              Friedrich-Wilhelms-Universität Bonn, Abteilung für Altamerikanistik</orgName>
+            <orgName xml:lang="es">Base de Datos de Texto y Diccionario del Maya Clásico, Centro de
+              Investigación de la Academia de Renania del Norte-Westfalia de las Ciencias y de las
+              Artes en la Universidad de Bonn</orgName>
+            <idno xml:base="http://d-nb.info/gnd/" type="GND">1103701312</idno>
+          </name>
+        </respStmt>
+        <respStmt>
+          <resp key="pdr">Project Director</resp>
+          <name xml:id="NG">
+            <persName>Nikolai Grube</persName>
+            <affiliation>Rheinische Friedrich-Wilhelms-Universität, Bonn</affiliation>
+            <idno xml:base="http://d-nb.info/gnd/" type="GND">110726553</idno>
+          </name>
+        </respStmt>
+        <respStmt>
+          <resp key="oth">Project Coordinator</resp>
+          <name xml:id="CP">
+            <persName>Christian Prager</persName>
+            <affiliation>Rheinische Friedrich-Wilhelms-Universität, Bonn</affiliation>
+            <idno xml:base="http://d-nb.info/gnd/" type="GND">139962859</idno>
+          </name>
+        </respStmt>
+        <respStmt>
+          <resp key="oth">Research Assistants</resp>
+          <name xml:id="SG">
+            <persName>Sven Gronemeyer</persName>
+            <affiliation>Rheinische Friedrich-Wilhelms-Universität, Bonn</affiliation>
+            <affiliation>La Trobe University, Melbourne</affiliation>
+            <idno xml:base="http://d-nb.info/gnd/" type="GND">138228450</idno>
+          </name>
+          <name xml:id="EW">
+            <persName>Elisabeth Wagner</persName>
+            <affiliation>Rheinische Friedrich-Wilhelms-Universität, Bonn</affiliation>
+          </name>
+          <name xml:id="KD">
+            <persName>Katja Diederichs</persName>
+            <affiliation>Rheinische Friedrich-Wilhelms-Universität, Bonn</affiliation>
+          </name>
+        </respStmt>
+        <respStmt>
+          <resp key="oth">Cooperation Partner</resp>
+          <name>
+            <orgName xml:lang="en">Göttingen State and University Library</orgName>
+            <orgName xml:lang="de">Niedersächsische Staats- und Universitätsbibliothek
+              Göttingen</orgName>
+            <affiliation>Niedersächsische Staats- und Universitätsbibliothek,
+              Göttingen</affiliation>
+            <idno xml:base="http://d-nb.info/gnd/" type="GND">2020450-4</idno>
+            <idno xml:base="http://ld.zdb-services.de/resource/organisations/" type="ISIL">DE-7</idno>
+          </name>
+        </respStmt>
+        <respStmt>
+          <resp key="oth">IT, Programming and Visualisation</resp>
+          <name xml:id="MB">
+            <persName>Maximilian Brodhun</persName>
+            <affiliation>Niedersächsische Staats- und Universitätsbibliothek,
+              Göttingen</affiliation>
+          </name>
+        </respStmt>
+        <respStmt>
+          <resp key="oth">Metadata</resp>
+          <name xml:id="FD">
+            <persName>Franziska Diehr</persName>
+            <affiliation>&gt;Niedersächsische Staats- und Universitätsbibliothek,
+              Göttingen</affiliation>
+          </name>
+        </respStmt>
+        <respStmt>
+          <resp key="oth">Sponsor</resp>
+          <name>
+            <orgName xml:lang="en">North Rhine-Westphalian Academy of Sciences, Humanities and the
+              Arts.</orgName>
+            <orgName xml:lang="de">Nordrhein-Westfälische Akademie der Wissenschaften und der
+              Künste</orgName>
+            <orgName xml:lang="es">Academia de Renania del Norte-Westfalia de las Ciencias y de las
+              Artes</orgName>
+            <idno xml:base="http://d-nb.info/gnd/" type="GND">10370564-8</idno>
+          </name>
+        </respStmt>
+        <respStmt>
+          <resp key="oth">Sponsor</resp>
+          <name>
+            <orgName xml:lang="en">Union of the German Academies of Sciences and
+              Humanities</orgName>
+            <orgName xml:lang="de">Union der deutschen Akademien der Wissenschaften</orgName>
+            <orgName xml:lang="es"></orgName>
+            <idno xml:base="http://d-nb.info/gnd/" type="GND">5350721-6</idno>
+          </name>
+        </respStmt>
+      </seriesStmt>
+      <sourceDesc>
+        <p>
+          <msDesc>
+            <msIdentifier>
+              <msName>null</msName>
+              <altIdentifier>
+                <idno xml:base="null" type="null">null</idno>
+              </altIdentifier>
+            </msIdentifier>
+          </msDesc>
+        </p>
+      </sourceDesc>
+    </fileDesc>
+    <encodingDesc>
+      <projectDesc xml:lang="en">
+        <p> In 2014, the North Rhine-Westphalian Academy of Sciences, Humanities and the Arts
+          established the "Text Database Dictionary of Classic Mayan" research center for the study
+          of hieroglyphic writing and language of the ancient Maya at the University of Bonn’s
+          Philosophy Faculty. The goal of this long term project is the analysis of all known
+          hieroglyphic Mayan texts which will serve as the basis for the compilation and editing of
+          a Classic Mayan language dictionary.</p>
+      </projectDesc>
+      <projectDesc xml:lang="de">
+        <p> Im Jahr 2014 nahm die Arbeitsstelle "Textdatenbank und Wörterbuch des Klassischen Maya"
+          der Nordrhein-Westfälischen Akademie der Wissenschaften und der Künste an der Rheinischen
+          Friedrich- Wilhelms-Universität Bonn ihre Arbeit auf. Ziel des Langzeitprojekts ist zum
+          einen die Erforschung der Hieroglyphenschrift der vorspanischen Mayakultur (500 v. Chr.
+          bis 1500 n. Chr.), die sich auf dem Gebiet der heutigen Staaten Mexiko, Guatemala, Belize
+          und Honduras entwickelte. Zum anderen steht der Aufbau eines Wörterbuches sowie einer
+          korpusbasierten Datenbank des Klassischen Maya im Mittelpunkt des Forschungsvorhabens.
+        </p>
+      </projectDesc>
+      <projectDesc xml:lang="es">
+        <p> En 2014 fue fundado el centro de investigación "Base de Datos de Texto y Diccionario del
+          Maya Clásico" (Textdatenbank und Wörterbuch des Klassischen Maya) de la Academia de
+          Renania del Norte-Westfalia de las Ciencias y de las Artes (Nordrhein-Westfälische
+          Akademie der Wissenschaften und der Künste) en la Universidad de Bonn. El primer objetivo
+          del proyecto a largo plazo es el estudio de la escritura jeroglífica de la cultura maya
+          prehispánica (500 a. C. hasta 1500 d. C.) que abarcó parte de los actuales territorios de
+          México, Guatemala, Belice y Honduras. El segundo objetivo es compilar un diccionario y
+          crear una base de datos del maya clásico.</p>
+      </projectDesc>
+      <editorialDecl xml:lang="en">
+        <p> Due to the circumstance that there are no Unicode characters for Classic Mayan and
+          furthermore that the reading of some Mayan glyphs is still not known and/or is the subject
+          of research discussions, the digital corpus coded in TEI/XML cannot be given in either
+          original script nor in phonemic-transcribed values. To enable the creation of a flexible
+          corpus, which is able to react to different possible readings, we use a sign catalogue as
+          basis for generating the textcorpus. This sign catalog was developed in the scope of this
+          research project and is realised in RDF. The coded text basically consists of glyphs coded
+          with the element "g". By using the attributes @n (for the number of the glyph in the sign
+          catalogue) and @ref (for URI reference), a reference to the sign catalogue is given. In a
+          further step of processing the TEI-coded text the readings of signs given from the sign
+          catalogue can be extracted and the text becomes "readable". </p>
+      </editorialDecl>
+      <editorialDecl xml:lang="de">
+        <p> Da es für die Hieroglyphenschrift des Klassischen Maya kein Unicode-Schriftsatz gibt und
+          die Lesung vieler Zeichen noch nicht bekannt oder umstritten ist, kann das in TEI/XML
+          kodierte Textkorpus weder aus Originalschreibung noch aus phonemisch-transkribierten
+          Werten bestehen. Um ein flexibles Korpus zu erhalten, das auf neue Entzifferungen und auf
+          verschiedenen Lesungshypothesen reagieren kann, benutzen wir den in RDF-vorliegenden
+          Zeichenkatalog, der im Rahmen dieses Forschungsprojekts entstanden ist, als Grundlage und
+          verknüpfen diesen mit dem Textkorpus. Innerhalb des kodierten Texts wird jede Glyphe mit
+          dem Element "g" bezeichnet und mittels der Katalognummer (Attribut @n) und einer Referenz
+          zu der entsprechenden URI im Zeichenkatalog (Attribut @ref) erfasst. Der Text wird erst
+          durch die Abfrage der Daten aus dem Zeichenkatalog "lesbar". Dies geschieht in einem
+          weiteren Prozessierungsschritt. </p>
+      </editorialDecl>
+      <editorialDecl xml:lang="es">
+        <p> El corpus de texto anotado en TEI/XML no puede consistir ni en la grafía original ni en
+          valores transcritos fonémicamente, puesto que no existe un conjunto de caracteres Unicode
+          para la escritura maya, y por el hecho que la lectura de muchos glifos todavía es
+          desconocida o discutida. Para desarrollar un corpus flexible que se adapte a nuevos
+          desciframientos y diferentes hipótesis de lectura utilisamos el catálogo de signos mayas
+          escrito en RDF como base. Fue formado en el margen de este proyecto y será vinculado con
+          el corpus de texto. Dentro del texto codificado cada glífo será designado con el elemento
+          "g" y registrado a través de un número de catálogo (atributo @n) y una referencia a la URI
+          en el catálogo de signos (atributo @ref). Sólo a través de la consulta de datos el
+          catálogo será "legible". Esto succede en un siguiente paso de procesamiento.</p>
+      </editorialDecl>
+    </encodingDesc>
+  </teiHeader>
+  <sourceDoc>
+    <surface type="left_side" xml:id="a9">
+      <zone corresp="#left_side" xml:id="a10">
+        <zone corresp="#Cp1" xml:id="a11"></zone>
+        <zone corresp="#Dp1" xml:id="a12"></zone>
+        <zone corresp="#Cp2" xml:id="a13"></zone>
+        <zone corresp="#Dp2" xml:id="a14"></zone>
+        <zone corresp="#Cp3" xml:id="a15"></zone>
+        <zone corresp="#Dp3" xml:id="a16"></zone>
+        <zone corresp="#Cp4" xml:id="a17"></zone>
+        <zone corresp="#Dp4" xml:id="a18"></zone>
+        <zone corresp="#Cp5" xml:id="a19"></zone>
+        <zone corresp="#Dp5" xml:id="a20"></zone>
+        <zone corresp="#Cp6" xml:id="a21"></zone>
+        <zone corresp="#Dp6" xml:id="a22"></zone>
+        <zone corresp="#Cp7" xml:id="a23"></zone>
+        <zone corresp="#Dp7" xml:id="a24"></zone>
+      </zone>
+    </surface>
+    <surface type="right_side" xml:id="a25">
+      <zone corresp="#right_side" xml:id="a26">
+        <zone corresp="#Ep1" xml:id="a27"></zone>
+        <zone corresp="#Fp1" xml:id="a28"></zone>
+        <zone corresp="#Ep2" xml:id="a29"></zone>
+        <zone corresp="#Fp2" xml:id="a30"></zone>
+        <zone corresp="#Ep3" xml:id="a31"></zone>
+        <zone corresp="#Fp3" xml:id="a32"></zone>
+        <zone corresp="#Ep4" xml:id="a33"></zone>
+        <zone corresp="#Fp4" xml:id="a34"></zone>
+        <zone corresp="#Ep5" xml:id="a35"></zone>
+        <zone corresp="#Fp5" xml:id="a36"></zone>
+        <zone corresp="#Ep6" xml:id="a37"></zone>
+        <zone corresp="#Fp6" xml:id="a38"></zone>
+      </zone>
+    </surface>
+    <surface type="front" xml:id="a1">
+      <zone corresp="#front_Ap1-Ap4" xml:id="a2">
+        <zone corresp="#Ap1" xml:id="a8"></zone>
+        <zone corresp="#Ap2" xml:id="a7"></zone>
+        <zone corresp="#Ap3" xml:id="a6"></zone>
+        <zone corresp="#Ap4" xml:id="a5"></zone>
+      </zone>
+      <zone corresp="#front_Bp1" xml:id="a3">
+        <zone corresp="#Bp1" xml:id="a4"></zone>
+      </zone>
+    </surface>
+  </sourceDoc>
+  <text>
+    <body>
+      <div type="textfield" xml:id="left_side">
+        <ab xml:id="Cp1" type="glyph-block" n="#">
+          <gap extent="unknown" reason="effaced" unit="g"></gap>
+        </ab>
+        <ab xml:id="Dp1" type="glyph-block" n="#">
+          <gap extent="unknown" reason="effaced" unit="g"></gap>
+        </ab>
+        <ab xml:id="Cp2" type="glyph-block" n="#">
+          <gap extent="unknown" reason="effaced" unit="g"></gap>
+        </ab>
+        <ab xml:id="Dp2" type="glyph-block" n="#">
+          <gap extent="unknown" reason="effaced" unit="g"></gap>
+        </ab>
+        <ab xml:id="Cp3" type="glyph-block" n="#">
+          <gap extent="unknown" reason="effaced" unit="g"></gap>
+        </ab>
+        <ab xml:id="Dp3" type="glyph-block" n="#">
+          <gap extent="unknown" reason="effaced" unit="g"></gap>
+        </ab>
+        <ab xml:id="Cp4" type="glyph-block" n="??.[1548st:178bh]">
+          <damage agent="environment" unit="g" quantity="1" degree="0.5">
+            <g corresp="#Cp4S1" xml:id="Cp4G1" rend="left_beside"></g>
+          </damage>
+          <seg corresp="#Cp4G1" xml:id="Cp4S1" type="glyph-group" rend="right_beside">
+            <g ref="textgrid:3rqfd" corresp="#Cp4G3" xml:id="Cp4G2" rend="above" n="1548st"></g>
+            <g ref="textgrid:3r4x8" corresp="#Cp4G2" xml:id="Cp4G3" rend="beneath" n="178bh"></g>
+          </seg>
+        </ab>
+        <ab xml:id="Dp4" type="glyph-block" n="1000st.[74dt:??]">
+          <g ref="textgrid:3rcgt" corresp="#Dp4S1" xml:id="Dp4G1" rend="left_beside" n="1000st"></g>
+          <seg corresp="#Dp4G1" xml:id="Dp4S1" type="glyph-group" rend="right_beside">
+            <g ref="textgrid:3r3sp" corresp="#Dp4G3" xml:id="Dp4G2" rend="above" n="74dt"></g>
+            <damage agent="environment" unit="g" quantity="1" degree="0.5">
+              <g corresp="#Dp4G2" xml:id="Dp4G3" rend="beneath"></g>
+            </damage>
+          </seg>
+        </ab>
+        <ab xml:id="Cp5" type="glyph-block" n="86bt:??:??">
+          <g ref="textgrid:3r3tn" corresp="#Cp5G2" xml:id="Cp5G1" rend="above" n="86bt"></g>
+          <damage agent="environment" unit="g" quantity="1" degree="0.5">
+            <g corresp="#Cp5G3" xml:id="Cp5G2" rend="above"></g>
+          </damage>
+          <damage agent="environment" unit="g" quantity="1" degree="0.5">
+            <g corresp="#Cp5G2" xml:id="Cp5G3" rend="beneath"></g>
+          </damage>
+        </ab>
+        <ab xml:id="Dp5" type="glyph-block" n="??.??">
+          <damage agent="environment" unit="g" quantity="1" degree="0.5">
+            <g corresp="#Dp5G2" xml:id="Dp5G1" rend="left_beside"></g>
+          </damage>
+          <damage agent="environment" unit="g" quantity="1" degree="0.5">
+            <g corresp="#Dp5G1" xml:id="Dp5G2" rend="right_beside"></g>
+          </damage>
+        </ab>
+        <ab xml:id="Cp6" type="glyph-block" n="168bt:299st:*561st:??">
+          <g ref="textgrid:3r4wg" corresp="#Cp6G2" xml:id="Cp6G1" rend="above" n="168bt"></g>
+          <g ref="textgrid:3r5p9" corresp="#Cp6G3" xml:id="Cp6G2" rend="above" n="299st"></g>
+          <damage agent="environment" unit="g" quantity="1" degree="1">
+            <supplied reason="damage" evidence="conjecture" ana="#NG" precision="high">
+              <g ref="textgrid:3r9dp" corresp="#Cp6G4" xml:id="Cp6G3" rend="above" n="561st"></g>
+            </supplied>
+          </damage>
+          <damage agent="environment" unit="g" quantity="1" degree="0.5">
+            <g corresp="#Cp6G3" xml:id="Cp6G4" rend="beneath"></g>
+          </damage>
+        </ab>
+        <ab xml:id="Dp6" type="glyph-block" n="1br:535vs:23st">
+          <g ref="textgrid:2skk2" corresp="#Dp6G2" xml:id="Dp6G1" rend="above" n="1br"></g>
+          <g ref="textgrid:3r8fn" corresp="#Dp6G3" xml:id="Dp6G2" rend="above" n="535vs"></g>
+          <g ref="textgrid:2stz0" corresp="#Dp6G2" xml:id="Dp6G3" rend="beneath" n="23st"></g>
+        </ab>
+        <ab xml:id="Cp7" type="glyph-block" n="74tf:[*1565bh.*87bb]">
+          <g ref="textgrid:3r3sk" corresp="#Cp7S1" xml:id="Cp7G1" rend="above" n="74tf"></g>
+          <seg corresp="#Cp7G1" xml:id="Cp7S1" type="glyph-group" rend="beneath">
+            <damage agent="environment" unit="g" quantity="1" degree="1">
+              <supplied reason="damage" evidence="conjecture" ana="#NG" precision="high">
+                <g ref="textgrid:3rq95" corresp="#Cp7G3" xml:id="Cp7G2" rend="left_beside" n="1565bh"></g>
+              </supplied>
+            </damage>
+            <damage agent="environment" unit="g" quantity="1" degree="1">
+              <supplied reason="damage" evidence="conjecture" ana="#NG" precision="high">
+                <g ref="textgrid:3r3tv" corresp="#Cp7G2" xml:id="Cp7G3" rend="right_beside" n="87bb"></g>
+              </supplied>
+            </damage>
+          </seg>
+        </ab>
+        <ab xml:id="Dp7" type="glyph-block" n="130bh:??">
+          <g ref="textgrid:3r4tk" corresp="#Cp7G2" xml:id="Dp7G1" rend="above" n="130bh"></g>
+          <damage agent="environment" unit="g" quantity="1" degree="0.5">
+            <g corresp="#Dp7G1" xml:id="Dp7G2" rend="beneath"></g>
+          </damage>
+        </ab>
+      </div>
+      <div type="textfield" xml:id="right_side">
+        <ab xml:id="Ep1" type="glyph-block" n="#">
+          <gap extent="unknown" reason="effaced" unit="g"></gap>
+        </ab>
+        <ab xml:id="Fp1" type="glyph-block" n="#">
+          <gap extent="unknown" reason="effaced" unit="g"></gap>
+        </ab>
+        <ab xml:id="Ep2" type="glyph-block" n="[1615st:17br].??">
+          <seg corresp="#Ep2G3" xml:id="Ep2S1" type="glyph-group" rend="left_beside">
+            <g ref="textgrid:3rqft" corresp="#Ep2G2" xml:id="Ep2G1" rend="above" n="1615st"></g>
+            <g ref="textgrid:2skxk" corresp="#Ep2G1" xml:id="Ep2G2" rend="beneath" n="17br"></g>
+          </seg>
+          <damage agent="environment" unit="g" quantity="1" degree="0.5">
+            <g corresp="#Ep2S1" xml:id="Ep2G3" rend="right_beside"></g>
+          </damage>
+        </ab>
+        <ab xml:id="Fp2" type="glyph-block" n="1br:573ex">
+          <g ref="textgrid:2skk2" corresp="#Fp2G2" xml:id="Fp2G1" rend="above" n="1br"></g>
+          <g ref="textgrid:3r9fx" corresp="#Fp2G1" xml:id="Fp2G2" rend="beneath" n="573ex"></g>
+        </ab>
+        <ab xml:id="Ep3" type="glyph-block" n="[5018st:574:130bh].[5016:521:??]">
+          <seg corresp="#Ep3S2" xml:id="Ep3S1" type="glyph-group" rend="left_beside">
+            <g ref="textgrid:3rb90" corresp="#Ep3G2" xml:id="Ep3G1" rend="above" n="5018st"></g>
+            <g ref="textgrid:3r9fz" corresp="#Ep3G3" xml:id="Ep3G2" rend="above" n="574"></g>
+            <g ref="textgrid:3r4tk" corresp="#Ep3G2" xml:id="Ep3G3" rend="beneath" n="130bh"></g>
+          </seg>
+          <seg corresp="#Ep3S1" xml:id="Ep3S2" type="glyph-group" rend="right_beside">
+            <g ref="textgrid:3rb8t" corresp="#Ep3G5" xml:id="Ep3G4" rend="above" n="5016"></g>
+            <g ref="textgrid:3r8dg" corresp="#Ep3G6" xml:id="Ep3G5" rend="above" n="521"></g>
+            <damage agent="environment" unit="g" quantity="1" degree="0.5">
+              <g corresp="#Ep3G5" xml:id="Ep3G6" rend="beneath"></g>
+            </damage>
+          </seg>
+        </ab>
+        <ab xml:id="Fp3" type="glyph-block" n="[5006:[1500bv°??]].[??:??:??]">
+          <seg corresp="#Fp3S3" xml:id="Fp3S1" type="glyph-group" rend="left_beside">
+            <g ref="textgrid:3rb7k" corresp="#Fp3S2" xml:id="Fp3G1" rend="above" n="5006"></g>
+            <seg corresp="#Fp3G1" xml:id="Fp3S2" type="glyph-group" rend="beneath">
+              <g ref="textgrid:3rcg1" corresp="#Fp3G3" xml:id="Fp3G2" rend="encloses" n="1500bv"></g>
+              <damage agent="environment" unit="g" quantity="1" degree="0.5">
+                <g corresp="#Fp3G2" xml:id="Fp3G3" rend="infixed_in"></g>
+              </damage>
+            </seg>
+          </seg>
+          <seg corresp="#Fp3S1" xml:id="Fp3S3" type="glyph-group" rend="right_beside">
+            <damage agent="environment" unit="g" quantity="1" degree="0.5">
+              <g corresp="#Fp3G5" xml:id="Fp3G4" rend="above"></g>
+            </damage>
+            <damage agent="environment" unit="g" quantity="1" degree="0.5">
+              <g corresp="#Fp3G6" xml:id="Fp3G5" rend="above"></g>
+            </damage>
+            <damage agent="environment" unit="g" quantity="1" degree="0.5">
+              <g corresp="#Fp3G5" xml:id="Fp3G6" rend="beneath"></g>
+            </damage>
+          </seg>
+        </ab>
+        <ab xml:id="Ep4" type="glyph-block" n="679st.218st.181br">
+          <g ref="textgrid:3rcgk" corresp="#Ep4G2" xml:id="Ep4G1" rend="left_beside" n="679st"></g>
+          <g ref="textgrid:3r53s" corresp="#Ep4G3" xml:id="Ep4G2" rend="left_beside" n="218st"></g>
+          <g ref="textgrid:3r4xm" corresp="#Ep4G2" xml:id="Ep4G3" rend="right_beside" n="181br"></g>
+        </ab>
+        <ab xml:id="Fp4" type="glyph-block" n="1.28tv">
+          <g ref="textgrid:2skhj" corresp="#Fp4G2" xml:id="Fp4G1" rend="left_beside" n="1"></g>
+          <g ref="textgrid:3r58f" corresp="#Fp4G1" xml:id="Fp4G2" rend="right_beside" n="28tv"></g>
+        </ab>
+        <ab xml:id="Ep5" type="glyph-block" n="??.[??:??]">
+          <damage agent="environment" unit="g" quantity="1" degree="0.5">
+            <g corresp="#Ep5S1" xml:id="Ep5G1" rend="left_beside"></g>
+          </damage>
+          <seg corresp="#Ep5G1" xml:id="Ep5S1" type="glyph-group" rend="right_beside">
+            <damage agent="environment" unit="g" quantity="1" degree="0.5">
+              <g corresp="#Ep5G3" xml:id="Ep5G2" rend="above"></g>
+            </damage>
+            <damage agent="environment" unit="g" quantity="1" degree="0.5">
+              <g corresp="#Ep5G2" xml:id="Ep5G3" rend="beneath"></g>
+            </damage>
+          </seg>
+        </ab>
+        <ab xml:id="Fp5" type="glyph-block" n="32vl.??">
+          <g ref="textgrid:3r3r4" corresp="#Fp5G2" xml:id="Fp5G1" rend="left_beside" n="32vl"></g>
+          <damage agent="environment" unit="g" quantity="1" degree="0.5">
+            <g corresp="#Fp5G1" xml:id="Fp5G2" rend="right_beside"></g>
+          </damage>
+        </ab>
+        <ab xml:id="Ep6" type="glyph-block" n="#">
+          <gap extent="unknown" reason="effaced" unit="g"></gap>
+        </ab>
+        <ab xml:id="Fp6" type="glyph-block" n="#">
+          <gap extent="unknown" reason="effaced" unit="g"></gap>
+        </ab>
+      </div>
+      <div type="textfield" xml:id="front_Ap1-Ap4">
+        <ab xml:id="Ap1" type="glyph-block" n="1024st.181br">
+          <g ref="textgrid:3rx29" corresp="#Ap1G2" xml:id="Ap1G1" rend="left_beside" n="1024st"></g>
+          <g ref="textgrid:3r4xm" corresp="#Ap1G1" xml:id="Ap1G2" rend="right_beside" n="181br"></g>
+        </ab>
+        <ab xml:id="Ap2" type="glyph-block" n="1br.[1617:528st:82st]#">
+          <g ref="textgrid:2skk2" corresp="#Ap2S1" xml:id="Ap2G1" rend="left_beside" n="1br"></g>
+          <seg corresp="#Ap2G1" xml:id="Ap2S1" type="glyph-group" rend="right_beside">
+            <g ref="textgrid:3rx9t" corresp="#Ap2G3" xml:id="Ap2G2" rend="above" n="1617"></g>
+            <g ref="textgrid:3r8f3" corresp="#Ap2G4" xml:id="Ap2G3" rend="above" n="528st"></g>
+            <g ref="textgrid:3r3t9" corresp="#Ap2G3" xml:id="Ap2G4" rend="beneath" n="82st"></g>
+          </seg>
+          <gap extent="unknown" reason="effaced" unit="g"></gap>
+        </ab>
+        <ab xml:id="Ap3" type="glyph-block" n="1br.[1518st:74tb]">
+          <g ref="textgrid:2skk2" corresp="#Ap3S1" xml:id="Ap3G1" rend="left_beside" n="1br"></g>
+          <seg corresp="#Ap3G1" xml:id="Ap3S1" type="glyph-group" rend="right_beside">
+            <g ref="textgrid:3rscc" corresp="#Ap3G3" xml:id="Ap3G2" rend="above" n="1518st"></g>
+            <g ref="textgrid:3r3sj" corresp="#Ap3G2" xml:id="Ap3G3" rend="beneath" n="74tb"></g>
+          </seg>
+        </ab>
+        <ab xml:id="Ap4" type="glyph-block" n="58hc.[509bb:57st]">
+          <g ref="textgrid:3rx5p" corresp="#Ap4S1" xml:id="Ap4G1" rend="left_beside" n="1086vc"></g>
+          <seg corresp="#Ap4G1" xml:id="Ap4S1" type="glyph-group" rend="right_beside">
+            <g ref="textgrid:3r606" corresp="#Ap4G3" xml:id="Ap4G2" rend="above" n="509bb"></g>
+            <g ref="textgrid:2x5rc" corresp="#Ap4G2" xml:id="Ap4G3" rend="beneath" n="57st"></g>
+          </seg>
+        </ab>
+      </div>
+      <div type="textfield" xml:id="front_Bp1">
+        <ab xml:id="Bp1" type="glyph-block" n="??.[??:1540st].130bh">
+          <damage agent="environment" unit="g" quantity="1" degree="0.5">
+            <g corresp="#front_Bp1S1" xml:id="front_Bp1G1" rend="left_beside"></g>
+          </damage>
+          <seg corresp="#front_Bp1G1" xml:id="front_Bp1S1" type="glyph-group" rend="right_beside">
+            <damage agent="environment" unit="g" quantity="1" degree="0.5">
+              <g corresp="#front_Bp1G3" xml:id="front_Bp1G2" rend="above"></g>
+            </damage>
+            <g ref="textgrid:3rq8h" corresp="#front_Bp1G2" xml:id="front_Bp1G3" rend="beneath" n="1540st"></g>
+          </seg>
+          <g ref="textgrid:3r4tk" corresp="#front_Bp1S1" xml:id="front_Bp1G4" rend="right_beside" n="130bh"></g>
+        </ab>
+      </div>
+      <div type="textfield" xml:id="front_Zp1">
+        <ab xml:id="Zp1" type="glyph-block" n="1br.[[1521st°526st]:126ex]">
+          <g ref="textgrid:2skk2" corresp="#Zp1S1" xml:id="Zp1G1" rend="left_beside" n="1br"></g>
+          <seg corresp="#Zp1G1" xml:id="Zp1S1" type="glyph-group" rend="right_beside">
+            <seg corresp="#Zp1G4" xml:id="Zp1S2" type="glyph-group" rend="above">
+              <g ref="textgrid:3vq5j" corresp="#Zp1G3" xml:id="Zp1G2" rend="encloses" n="1521st"></g>
+              <g ref="textgrid:3r8dw" corresp="#Zp1G2" xml:id="Zp1G3" rend="infixed_in" n="526st"></g>
+            </seg>
+            <g ref="textgrid:3r4t9" corresp="#Zp1S2" xml:id="Zp1G4" rend="beneath" n="126ex"></g>
+          </seg>
+        </ab>
+      </div>
+    </body>
+  </text>
+</TEI>

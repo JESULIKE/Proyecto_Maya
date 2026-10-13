@@ -1,161 +1,107 @@
 <template>
-  <div class="min-h-screen bg-gray-100">
-    <div class="h-screen flex flex-col">
-      <div class="flex-1 grid grid-cols-1 md:grid-cols-3">
-        <!-- Sección 1: Sílabas -->
-        <section class="bg-white p-4 flex flex-col">
-          <h2 class="text-xl font-semibold mb-4 text-gray-800 flex items-center">
-            <span class="bg-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm mr-3">1</span>
-            Sílabas Disponibles
-          </h2>
-          <p class="text-sm text-gray-600 mb-4">Arrastra las sílabas a la cuadrícula para formar palabras</p>
-          <div class="flex-1 overflow-auto">
-            <SyllableList />
+  <div class="mx-auto max-w-[1500px] px-4 py-8 sm:px-6 lg:px-8">
+    <header class="mb-6">
+      <h1 class="page-title">Ensamblador de glifos</h1>
+      <p class="page-lead">
+        Elige una sílaba, colócala en el lienzo y compón un bloque. Todo lo que quede dentro del marco ámbar es lo que se guarda.
+      </p>
+    </header>
+
+    <div class="grid gap-5 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.7fr)_minmax(0,1fr)]">
+      <!-- 1 · Sílabas -->
+      <section class="card-pad" aria-labelledby="paso-1">
+        <h2 id="paso-1" class="step-title"><span class="step-num bg-kin-maya">1</span> Sílabas</h2>
+        <p class="step-help">Arrastra una sílaba al lienzo. En el móvil, mantén presionado y suelta.</p>
+        <SyllableList />
+      </section>
+
+      <!-- 2 · Lienzo -->
+      <section class="card-pad" aria-labelledby="paso-2">
+        <h2 id="paso-2" class="step-title"><span class="step-num bg-kin-esmeralda">2</span> Lienzo</h2>
+        <p class="step-help">Mueve, agranda y gira los glifos. Puedes superponerlos, como en la escritura real.</p>
+        <GlyphGrid @save-glyph="saveGlyph" />
+      </section>
+
+      <!-- 3 · Historia -->
+      <section class="card-pad" aria-labelledby="paso-3">
+        <h2 id="paso-3" class="step-title"><span class="step-num bg-kin-terracota">3</span> Tu historia</h2>
+        <p class="step-help">Los glifos guardados aparecen aquí en orden de lectura.</p>
+
+        <dl class="mb-4 grid grid-cols-3 gap-2 text-center">
+          <div class="rounded-xl bg-kin-crema2 p-2">
+            <dt class="text-sm text-kin-pardo">Glifos</dt>
+            <dd class="text-2xl font-extrabold text-kin-maya">{{ glyphHistory.length }}</dd>
           </div>
-        </section>
-        
-        <!-- Sección 2: Cuadrícula -->
-        <section class="bg-white p-4 flex flex-col border-l border-r border-gray-200">
-          <h2 class="text-xl font-semibold mb-4 text-gray-800 flex items-center">
-            <span class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm mr-3">2</span>
-            Cuadrícula de Composición
-          </h2>
-          <p class="text-sm text-gray-600 mb-4">Organiza y redimensiona los glifos, luego guárdalos</p>
-          <div class="flex-1 overflow-auto">
-            <GlyphGrid @save-glyph="saveGlyph" />
+          <div class="rounded-xl bg-kin-crema2 p-2">
+            <dt class="text-sm text-kin-pardo">Palabras</dt>
+            <dd class="text-2xl font-extrabold text-kin-esmeralda">{{ totalWords }}</dd>
           </div>
-        </section>
-        
-        <!-- Sección 3: Historia -->
-        <section class="bg-white p-4 flex flex-col">
-          <h2 class="text-xl font-semibold mb-4 text-gray-800 flex items-center">
-            <span class="bg-purple-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm mr-3">3</span>
-            Tu Historia Maya
-          </h2>
-          <p class="text-sm text-gray-600 mb-4">Visualiza tu historia completa en orden de lectura maya</p>
-          <div class="flex-1 overflow-auto">
-            <GlyphBlock 
-              :glyph-history="glyphHistory" 
-              @remove-glyph="removeGlyph"
-              @clear-all="clearAllGlyphs"
-            />
+          <div class="rounded-xl bg-kin-crema2 p-2">
+            <dt class="text-sm text-kin-pardo">Sílabas</dt>
+            <dd class="text-2xl font-extrabold text-kin-terracota">{{ totalSyllables }}</dd>
           </div>
-        </section>
-      </div>
-      
-      <!-- Estadísticas - Barra inferior -->
-      <footer class="bg-white p-4 border-t border-gray-200">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
-          <div>
-            <div class="text-2xl font-bold text-blue-600">{{ glyphHistory.length }}</div>
-            <div class="text-sm text-gray-600">Glifos Creados</div>
-          </div>
-          <div>
-            <div class="text-2xl font-bold text-green-600">{{ totalWords }}</div>
-            <div class="text-sm text-gray-600">Palabras Totales</div>
-          </div>
-          <div>
-            <div class="text-2xl font-bold text-purple-600">{{ totalSyllables }}</div>
-            <div class="text-sm text-gray-600">Sílabas Usadas</div>
-          </div>
-        </div>
-      </footer>
+        </dl>
+
+        <GlyphBlock :glyph-history="glyphHistory" @remove-glyph="removeGlyph" @clear-all="clearAllGlyphs" />
+      </section>
     </div>
 
-    <!-- Notificación flotante -->
-    <div v-if="notification" class="notification">
-      {{ notification }}
+    <!-- Notificación -->
+    <div v-if="notification" role="status" class="alert-ok fixed right-4 top-20 z-50 shadow-kin">
+      <span aria-hidden="true" class="font-bold">✓</span>
+      <span>{{ notification }}</span>
     </div>
   </div>
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed, onUnmounted } from 'vue'
 import SyllableList from '~/components/SyllableList.vue'
 import GlyphGrid from '~/components/GlyphGrid.vue'
 import GlyphBlock from '~/components/GlyphBlock.vue'
 
-// Estado principal - array de glifos que forman la historia
+// Glifos guardados (la historia)
 const glyphHistory = ref([])
 
-// Estadísticas computadas
 const totalWords = computed(() => glyphHistory.value.length)
-const totalSyllables = computed(() => {
-  return glyphHistory.value.reduce((total, glyph) => {
-    return total + glyph.glyphs.length
-  }, 0)
-})
+const totalSyllables = computed(() =>
+  glyphHistory.value.reduce((total, glyph) => total + glyph.glyphs.filter((g) => g.kind !== 'gap').length, 0)
+)
 
-// Guardar un nuevo glifo en la historia
+const notification = ref('')
+let notificationTimer = null
+const showNotification = (message) => {
+  notification.value = message
+  clearTimeout(notificationTimer)
+  notificationTimer = setTimeout(() => { notification.value = '' }, 3000)
+}
+onUnmounted(() => clearTimeout(notificationTimer))
+
 const saveGlyph = (glyphData) => {
-  console.log('Guardando glifo:', glyphData)
   glyphHistory.value.push(glyphData)
-  
-  // Opcional: mostrar confirmación
-  showNotification('¡Glifo guardado exitosamente!')
+  showNotification('Glifo guardado')
 }
 
-// Eliminar un glifo específico de la historia
 const removeGlyph = (index) => {
-  if (index >= 0 && index < glyphHistory.value.length) {
-    const removedGlyph = glyphHistory.value.splice(index, 1)[0]
-    showNotification(`Glifo "${removedGlyph.word}" eliminado`)
-  }
+  if (index < 0 || index >= glyphHistory.value.length) return
+  const [removed] = glyphHistory.value.splice(index, 1)
+  showNotification(`Glifo «${removed.word}» eliminado`)
 }
 
-// Limpiar toda la historia
 const clearAllGlyphs = () => {
   const count = glyphHistory.value.length
   glyphHistory.value = []
   showNotification(`${count} glifos eliminados`)
 }
 
-// Sistema de notificaciones simple
-const notification = ref('')
-const showNotification = (message) => {
-  notification.value = message
-  setTimeout(() => {
-    notification.value = ''
-  }, 3000)
-}
-
-// Título de la página
 useHead({
-  title: 'Escritura Maya Interactiva',
-  meta: [
-    { name: 'description', content: 'Aplicación interactiva para crear historias usando glifos mayas' }
-  ]
+  title: 'Ensamblador · Laboratorio Maya',
+  meta: [{ name: 'description', content: 'Compón bloques de glifos mayas y exporta a TEI conservando la evidencia editorial.' }]
 })
 </script>
 
 <style scoped>
-/* Animaciones suaves */
-section {
-  transition: transform 0.2s ease;
-}
-
-/* Notificación flotante */
-.notification {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  background: #10b981;
-  color: white;
-  padding: 12px 24px;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  z-index: 1000;
-  animation: slideIn 0.3s ease;
-}
-
-@keyframes slideIn {
-  from {
-    transform: translateX(100%);
-    opacity: 0;
-  }
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
+.step-title { @apply mb-1 flex items-center gap-3 text-xl text-kin-terracota; }
+.step-num { @apply flex h-9 w-9 items-center justify-center rounded-full text-base font-extrabold text-white; }
+.step-help { @apply mb-4 text-base text-kin-pardo; }
 </style>

@@ -1,42 +1,50 @@
 <template>
-  <div class="w-full max-w-7xl mx-auto p-4">
+  <div class="w-full">
     <!-- Pestañas -->
     <div class="mb-4">
-      <div class="flex flex-wrap gap-1 border-b border-amber-300 max-h-32 overflow-y-auto">
+      <div class="flex flex-wrap gap-2" role="tablist" aria-label="Familias de sílabas">
         <button
-          v-for="tab in tabs"
+          v-for="tab in visibleTabs"
           :key="tab.key"
+          role="tab"
+          :aria-selected="activeTab === tab.key"
           @click="activeTab = tab.key"
           :class="[
-            'px-3 py-2 font-medium text-xs rounded-t-lg transition-colors flex-shrink-0',
+            'min-h-[2.25rem] flex-shrink-0 rounded-full border-2 px-3 text-sm font-bold transition-colors',
             activeTab === tab.key
-              ? 'bg-amber-200 text-amber-900 border-b-2 border-amber-500'
-              : 'text-amber-700 hover:bg-amber-100'
+              ? 'border-kin-terracota bg-kin-terracota text-white'
+              : 'border-kin-control bg-white text-kin-texto hover:bg-kin-crema2'
           ]"
         >
           {{ tab.label }}
-          <span class="ml-1 text-xs text-amber-600">({{ tab.count }})</span>
+          <span class="ml-1 text-xs font-semibold opacity-80">{{ tab.count }}</span>
         </button>
       </div>
     </div>
 
     <!-- Contenido de la pestaña activa -->
-    <div class="grid grid-cols-2 md:grid-cols-3 gap-3 p-3 bg-amber-50 rounded-lg min-h-[500px] max-h-[600px] overflow-y-auto">
+    <div class="grid grid-cols-2 gap-3 overflow-y-auto rounded-xl bg-kin-crema p-3 sm:grid-cols-3 max-h-[560px]">
       <div
         v-for="(syllable, index) in filteredSyllables"
         :key="`${syllable.syllable}-${index}`"
         ref="syllableElements"
         draggable="true"
+        tabindex="0"
+        role="button"
+        :aria-label="`Añadir ${syllable.syllable} al lienzo`"
+        @click="handleMobileDrop(syllable)"
+        @keydown.enter.prevent="handleMobileDrop(syllable)"
+        @keydown.space.prevent="handleMobileDrop(syllable)"
         @dragstart="(event) => handleDragStart(event, syllable)"
         @dragend="handleDragEnd"
         @touchstart="(event) => handleTouchStart(event, $event.currentTarget, syllable)"
         @touchmove="handleTouchMove"
         @touchend="(event) => handleTouchEnd(event, handleMobileDrop)"
         :class="[
-          'bg-white p-4 rounded-lg shadow-md flex flex-col items-center cursor-move transition-all min-h-[120px]',
+          'bg-white p-3 rounded-xl border border-kin-borde shadow-kin flex flex-col items-center cursor-grab transition-all min-h-[120px]',
           isDragging && draggedData?.syllable === syllable.syllable 
             ? 'opacity-50 scale-95' 
-            : 'hover:bg-amber-200 hover:scale-105'
+            : 'hover:bg-kin-crema2 hover:border-kin-terracota'
         ]"
       >
         <div class="flex-1 flex items-center justify-center mb-3">
@@ -115,6 +123,9 @@ tabs.forEach(tab => {
   tab.count = syllablesData.filter(tab.filter).length
 })
 
+// Las familias sin glifos en el catálogo no se muestran
+const visibleTabs = tabs.filter((t) => t.count > 0)
+
 // Computed para filtrar sílabas según la pestaña activa
 const filteredSyllables = computed(() => {
   const currentTab = tabs.find(tab => tab.key === activeTab.value)
@@ -128,10 +139,10 @@ const getCurrentTabLabel = () => {
 }
 
 // Handler para drop en móvil - buscar el grid
-const handleMobileDrop = (data, position) => {
-  // Emitir evento personalizado que será capturado por el componente padre
+const handleMobileDrop = (data, position, point = null) => {
+  // Emitir evento personalizado que será capturado por el lienzo (point = dónde soltó el dedo)
   const event = new CustomEvent('mobile-syllable-drop', {
-    detail: { data, position },
+    detail: { data, position, point },
     bubbles: true
   })
   document.dispatchEvent(event)

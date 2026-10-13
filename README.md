@@ -1,75 +1,30 @@
-# Nuxt Minimal Starter
+# Maya Writing App
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+App Nuxt 3 + Tailwind para aprender y componer escritura maya.
 
-## Setup
+## Páginas
+- `/` inicio
+- `/textbook` libro interactivo adaptativo (ver `docs/libro-interactivo.md`)
+- `/assembler` ensamblador de sílabas
+- `/converter` conversor de transcripción TEI a bloques
 
-Make sure to install dependencies:
-
+## Desarrollo
 ```bash
-# npm
 npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
-```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
 npm run dev
-
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
 ```
 
-## Production
+`scripts/sync-glyph-data.mjs` sincroniza `data/*.json` con los SVG de `public/` (`--apply` para escribir).
 
-Build the application for production:
+## Pruebas
 
 ```bash
-# npm
-npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
+npm test
 ```
 
-Locally preview production build:
+- `tests/audit.test.js` reproduce las cifras del paper (333 alteraciones, 607 borrados de atributo, 96 controles) sobre `tests/fixtures/uxul-stela17.xml` (TWKM, CC BY 4.0).
+- `tests/blockModel.test.js` verifica que el ensamblador conserva la fuente TEI y prueba 500 lienzos aleatorios (red-team).
+- `tests/learner.test.js` y `tests/curriculum.test.js` cubren el modelo del estudiante y la coherencia de los ejercicios del libro.
+- `tests/parser-hostile.test.js` prueba entradas hostiles (XXE, XML gigante o mal formado).
 
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+El código está en `lib/maya/tei/` (`tree.js`, `audit.js`, `blockModel.js`).

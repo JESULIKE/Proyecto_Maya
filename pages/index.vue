@@ -1,181 +1,80 @@
 <template>
-  <div class="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50">
-    <!-- Hero Section -->
-    <section class="relative overflow-hidden">
-      <!-- Patrón decorativo de fondo -->
-      <div class="absolute inset-0 opacity-10">
-        <div class="absolute top-10 left-10 w-32 h-32 border-4 border-amber-800 rounded-lg transform rotate-12"></div>
-        <div class="absolute top-40 right-20 w-24 h-24 border-4 border-amber-800 rounded-full"></div>
-        <div class="absolute bottom-20 left-1/4 w-28 h-28 border-4 border-amber-800 transform -rotate-6"></div>
-        <div class="absolute bottom-40 right-1/3 w-20 h-20 border-4 border-amber-800 rounded-lg"></div>
-      </div>
-
-      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div class="text-center">
-          <!-- Título principal con efecto -->
-          <div class="mb-6">
-            <h1 class="text-5xl md:text-7xl font-bold text-amber-900 mb-4 animate-fade-in">
-              Escritura Maya
-            </h1>
-            <div class="flex items-center justify-center gap-3 text-3xl md:text-4xl text-amber-700">
-              <div class="w-12 h-1 bg-amber-600"></div>
-              <span class="font-semibold">Tz'ib'</span>
-              <div class="w-12 h-1 bg-amber-600"></div>
-            </div>
-          </div>
-
-          <!-- Subtítulo -->
-          <p class="text-xl md:text-2xl text-amber-800 max-w-3xl mx-auto mb-12 leading-relaxed">
-            Descubre el fascinante mundo de los glifos mayas. Crea historias usando uno de los sistemas de escritura más sofisticados de la antigüedad.
+  <div>
+    <!-- Portada -->
+    <section class="border-b border-kin-borde bg-gradient-to-b from-kin-crema to-kin-crema2">
+      <div class="mx-auto grid max-w-7xl items-center gap-10 px-4 py-14 sm:px-6 lg:grid-cols-2 lg:px-8 lg:py-20">
+        <div>
+          <p class="chip-brand mb-4">Laboratorio de escritura maya</p>
+          <h1 class="page-title !text-4xl sm:!text-5xl">Aprende, escribe y preserva los glifos mayas</h1>
+          <p class="page-lead">
+            Un espacio para entender cómo se escribía en maya clásico: estudia los signos, arma bloques de glifos
+            y conserva siempre la diferencia entre lo que se lee en la piedra y lo que propone un editor.
           </p>
-
-          <!-- Características destacadas -->
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-16">
-            <div class="bg-white/80 backdrop-blur p-6 rounded-2xl shadow-lg border-2 border-amber-200 hover:shadow-xl transition-shadow">
-              <div class="text-4xl mb-3">📜</div>
-              <h3 class="text-lg font-bold text-amber-900 mb-2">Sistema Logográfico</h3>
-              <p class="text-sm text-amber-700">Combina logogramas y silabogramas para formar palabras complejas</p>
-            </div>
-            <div class="bg-white/80 backdrop-blur p-6 rounded-2xl shadow-lg border-2 border-amber-200 hover:shadow-xl transition-shadow">
-              <div class="text-4xl mb-3">🏛️</div>
-              <h3 class="text-lg font-bold text-amber-900 mb-2">Historia Milenaria</h3>
-              <p class="text-sm text-amber-700">Utilizado por más de 2000 años en toda Mesoamérica</p>
-            </div>
-            <div class="bg-white/80 backdrop-blur p-6 rounded-2xl shadow-lg border-2 border-amber-200 hover:shadow-xl transition-shadow">
-              <div class="text-4xl mb-3">🎨</div>
-              <h3 class="text-lg font-bold text-amber-900 mb-2">Arte y Escritura</h3>
-              <p class="text-sm text-amber-700">Cada glifo es una obra de arte con significado profundo</p>
-            </div>
-          </div>
-
-          <!-- Botones de navegación principales -->
-          <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
-            <NuxtLink
-              to="/compositor"
-              class="group relative px-8 py-4 bg-gradient-to-r from-amber-700 to-amber-600 text-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 w-full sm:w-auto"
-            >
-              <div class="flex items-center justify-center gap-3">
-                <span class="text-2xl">✨</span>
-                <div class="text-left">
-                  <div class="font-bold text-lg">Compositor de Glifos</div>
-                  <div class="text-sm opacity-90">Crea glifos palabra por palabra</div>
-                </div>
-              </div>
-            </NuxtLink>
-
-            <NuxtLink
-              to="/assembler"
-              class="group relative px-8 py-4 bg-gradient-to-r from-green-700 to-green-600 text-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 w-full sm:w-auto"
-            >
-              <div class="flex items-center justify-center gap-3">
-                <span class="text-2xl">🎯</span>
-                <div class="text-left">
-                  <div class="font-bold text-lg">Ensamblador Interactivo</div>
-                  <div class="text-sm opacity-90">Arrastra y organiza sílabas</div>
-                </div>
-              </div>
-            </NuxtLink>
+          <div class="mt-8 flex flex-wrap gap-3">
+            <NuxtLink to="/textbook" class="btn-primary">Empezar con el libro</NuxtLink>
+            <NuxtLink to="/assembler" class="btn-secondary">Abrir el ensamblador</NuxtLink>
           </div>
         </div>
+
+        <HeroGlyphs />
       </div>
     </section>
 
-    <!-- Sección informativa -->
-    <section class="bg-white/60 backdrop-blur py-16">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="text-3xl md:text-4xl font-bold text-amber-900 text-center mb-12">
-          ¿Cómo funciona la escritura maya?
-        </h2>
+    <!-- Herramientas -->
+    <section class="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8" aria-labelledby="herramientas">
+      <h2 id="herramientas" class="text-kin-terracota text-3xl">Herramientas</h2>
+      <p class="page-lead">Cada herramienta resuelve una parte del recorrido, desde aprender un signo hasta documentarlo con rigor.</p>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <!-- Bloques de glifos -->
-          <div class="bg-gradient-to-br from-amber-100 to-yellow-100 p-8 rounded-2xl border-2 border-amber-300 shadow-lg">
-            <div class="flex items-start gap-4">
-              <div class="bg-amber-700 text-white rounded-full w-12 h-12 flex items-center justify-center font-bold text-xl flex-shrink-0">
-                1
-              </div>
-              <div>
-                <h3 class="text-xl font-bold text-amber-900 mb-3">Bloques de Glifos</h3>
-                <p class="text-amber-800 leading-relaxed">
-                  Los glifos se organizan en bloques rectangulares. Cada bloque puede contener de 1 a 5 signos que se leen siguiendo un patrón específico.
-                </p>
-              </div>
-            </div>
-          </div>
+      <ul class="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <li v-for="t in tools" :key="t.title" class="card-pad flex flex-col">
+          <span class="chip mb-3 self-start" :class="t.chip">{{ t.status }}</span>
+          <h3 class="text-kin-terracota text-xl">{{ t.title }}</h3>
+          <p class="mt-2 flex-1 text-base text-kin-pardo">{{ t.text }}</p>
+          <NuxtLink v-if="t.to" :to="t.to" class="btn-brand mt-5">{{ t.cta }}</NuxtLink>
+          <span v-else class="mt-5 inline-flex min-h-target items-center text-sm font-semibold text-kin-pardo">{{ t.cta }}</span>
+        </li>
+      </ul>
+    </section>
 
-          <!-- Orden de lectura -->
-          <div class="bg-gradient-to-br from-orange-100 to-amber-100 p-8 rounded-2xl border-2 border-orange-300 shadow-lg">
-            <div class="flex items-start gap-4">
-              <div class="bg-orange-700 text-white rounded-full w-12 h-12 flex items-center justify-center font-bold text-xl flex-shrink-0">
-                2
-              </div>
-              <div>
-                <h3 class="text-xl font-bold text-amber-900 mb-3">Orden de Lectura</h3>
-                <p class="text-amber-800 leading-relaxed">
-                  Los bloques se leen en pares de columnas, de izquierda a derecha y de arriba hacia abajo, como un zigzag descendente.
-                </p>
-              </div>
+    <!-- Cómo se lee -->
+    <section class="bg-white py-14" aria-labelledby="lectura">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <h2 id="lectura" class="text-kin-terracota text-3xl">Cómo funciona la escritura maya</h2>
+        <ol class="mt-8 grid gap-5 md:grid-cols-2">
+          <li v-for="(s, i) in steps" :key="s.title" class="flex gap-4 rounded-2xl border border-kin-borde bg-kin-crema p-5">
+            <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-kin-terracota text-xl font-extrabold text-white" aria-hidden="true">{{ i + 1 }}</span>
+            <div>
+              <h3 class="text-kin-terracota text-xl">{{ s.title }}</h3>
+              <p class="mt-1 text-base text-kin-texto">{{ s.text }}</p>
             </div>
-          </div>
-
-          <!-- Silabogramas -->
-          <div class="bg-gradient-to-br from-yellow-100 to-amber-100 p-8 rounded-2xl border-2 border-yellow-300 shadow-lg">
-            <div class="flex items-start gap-4">
-              <div class="bg-yellow-700 text-white rounded-full w-12 h-12 flex items-center justify-center font-bold text-xl flex-shrink-0">
-                3
-              </div>
-              <div>
-                <h3 class="text-xl font-bold text-amber-900 mb-3">Silabogramas</h3>
-                <p class="text-amber-800 leading-relaxed">
-                  Signos que representan sílabas individuales (consonante + vocal). Ejemplo: "ba", "la", "ma". Se combinan para formar palabras.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Logogramas -->
-          <div class="bg-gradient-to-br from-red-100 to-orange-100 p-8 rounded-2xl border-2 border-red-300 shadow-lg">
-            <div class="flex items-start gap-4">
-              <div class="bg-red-700 text-white rounded-full w-12 h-12 flex items-center justify-center font-bold text-xl flex-shrink-0">
-                4
-              </div>
-              <div>
-                <h3 class="text-xl font-bold text-amber-900 mb-3">Logogramas</h3>
-                <p class="text-amber-800 leading-relaxed">
-                  Signos que representan palabras completas. Un mismo concepto puede escribirse de múltiples formas usando diferentes combinaciones.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
+          </li>
+        </ol>
       </div>
     </section>
 
-    <!-- Call to action final -->
-    <section class="py-16">
-      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <div class="bg-gradient-to-r from-amber-800 to-amber-700 rounded-3xl p-10 shadow-2xl text-white">
-          <h2 class="text-3xl md:text-4xl font-bold mb-4">
-            Comienza tu viaje en la escritura maya
-          </h2>
-          <p class="text-lg mb-8 opacity-90">
-            Elige una herramienta y empieza a crear tus propias historias en glifos
+    <!-- Evidencia editorial -->
+    <section class="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8" aria-labelledby="evidencia">
+      <div class="card-pad grid gap-8 lg:grid-cols-2">
+        <div>
+          <h2 id="evidencia" class="text-kin-terracota text-3xl">Lo que dice la piedra y lo que propone un editor</h2>
+          <p class="mt-3 text-base">
+            Un signo puede estar dañado, repuesto por un editor o ser un hueco. Si una representación guarda el código
+            del signo pero olvida ese estado, el mismo glifo parece distinto de lo que era la evidencia.
+            El ensamblador y el traductor conservan esa información y avisan cuando algo se pierde.
           </p>
-          <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <NuxtLink
-              to="/compositor"
-              class="px-6 py-3 bg-white text-amber-800 rounded-lg font-semibold hover:bg-amber-50 transition-colors"
-            >
-              Ir al Compositor →
-            </NuxtLink>
-            <NuxtLink
-              to="/assembler"
-              class="px-6 py-3 bg-amber-900 text-white rounded-lg font-semibold hover:bg-amber-950 transition-colors border-2 border-white/30"
-            >
-              Ir al Ensamblador →
-            </NuxtLink>
-          </div>
+          <NuxtLink to="/assembler" class="btn-brand mt-6">Probarlo en el ensamblador</NuxtLink>
         </div>
+        <ul class="space-y-3" aria-label="Estados de un signo">
+          <li v-for="e in evidence" :key="e.name" class="callout flex items-start gap-3" :class="e.border">
+            <svg class="mt-1 h-8 w-8 shrink-0" viewBox="0 0 32 32" aria-hidden="true">
+              <rect x="3" y="3" width="26" height="26" rx="4" fill="#fff" :stroke="e.stroke" stroke-width="3" :stroke-dasharray="e.dash" />
+            </svg>
+            <div>
+              <p class="font-bold">{{ e.name }}</p>
+              <p class="text-sm text-kin-pardo">{{ e.text }}</p>
+            </div>
+          </li>
+        </ul>
       </div>
     </section>
   </div>
@@ -183,29 +82,28 @@
 
 <script setup>
 useHead({
-  title: 'Escritura Maya - B\'alam Ajaw',
-  meta: [
-    { 
-      name: 'description', 
-      content: 'Aprende y crea historias usando glifos mayas. Sistema interactivo para componer y ensamblar escritura maya.' 
-    }
-  ]
+  title: 'Laboratorio Maya · Escritura maya',
+  meta: [{ name: 'description', content: 'Aprende, escribe y preserva los glifos mayas con rigor sobre la evidencia editorial.' }]
 })
+
+const tools = [
+  { title: 'Libro interactivo', status: 'Disponible', chip: 'chip-ok', text: 'Módulos guiados de vocales, sílabas, bloques, lectura y escritura, con ayudas que se retiran a medida que avanzas.', to: '/textbook', cta: 'Abrir el libro' },
+  { title: 'Ensamblador', status: 'Disponible', chip: 'chip-ok', text: 'Arma bloques de glifos libremente, marca daño o suplidos y exporta a TEI sin perder la evidencia.', to: '/assembler', cta: 'Abrir el ensamblador' },
+  { title: 'Traductor TEI', status: 'Para investigación', chip: 'chip-info', text: 'Convierte entre TEI XML y notación DSL y avisa qué información se perdería al hacerlo.', to: '/converter', cta: 'Abrir el traductor' },
+  { title: 'Calendario K\'in', status: 'Pronto', chip: 'chip-warn', text: 'Tzolk\'in y Haab\' con tutoría adaptativa y sin castigo. Se construye el próximo semestre.', to: null, cta: 'En diseño' }
+]
+
+const steps = [
+  { title: 'Bloques de glifos', text: 'Los glifos se organizan en bloques. Cada bloque agrupa signos que se leen juntos siguiendo un patrón de posición.' },
+  { title: 'Orden de lectura', text: 'Los bloques se leen en pares de columnas, de izquierda a derecha y de arriba hacia abajo, como un zigzag descendente.' },
+  { title: 'Silabogramas', text: 'Signos que representan una sílaba (consonante + vocal), como «ba», «la» o «ma». Se combinan para formar palabras.' },
+  { title: 'Logogramas', text: 'Signos que representan una palabra completa. Un mismo concepto puede escribirse de varias formas.' }
+]
+
+const evidence = [
+  { name: 'Legible', text: 'El signo se lee directamente en el monumento.', stroke: '#8A7358', dash: '0', border: 'border-kin-control' },
+  { name: 'Dañado', text: 'Hay desgaste. Se anota el grado de daño.', stroke: '#C7650A', dash: '6 3', border: 'border-kin-ocre' },
+  { name: 'Suplido', text: 'Un editor lo repuso. Es una propuesta, no una lectura directa.', stroke: '#36558F', dash: '1.5 4', border: 'border-kin-maya' },
+  { name: 'Hueco', text: 'Falta el signo y no se puede reponer con certeza.', stroke: '#765E4A', dash: '5 5', border: 'border-kin-terracota' }
+]
 </script>
-
-<style scoped>
-@keyframes fade-in {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.animate-fade-in {
-  animation: fade-in 1s ease-out;
-}
-</style>

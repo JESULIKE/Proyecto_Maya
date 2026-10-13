@@ -1,6 +1,6 @@
 <template>
   <div class="maya-block-svg relative inline-block" :style="{ width: `${width}px`, height: `${height}px` }">
-    <svg :width="width" :height="height" xmlns="http://www.w3.org/2000/svg" class="border border-gray-200 rounded-md shadow-sm bg-white overflow-visible">
+    <svg :width="width" :height="height" xmlns="http://www.w3.org/2000/svg" class="border border-kin-borde rounded-md shadow-sm bg-white overflow-visible">
       <g v-for="el in layoutElements" :key="el.id || el.code">
         <!-- Fondo opcional para visualización de los slots geométricos -->
         <rect 
@@ -9,7 +9,7 @@
           :width="el.width" 
           :height="el.height" 
           fill="transparent" 
-          stroke="#e2e8f0" 
+          stroke="#C9B79A" 
           stroke-dasharray="2,2" 
         />
         
@@ -39,8 +39,8 @@
             :y="el.y"
             :width="el.width"
             :height="el.height"
-            fill="#fef2f2"
-            stroke="#ef4444"
+            fill="#FFF4E5"
+            stroke="#C7650A"
             stroke-dasharray="4,4"
             rx="4"
           />
@@ -49,7 +49,7 @@
             :y="el.y + el.height / 2"
             text-anchor="middle"
             dominant-baseline="middle"
-            class="text-[10px] font-mono fill-red-600 font-bold"
+            class="text-[10px] font-mono fill-orange-800 font-bold"
           >
             {{ el.code }}
           </text>
@@ -88,12 +88,12 @@ const layoutElements = computed(() => {
   const ast = engine.parseToAST(props.dsl)
   const result = engine.calculate(ast)
   
-  return result.elements.map(el => {
+  return result.elements.map((el, index) => {
     // Si el nodo en el DSL estaba envuelto por un tag especial de <damage>, podríamos capturarlo.
     // Por simplicidad, asumimos que se inyecta desde fuera o se marca en el AST.
     return {
       ...el,
-      id: Math.random().toString(36).substr(2, 9),
+      id: `${el.code}-${index}`, // estable: evita re-crear el DOM en cada cálculo
       image: getGlyphImageFromThompson(el.code),
       damaged: false // Propiedad lista para conectar con el parser
     }

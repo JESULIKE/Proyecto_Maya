@@ -6,10 +6,16 @@
     "dev": "nuxi dev",
     "build": "nuxi build",
     "start": "nuxi start",
-    "generate": "nuxi generate"
+    "generate": "nuxi generate",
+    "test": "vitest run"
   },
   "devDependencies": {
     "@nuxtjs/tailwindcss": "^6.12.1",
-    "nuxt": "^3.13.2"
+    "@xmldom/xmldom": "^0.9.12",
+    "nuxt": "^3.13.2",
+    "vitest": "^3.2.7"
+  },
+  "dependencies": {
+    "@fontsource-variable/nunito": "^5.3.0"
   }
 }

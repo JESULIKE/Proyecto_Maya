@@ -1,6 +1,5 @@
 <template>
-  <div class="p-4 bg-amber-100 rounded-lg">
-    <h3 class="text-lg font-semibold mb-2 text-gray-800">Bloque de Glifos</h3>
+  <div>
     
     <!-- Grid de glifos guardados -->
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 max-h-96 overflow-y-auto mb-4">
@@ -12,7 +11,8 @@
         <!-- Botón de eliminar -->
         <button
           @click="removeGlyph(index)"
-          class="absolute top-2 right-2 bg-red-500 text-white text-xs rounded-full w-6 h-6 flex items-center justify-center hover:bg-red-600 z-20 transition-colors"
+          :aria-label="`Eliminar glifo ${glyph.word}`"
+          class="absolute right-2 top-2 z-20 flex h-9 w-9 items-center justify-center rounded-full border-2 border-kin-ocre bg-orange-50 text-lg font-bold text-orange-900 transition-colors hover:bg-orange-100"
         >
           ×
         </button>
@@ -22,31 +22,46 @@
           
           <!-- Renderizado para glifos tipo SVG (nuevo sistema) -->
           <div v-if="glyph.gridType === 'svg'" class="w-full h-full relative">
-            <svg 
-              class="w-full h-full" 
-              viewBox="0 0 800 600" 
+            <svg
+              class="w-full h-full"
+              :viewBox="`0 0 ${glyph.frame?.width || 800} ${glyph.frame?.height || 600}`"
               preserveAspectRatio="xMidYMid meet"
             >
-              <!-- Grid de fondo para referencia -->
               <defs>
-                <pattern id="preview-grid" width="40" height="40" patternUnits="userSpaceOnUse">
-                  <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#e5e7eb" stroke-width="1" opacity="0.3"/>
-                </pattern>
+                <clipPath :id="`frame-${glyph.id}`">
+                  <rect x="0" y="0" :width="glyph.frame?.width || 800" :height="glyph.frame?.height || 600" />
+                </clipPath>
               </defs>
-              <rect width="100%" height="100%" fill="url(#preview-grid)" />
-              
-              <!-- Glifos individuales -->
-              <image
-                v-for="subGlyph in glyph.glyphs"
-                :key="`${glyph.id}-${subGlyph.x}-${subGlyph.y}`"
-                :href="subGlyph.image"
-                :x="subGlyph.x"
-                :y="subGlyph.y"
-                :width="subGlyph.width"
-                :height="subGlyph.height"
-                :transform="`rotate(${subGlyph.rotation || 0} ${subGlyph.x + subGlyph.width / 2} ${subGlyph.y + subGlyph.height / 2})`"
-                class="pointer-events-none"
-              />
+              <rect width="100%" height="100%" fill="#fffbeb" />
+
+              <g :clip-path="`url(#frame-${glyph.id})`">
+                <g
+                  v-for="(subGlyph, i) in sortedByLayer(glyph.glyphs)"
+                  :key="`${glyph.id}-${i}`"
+                  :transform="`rotate(${subGlyph.rotation || 0} ${subGlyph.x + subGlyph.width / 2} ${subGlyph.y + subGlyph.height / 2})`"
+                  class="pointer-events-none"
+                >
+                  <rect
+                    v-if="subGlyph.kind === 'gap'"
+                    :x="subGlyph.x" :y="subGlyph.y" :width="subGlyph.width" :height="subGlyph.height"
+                    fill="#fff" fill-opacity="0.6" stroke="#78716c" stroke-width="3" stroke-dasharray="8,6"
+                  />
+                  <image
+                    v-else
+                    :href="subGlyph.image"
+                    :x="subGlyph.x" :y="subGlyph.y" :width="subGlyph.width" :height="subGlyph.height"
+                    preserveAspectRatio="xMidYMid meet"
+                    :opacity="subGlyph.evidence === 'damaged' ? 0.7 : 1"
+                  />
+                  <rect
+                    v-if="subGlyph.evidence === 'damaged' || subGlyph.evidence === 'supplied'"
+                    :x="subGlyph.x" :y="subGlyph.y" :width="subGlyph.width" :height="subGlyph.height"
+                    fill="none" stroke-width="3"
+                    :stroke="subGlyph.evidence === 'damaged' ? '#dc2626' : '#2563eb'"
+                    :stroke-dasharray="subGlyph.evidence === 'damaged' ? '10,5' : '2,5'"
+                  />
+                </g>
+              </g>
             </svg>
           </div>
           
@@ -146,6 +161,8 @@ const props = defineProps({
 })
 
 const emit = defineEmits(['remove-glyph', 'clear-all'])
+
+const sortedByLayer = (items) => [...items].sort((a, b) => (a.zIndex || 0) - (b.zIndex || 0))
 
 // Historia completa leyendo de izquierda a derecha, arriba hacia abajo (como se lee en maya)
 const fullHistory = computed(() => {

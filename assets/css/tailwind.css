@@ -1,3 +1,121 @@
+@import '@fontsource-variable/nunito';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* ---------- Base ---------- */
+@layer base {
+  :root {
+    --kin-terracota: #8b3e0f;
+    --kin-esmeralda: #1f7a4d;
+    --kin-maya: #36558f;
+    --kin-ocre: #c7650a;
+    --kin-ambar: #e29a35;
+    --kin-crema: #fff8e8;
+    --kin-crema2: #f7eedc;
+    --kin-texto: #3b2a20;
+    --kin-pardo: #765e4a;
+    --kin-borde: #c9b79a;
+    --kin-control: #8a7358;
+  }
+
+  html {
+    font-size: 16px; /* cuerpo ≥ 16 px (E2) */
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-kin-crema font-sans text-kin-texto antialiased;
+    line-height: 1.6;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-bold;
+    line-height: 1.25;
+  }
+
+  /* Foco visible y consistente (WCAG 2.2: 2.4.7 y 2.4.11) */
+  :where(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
+    outline: 3px solid var(--kin-maya);
+    outline-offset: 2px;
+    border-radius: 6px;
+  }
+
+  ::selection {
+    background: #f9d79a;
+    color: var(--kin-texto);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+/* ---------- Componentes base de K'in ----------
+   Botón, tarjeta, chip de pista, retroalimentación, recuadro, campo.
+   Todos con objetivo táctil ≥ 44 px y sin rojo (principio P1). */
+@layer components {
+  /* Botón */
+  .btn {
+    @apply inline-flex min-h-target items-center justify-center gap-2 rounded-xl px-5 py-2 text-base font-bold
+      transition-colors duration-150 disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  .btn-primary { @apply btn bg-kin-esmeralda text-white shadow-kin hover:bg-green-700 active:bg-green-800; }
+  .btn-brand { @apply btn bg-kin-terracota text-white shadow-kin hover:bg-amber-700 active:bg-amber-800; }
+  .btn-secondary { @apply btn border-2 border-kin-control bg-white text-kin-texto hover:bg-kin-crema2; }
+  .btn-ghost { @apply btn text-kin-terracota hover:bg-kin-crema2; }
+  .btn-sm { @apply min-h-target rounded-lg px-3 py-1 text-sm; }
+
+  /* Tarjeta */
+  .card { @apply rounded-2xl border border-kin-borde bg-white shadow-kin; }
+  .card-pad { @apply card p-5 sm:p-6; }
+
+  /* Chip (pista, estado, etiqueta) */
+  .chip {
+    @apply inline-flex min-h-[2rem] items-center gap-1 rounded-full border px-3 py-0.5 text-sm font-semibold;
+  }
+  .chip-info { @apply chip border-blue-200 bg-blue-50 text-blue-800; }
+  .chip-ok { @apply chip border-green-200 bg-green-50 text-green-800; }
+  .chip-warn { @apply chip border-orange-200 bg-orange-50 text-orange-800; }
+  .chip-brand { @apply chip border-amber-200 bg-amber-50 text-amber-800; }
+
+  /* Retroalimentación: color + ícono + texto, nunca solo color (WCAG 1.4.1) */
+  .alert {
+    @apply flex items-start gap-3 rounded-xl border-l-4 px-4 py-3 text-base;
+  }
+  .alert-ok { @apply alert border-kin-esmeralda bg-green-50 text-green-900; }
+  .alert-info { @apply alert border-kin-maya bg-blue-50 text-blue-900; }
+  .alert-warn { @apply alert border-kin-ocre bg-orange-50 text-orange-900; }
+
+  /* Recuadro de convención */
+  .callout { @apply rounded-xl border-l-4 bg-kin-crema2 px-4 py-3 text-base; }
+  .callout-info { @apply callout border-kin-maya; }
+  .callout-pending { @apply callout border-kin-ocre; }
+  .callout-rule { @apply callout border-kin-terracota; }
+
+  /* Campo de texto */
+  .field {
+    @apply min-h-target w-full rounded-xl border-2 border-kin-control bg-white px-4 py-2 text-base text-kin-texto
+      placeholder:text-kin-pardo;
+  }
+
+  /* Encabezado de página */
+  .page-title { @apply text-3xl font-extrabold text-kin-terracota sm:text-4xl; }
+  .page-lead { @apply mt-2 max-w-3xl text-lg text-kin-pardo; }
+
+  /* Preferencias de lectura del libro */
+  .book-spacing { letter-spacing: 0.03em; word-spacing: 0.12em; line-height: 1.9; }
+  .book-contrast { filter: contrast(1.2); }
+
+  /* Enlace de salto para teclado */
+  .skip-link {
+    @apply absolute left-3 top-3 z-[100] -translate-y-24 rounded-lg bg-kin-terracota px-4 py-2 font-bold text-white
+      focus:translate-y-0;
+  }
+}

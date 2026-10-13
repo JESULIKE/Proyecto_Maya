@@ -215,7 +215,8 @@ export const useMaya = () => {
     dslToTEI: (dsl, blockId = 'block1') => {
       if (!dsl) return '';
       
-      const regex = /(<<|>>|\[|\]|\{|\}|\/|\+|_|\^|<|>|:|\@|-|[\w´']+)/g;
+      // Los códigos pueden llevar un número tras un espacio (p. ej. «TI 1», «YA 1»)
+      const regex = /(<<|>>|\[|\]|\{|\}|\/|\+|_|\^|<|>|:|\@|-|[\w´']+(?: \d+)?)/g;
       const tokens = dsl.match(regex)?.filter(t => t.trim() !== '') || [];
       
       let xml = `<ab xml:id="${blockId}" type="glyph-block" n="${dsl}">\n`;
@@ -371,7 +372,11 @@ export const useMaya = () => {
         const ns = targetBlock.namespaceURI;
         
         // Generar el nuevo bloque como texto y parsearlo
-        const tempDoc = parser.parseFromString(useMaya().dslToTEI(newDsl, blockId), 'text/xml');
+        const generated = useMaya().dslToTEI(newDsl, blockId);
+        if (!generated) return originalXml; // DSL vacío: no hay nada que inyectar
+        const tempDoc = parser.parseFromString(generated, 'text/xml');
+        // Un XML inválido produce <parsererror>; nunca debe terminar dentro del documento original
+        if (tempDoc.getElementsByTagName('parsererror').length) return originalXml;
         let newBlock = tempDoc.documentElement;
         
         // Si hay namespace, importarlo y recrear los nodos para preservarlo sin xmlns=""

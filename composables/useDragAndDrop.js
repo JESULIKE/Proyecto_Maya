@@ -141,7 +141,7 @@ export function useDragAndDrop() {
     if (dropZone && dropZone.dataset.dropZone !== undefined) {
       const position = parseInt(dropZone.dataset.dropZone)
       if (onDrop && typeof onDrop === 'function') {
-        onDrop(draggedData.value, position)
+        onDrop(draggedData.value, position, { x: touch.clientX, y: touch.clientY })
       }
     }
     

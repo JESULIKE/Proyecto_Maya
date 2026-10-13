@@ -1,189 +1,125 @@
 <template>
-  <div class="min-h-screen flex flex-col">
-    <!-- Navegación superior -->
-    <nav class="bg-gradient-to-r from-amber-900 via-amber-800 to-amber-900 shadow-lg sticky top-0 z-50">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex items-center justify-between h-16">
-          <!-- Logo y nombre -->
-          <NuxtLink 
-            to="/" 
-            class="flex items-center gap-3 group"
-          >
-            <div class="w-10 h-10 bg-amber-600 rounded-lg flex items-center justify-center transform group-hover:rotate-12 transition-transform">
-              <span class="text-2xl">📜</span>
-            </div>
-            <div class="hidden sm:block">
-              <div class="text-white font-bold text-lg">Escritura Maya</div>
-              <div class="text-amber-300 text-xs">Tz'ib'</div>
-            </div>
+  <div class="flex min-h-screen flex-col">
+    <a href="#contenido" class="skip-link">Saltar al contenido</a>
+
+    <header class="sticky top-0 z-50 border-b-4 border-kin-ocre bg-amber-900 text-kin-crema shadow-kin">
+      <nav class="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8" aria-label="Principal">
+        <NuxtLink to="/" class="group flex items-center gap-3 rounded-lg" aria-label="Laboratorio Maya, ir al inicio">
+          <!-- Marca: numeral maya (barra y puntos) -->
+          <svg class="h-10 w-10 shrink-0" viewBox="0 0 40 40" aria-hidden="true">
+            <rect width="40" height="40" rx="9" fill="#E29A35" />
+            <circle cx="14" cy="12" r="3.6" fill="#3F1B06" />
+            <circle cx="26" cy="12" r="3.6" fill="#3F1B06" />
+            <rect x="7" y="19" width="26" height="5.5" rx="2.7" fill="#3F1B06" />
+            <rect x="7" y="27.5" width="26" height="5.5" rx="2.7" fill="#3F1B06" />
+          </svg>
+          <span class="leading-tight">
+            <span class="block text-lg font-extrabold">Laboratorio Maya</span>
+            <span class="hidden text-xs text-amber-200 sm:block">Escritura · B'alam Ajaw</span>
+          </span>
+        </NuxtLink>
+
+        <ul class="hidden items-center gap-1 md:flex">
+          <li v-for="item in links" :key="item.to">
+            <NuxtLink :to="item.to" class="nav-link" :aria-current="isActive(item.to) ? 'page' : undefined" :class="{ 'nav-link-active': isActive(item.to) }">
+              {{ item.label }}
+            </NuxtLink>
+          </li>
+          <li>
+            <span class="ml-2 inline-flex items-center gap-1 rounded-full border border-amber-300/50 px-3 py-1 text-sm text-amber-200" title="El calendario K'in se construye el próximo semestre">
+              Calendario K'in · pronto
+            </span>
+          </li>
+        </ul>
+
+        <button
+          type="button"
+          class="inline-flex min-h-target min-w-target items-center justify-center rounded-lg text-kin-crema hover:bg-amber-800 md:hidden"
+          :aria-expanded="menuOpen"
+          aria-controls="menu-movil"
+          :aria-label="menuOpen ? 'Cerrar menú' : 'Abrir menú'"
+          @click="menuOpen = !menuOpen"
+        >
+          <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+            <path v-if="!menuOpen" stroke-linecap="round" d="M4 6h16M4 12h16M4 18h16" />
+            <path v-else stroke-linecap="round" d="M6 6l12 12M18 6L6 18" />
+          </svg>
+        </button>
+      </nav>
+
+      <ul v-if="menuOpen" id="menu-movil" class="space-y-1 border-t border-amber-700 px-4 pb-4 pt-2 md:hidden">
+        <li v-for="item in links" :key="item.to">
+          <NuxtLink :to="item.to" class="nav-link block" :aria-current="isActive(item.to) ? 'page' : undefined" :class="{ 'nav-link-active': isActive(item.to) }">
+            {{ item.label }}
           </NuxtLink>
+        </li>
+      </ul>
+    </header>
 
-          <!-- Menú de navegación desktop -->
-          <div class="hidden md:flex items-center gap-2">
-            <NuxtLink
-              to="/"
-              class="px-4 py-2 text-amber-100 hover:text-white hover:bg-amber-800 rounded-lg transition-colors font-medium"
-              :class="{ 'bg-amber-800 text-white': $route.path === '/' }"
-            >
-              Inicio
-            </NuxtLink>
-            <NuxtLink
-              to="/textbook"
-              class="px-4 py-2 text-amber-100 hover:text-white hover:bg-amber-800 rounded-lg transition-colors font-medium"
-              :class="{ 'bg-amber-800 text-white': $route.path === '/textbook' }"
-            >
-              📚 Libro
-            </NuxtLink>
-            <NuxtLink
-              to="/assembler"
-              class="px-4 py-2 text-amber-100 hover:text-white hover:bg-amber-800 rounded-lg transition-colors font-medium"
-              :class="{ 'bg-amber-800 text-white': $route.path === '/assembler' }"
-            >
-              🎮 Ensamblador
-            </NuxtLink>
-            <NuxtLink
-              to="/converter"
-              class="px-4 py-2 text-amber-100 hover:text-white hover:bg-amber-800 rounded-lg transition-colors font-medium"
-              :class="{ 'bg-amber-800 text-white': $route.path === '/converter' }"
-            >
-              📋 Traductor
-            </NuxtLink>
-          </div>
-
-          <!-- Botón menú móvil -->
-          <button
-            @click="mobileMenuOpen = !mobileMenuOpen"
-            class="md:hidden p-2 rounded-lg text-amber-100 hover:bg-amber-800 transition-colors"
-            aria-label="Abrir menú"
-          >
-            <svg v-if="!mobileMenuOpen" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-            <svg v-else class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          </button>
-        </div>
-      </div>
-
-      <!-- Menú móvil desplegable -->
-      <transition
-        enter-active-class="transition ease-out duration-200"
-        enter-from-class="opacity-0 -translate-y-2"
-        enter-to-class="opacity-100 translate-y-0"
-        leave-active-class="transition ease-in duration-150"
-        leave-from-class="opacity-100 translate-y-0"
-        leave-to-class="opacity-0 -translate-y-2"
-      >
-        <div v-if="mobileMenuOpen" class="md:hidden bg-amber-800 border-t border-amber-700">
-          <div class="px-2 pt-2 pb-3 space-y-1">
-            <NuxtLink
-              to="/"
-              @click="mobileMenuOpen = false"
-              class="block px-3 py-2 rounded-lg text-amber-100 hover:bg-amber-700 hover:text-white transition-colors font-medium"
-              :class="{ 'bg-amber-700 text-white': $route.path === '/' }"
-            >
-              🏠 Inicio
-            </NuxtLink>
-            <NuxtLink
-              to="/textbook"
-              @click="mobileMenuOpen = false"
-              class="block px-3 py-2 rounded-lg text-amber-100 hover:bg-amber-700 hover:text-white transition-colors font-medium"
-              :class="{ 'bg-amber-700 text-white': $route.path === '/textbook' }"
-            >
-              📚 Intelligent Textbook
-            </NuxtLink>
-            <NuxtLink
-              to="/assembler"
-              @click="mobileMenuOpen = false"
-              class="block px-3 py-2 rounded-lg text-amber-100 hover:bg-amber-700 hover:text-white transition-colors font-medium"
-              :class="{ 'bg-amber-700 text-white': $route.path === '/assembler' }"
-            >
-              🎮 Ensamblador
-            </NuxtLink>
-            <NuxtLink
-              to="/converter"
-              @click="mobileMenuOpen = false"
-              class="block px-3 py-2 rounded-lg text-amber-100 hover:bg-amber-700 hover:text-white transition-colors font-medium"
-              :class="{ 'bg-amber-700 text-white': $route.path === '/converter' }"
-            >
-              📋 Traductor
-            </NuxtLink>
-          </div>
-        </div>
-      </transition>
-    </nav>
-
-    <!-- Contenido principal -->
-    <main class="flex-1">
+    <main id="contenido" class="flex-1" tabindex="-1">
       <slot />
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-gradient-to-r from-amber-900 via-amber-800 to-amber-900 text-white mt-auto">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <!-- Columna 1: Info -->
-          <div>
-            <h3 class="font-bold text-lg mb-3 text-amber-200">Escritura Maya</h3>
-            <p class="text-amber-300 text-sm leading-relaxed">
-              Una herramienta interactiva para aprender y crear con el sistema de escritura maya, 
-              uno de los más sofisticados de la antigüedad.
-            </p>
-          </div>
-
-          <!-- Columna 2: Enlaces rápidos -->
-          <div>
-            <h3 class="font-bold text-lg mb-3 text-amber-200">Enlaces Rápidos</h3>
-            <ul class="space-y-2 text-sm">
-              <li>
-                <NuxtLink to="/" class="text-amber-300 hover:text-white transition-colors">
-                  → Página Principal
-                </NuxtLink>
-              </li>
-              <li>
-                <NuxtLink to="/textbook" class="text-amber-300 hover:text-white transition-colors">
-                  → 📚 Intelligent Textbook
-                </NuxtLink>
-              </li>
-              <li>
-                <NuxtLink to="/assembler" class="text-amber-300 hover:text-white transition-colors">
-                  → 🎮 Ensamblador
-                </NuxtLink>
-              </li>
-            </ul>
-          </div>
-
-          <!-- Columna 3: Sobre el proyecto -->
-          <div>
-            <h3 class="font-bold text-lg mb-3 text-amber-200">Acerca de</h3>
-            <p class="text-amber-300 text-sm leading-relaxed">
-              Proyecto educativo para preservar y difundir el conocimiento de la escritura maya 
-              a través de herramientas digitales interactivas.
-            </p>
-          </div>
-        </div>
-
-        <!-- Línea divisoria -->
-        <div class="border-t border-amber-700 mt-8 pt-6 text-center">
-          <p class="text-amber-400 text-sm">
-            © {{ currentYear }} Escritura Maya. Hecho con 💛 para preservar la cultura maya.
+    <footer class="border-t-4 border-kin-borde bg-kin-crema2 text-kin-texto">
+      <div class="mx-auto grid max-w-7xl gap-8 px-4 py-10 sm:px-6 md:grid-cols-3 lg:px-8">
+        <section>
+          <h2 class="text-kin-terracota text-lg">Laboratorio Maya</h2>
+          <p class="mt-2 text-base text-kin-pardo">
+            Herramientas para aprender, escribir y preservar la escritura maya, con rigor sobre lo que dice la piedra y lo que
+            propone un editor.
           </p>
-        </div>
+        </section>
+        <nav aria-label="Pie de página">
+          <h2 class="text-kin-terracota text-lg">Explorar</h2>
+          <ul class="mt-2 space-y-1 text-base">
+            <li v-for="item in links" :key="item.to">
+              <NuxtLink :to="item.to" class="inline-flex min-h-target items-center text-kin-maya underline underline-offset-4 hover:text-kin-terracota">
+                {{ item.label }}
+              </NuxtLink>
+            </li>
+          </ul>
+        </nav>
+        <section>
+          <h2 class="text-kin-terracota text-lg">Origen</h2>
+          <p class="mt-2 text-base text-kin-pardo">
+            Proyecto del semillero LABSIE (grupo EDUTLAN), Universidad de Córdoba, Colombia, en colaboración con la Universidad
+            de Bonn. Los datos de ejemplo del testigo TEI provienen del TWKM (CC BY 4.0).
+          </p>
+        </section>
       </div>
+      <p class="border-t border-kin-borde py-4 text-center text-sm text-kin-pardo">
+        © {{ year }} Laboratorio Maya · Versión en desarrollo ·
+        <NuxtLink to="/estilo" class="underline underline-offset-4 hover:text-kin-terracota">Guía de estilo</NuxtLink>
+      </p>
     </footer>
   </div>
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, watch } from 'vue'
 
-const mobileMenuOpen = ref(false)
-const currentYear = computed(() => new Date().getFullYear())
-
-// Cerrar menú móvil cuando cambia la ruta
 const route = useRoute()
-watch(() => route.path, () => {
-  mobileMenuOpen.value = false
-})
+const menuOpen = ref(false)
+const year = new Date().getFullYear()
+
+const links = [
+  { to: '/', label: 'Inicio' },
+  { to: '/textbook', label: 'Libro' },
+  { to: '/assembler', label: 'Ensamblador' },
+  { to: '/converter', label: 'Traductor' }
+]
+
+const isActive = (to) => (to === '/' ? route.path === '/' : route.path.startsWith(to))
+
+// Cierra el menú móvil al navegar
+watch(() => route.path, () => { menuOpen.value = false })
 </script>
+
+<style scoped>
+.nav-link {
+  @apply inline-flex min-h-target items-center rounded-lg px-4 py-2 font-semibold text-amber-100 transition-colors hover:bg-amber-800 hover:text-white;
+}
+.nav-link-active {
+  @apply bg-amber-800 text-white underline decoration-kin-ambar decoration-4 underline-offset-8;
+}
+</style>
